@@ -1,0 +1,28 @@
+/**app.wxss**/
+/* .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}  */
+page {
+  background: #F6F6F6;
+}
+.input-value {
+  display: inline-block;
+  padding: 0 6px;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  max-width: 3.5em;
+  font-size: 16px;
+  text-align: center;
+}
+
+.no-padding {
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 20px 0 !important;
+}

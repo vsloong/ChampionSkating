@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='block'>
+    <view class='block-title'>套餐推荐</view>
+    <view class='block-subtitle'>您一般一个月有多少时间练习轮滑</view>
+
+    <view class="block-content">
+      <view class="block-item column">
+        <view class="item-row slider-box">
+          <view class="item-title">
+            <image class="item-title-icon" src="/src/images/privilege.svg" />每月平均练习时间</view>
+          <view class="input-unit">天数</view>
+        </view>
+        <view class="item-row">
+          <slider class="slider" bindchanging="callSliderChaning" bindchange="callSliderChange" value="{{callSlider}}" max="11" step="1" />
+          <view class="input-value">
+            <input type="digit" value="{{callSlider === 11 ? call + ' +': call}}" bindblur="callInputChange" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
