@@ -20,7 +20,7 @@
       <view class="block-item column">
         <view class="item-row slider-box">
           <view class="item-title">
-            <image class="item-title-icon" src="/src/images/privilege.svg" />{{item.grade}}</view>
+            <image class="item-title-icon" src="/src/images/lock.svg" />{{item.grade}}</view>
           <view class="input-unit">{{item.figure.length + "个动作"}}</view>
         </view>
       </view>
