@@ -16,7 +16,7 @@
       </view>
     </view>
 
-    <view wx:for="{{grades}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" class="block-content">
+    <view wx:for="{{grades}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" class="block-content" bindtap='goNext'>
       <view class="block-item column">
         <view class="item-row slider-box">
           <view class="item-title">

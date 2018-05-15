@@ -8,6 +8,12 @@ Page({
     grades: app.grades
   },
 
+  goNext: function () {
+    wx.navigateTo({
+      url: '../grade/grade?grade=0&title=初级',
+    })
+  },
+
   //事件处理函数
   bindViewTap: function () {
     wx.navigateTo({

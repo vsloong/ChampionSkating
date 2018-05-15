@@ -1,0 +1,13 @@
+<view class="global-container">
+  <view class="block-content">
+    <view class="block-item column">
+      <view class="item-row slider-box">
+        <view class="item-title">我的进度</view>
+        <view class="input-unit">1/{{grades[grade].figure.length}}</view>
+      </view>
+      <view class="item-row">
+        <progress class="progress" percent='20'  active='true'/>
+      </view>
+    </view>
+  </view>
+</view>
