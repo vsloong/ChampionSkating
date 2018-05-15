@@ -1,18 +1,15 @@
 //index.js
 //获取应用实例
 const app = getApp()
-const calls = [0, 50, 100, 200, 300, 500, 700, 1000, 1500, 2000, 2500, 3000]
+
 Page({
   data: {
-    motto: 'Hello World',
-    call: calls[1],
-    callSlider: 1,
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    //等级这里直接调用app.js中的变量
+    grades: app.grades
   },
+
   //事件处理函数
-  bindViewTap: function() {
+  bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
     })
@@ -23,7 +20,7 @@ Page({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-    } else if (this.data.canIUse){
+    } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
@@ -45,32 +42,12 @@ Page({
       })
     }
   },
-  getUserInfo: function(e) {
+  getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  },
-  callSliderChange: function (e) {
-    const callSlider = Number(e.detail.value)
-    this.setData({
-      callSlider: callSlider,
-      call: calls[Number(e.detail.value)],
-    })
-    this.recommendPlan(plans)
-  },
-  callSliderChaning: function (e) {
-    this.setData({
-      call: calls[Number(e.detail.value)],
-    })
-  },
-  callInputChange: function (e) {
-    let call = Math.ceil(e.detail.value.match(/\d+(?:\.\d+)?/))
-    this.setData({
-      call: call < 0 ? 0 : call
-    })
-    this.recommendPlan(plans)
-  },
+  }
 })

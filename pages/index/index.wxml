@@ -1,21 +1,27 @@
 <!--index.wxml-->
 <view class="container">
   <view class='block'>
-    <view class='block-title'>套餐推荐</view>
-    <view class='block-subtitle'>您一般一个月有多少时间练习轮滑</view>
+    <view class='block-title'>轮滑动作等级表</view>
+    <view class='block-subtitle'>该等级表目前只为各位轮滑爱好者提供参考，并不作为真实考核</view>
 
     <view class="block-content">
       <view class="block-item column">
         <view class="item-row slider-box">
-          <view class="item-title">
-            <image class="item-title-icon" src="/src/images/privilege.svg" />每月平均练习时间</view>
-          <view class="input-unit">天数</view>
+          <view class="item-title">我的进度</view>
+          <view class="input-unit">66/99</view>
         </view>
         <view class="item-row">
-          <slider class="slider" bindchanging="callSliderChaning" bindchange="callSliderChange" value="{{callSlider}}" max="11" step="1" />
-          <view class="input-value">
-            <input type="digit" value="{{callSlider === 11 ? call + ' +': call}}" bindblur="callInputChange" />
-          </view>
+          <slider class="slider" value="{{66}}" max="99" step="66" />
+        </view>
+      </view>
+    </view>
+
+    <view wx:for="{{grades}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" class="block-content">
+      <view class="block-item column">
+        <view class="item-row slider-box">
+          <view class="item-title">
+            <image class="item-title-icon" src="/src/images/privilege.svg" />{{item.grade}}</view>
+          <view class="input-unit">{{item.figure.length + "个动作"}}</view>
         </view>
       </view>
     </view>

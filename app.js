@@ -34,6 +34,29 @@ App({
     })
   },
   globalData: {
-    userInfo: null
-  }
+    userInfo: null,
+  },
+
+  //动作等级表
+  grades: [
+    //0、基础
+    {
+      grade: "基础",
+      figure: [
+        {
+          name: "V字站立",
+          other: "外八站立",
+        },
+        {
+          name: "A字站立",
+          other: "内八站立",
+        }
+      ]
+    },
+    //1、入门
+    {
+      grade: "入门",
+      figure: [
+      ]
+    }]
 })
