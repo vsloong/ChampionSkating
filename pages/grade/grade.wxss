@@ -1,1 +1,45 @@
 /* pages/grade/grade.wxss */
+
+/* 继承自app.wxss中的global-block */
+
+.margin-top-15 {
+  margin: 15px 0 0 0;
+}
+
+.scroll-view {
+  widows: 100%;
+  white-space: nowrap;
+  /* white-space: nowrap; 必须设置 */
+  display: flex;
+}
+
+.scroll-item {
+  display: inline-block;
+  /* display: inline-block;必须设置 */
+  width: 66%;
+  margin: 10px;
+  /* margin: 上 右 下 左; 必须设置才能显示出阴影 */
+  padding: 15px;
+  border-radius: 8px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  /* box-shadow:x y 虚化*/
+}
+
+.text-figure {
+  font-size: 24px;
+  text-align: center;
+
+  /* 垂直、水平居中 */
+  width: 100%;
+  color: #666;
+  display: block;
+  white-space: pre-line;
+  /* 上两行为文本换行 */
+}
+
+.icon {
+  width: 1.8em;
+  height: 1.8em;
+}

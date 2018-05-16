@@ -8,9 +8,10 @@ Page({
     grades: app.grades
   },
 
-  goNext: function () {
+  goNext: function (event) {
+    var grade = event.currentTarget.dataset.grade
     wx.navigateTo({
-      url: '../grade/grade?grade=0&title=初级',
+      url: '../grade/grade?grade=' + grade,
     })
   },
 

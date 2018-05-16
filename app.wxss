@@ -1,4 +1,5 @@
 /**app.wxss**/
+
 .global-container {
   height: 100%;
   display: flex;
@@ -6,4 +7,66 @@
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
+  padding: 15px;
 }
+
+.global-block {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  /* margin: 15px 15px 0px 15px;  *//* margin:上 右 下 左 */
+  padding: 15px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.global-block.column {
+  flex-direction: column;
+}
+
+.global-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.global-item-column {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.global-title {
+  font-size: 16px;
+}
+
+.global-title-icon {
+  height: 1.2em;
+  width: 1.2em;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.global-content-right {
+  text-align: right;
+  font-size: 14px;
+  color: #999;
+}
+
+.global-progress {
+  margin-top: 20px;
+  flex-grow: 1;
+}
+
+.global-hint {
+  color: #666;
+  font-size: 14px;
+}
+
+

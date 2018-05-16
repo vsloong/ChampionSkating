@@ -1,29 +1,24 @@
 <!--index.wxml-->
-<view class="container">
-  <view class='block'>
-    <view class='block-title'>轮滑动作等级表</view>
-    <view class='block-subtitle'>该等级表目前只为各位轮滑爱好者提供参考，并不作为真实考核</view>
+<view class="global-container">
+  <view class='global-hint'>该轮滑动作分级表目前只为各位轮滑爱好者提供参考，并不作为真实考核</view>
 
-    <view class="block-content">
-      <view class="block-item column">
-        <view class="item-row slider-box">
-          <view class="item-title">我的进度</view>
-          <view class="input-unit">66/99</view>
-        </view>
-        <view class="item-row">
-          <slider class="slider" value="{{66}}" max="99" step="66" />
-        </view>
-      </view>
+  <view class="global-block column margin-top-15">
+    <view class="global-item-row">
+      <view class="global-title">我的进度</view>
+      <view class="global-content-right">66/99</view>
     </view>
+    <view class="global-item-row">
+      <progress class="global-progress" stroke-width='2' percent="66" active='true'/>
+    </view>
+  </view>
 
-    <view wx:for="{{grades}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" class="block-content" bindtap='goNext'>
-      <view class="block-item column">
-        <view class="item-row slider-box">
-          <view class="item-title">
-            <image class="item-title-icon" src="/src/images/lock.svg" />{{item.grade}}</view>
-          <view class="input-unit">{{item.figure.length + "个动作"}}</view>
-        </view>
-      </view>
+  <!-- 下面是一个循环 -->
+  <view class="global-block column margin-top-15" wx:for="{{grades}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" bindtap='goNext' data-grade='{{idx}}'>
+
+    <view class="global-item-row">
+      <view class="global-title">
+        <image class="global-title-icon" src="/src/images/lock.svg" />{{item.grade}}</view>
+      <view class="global-content-right">{{item.figure.length + "个动作"}}</view>
     </view>
   </view>
 </view>

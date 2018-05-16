@@ -1,13 +1,24 @@
 <view class="global-container">
-  <view class="block-content">
-    <view class="block-item column">
-      <view class="item-row slider-box">
-        <view class="item-title">我的进度</view>
-        <view class="input-unit">1/{{grades[grade].figure.length}}</view>
-      </view>
-      <view class="item-row">
-        <progress class="progress" percent='20'  active='true'/>
-      </view>
+  <view class="global-block column">
+    <view class="global-item-row">
+      <view class="global-title">当前等级进度</view>
+      <view class="global-hint">1/{{figures.figure.length}}</view>
+    </view>
+    <view class="global-item-row">
+      <progress class="global-progress" stroke-width='2' percent='20' active='true' />
     </view>
   </view>
+
+  <scroll-view class='scroll-view margin-top-15' scroll-x="true">
+    <view class="scroll-item" wx:for="{{figures.figure}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" bindtap='goNext'>
+
+      <view class='global-content-right'>
+        <image class="icon" src="/src/images/circle-unchecked.svg" />
+      </view>
+      <view class="text-figure">
+        {{item.name}}
+      </view>
+    </view>
+
+  </scroll-view>
 </view>
