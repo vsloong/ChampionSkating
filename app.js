@@ -37,6 +37,8 @@ App({
     userInfo: null,
   },
 
+
+
   //动作等级表
   grades: [
     //0、基础
@@ -46,62 +48,66 @@ App({
         {
           name: "V字站立",
           other: "外八站立",
+          can: false,
         },
         {
           name: "平行站立",
           other: "",
+          can: false,
         },
         {
           name: "A字站立",
           other: "内八站立",
+          can: false,
         },
         {
           name: "扶膝抬脚",
           other: "",
+          can: false,
         },
         {
           name: "提膝抬脚",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "横向侧行",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "扶膝踏步前行",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "背手踏步前行",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "原地蹬收脚",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "扶膝单侧蹬收脚滑行",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "背手蹬收脚滑行",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "摆臂蹬收脚滑行",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "画葫芦向前",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "画葫芦向后",
-          other: "",
+          other: "", can: false,
         },
         {
-          name: "A字刹车",
-          other: "",
+          name: "A形刹车",
+          other: "", can: false,
         },
       ]
     },
@@ -111,63 +117,63 @@ App({
       figure: [
         {
           name: "鱼形向前",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "鱼形向后",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "交叉向前",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "交叉向后",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "攀藤",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "蛇形向前",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "蛇形向后",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "尼尔森向前",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "尼尔森向后",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单脚向前",
-          other: "",
+          other: "", can: false,
         },
         {
-          name: "T字刹车",
-          other: "",
+          name: "T形刹车",
+          other: "", can: false,
         },
         {
           name: "单脚向后",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "后铲刹车",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "脚跟Sun",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "脚尖Sun",
-          other: "",
+          other: "", can: false,
         },
       ]
     },
@@ -178,67 +184,67 @@ App({
       figure: [
         {
           name: "疯狂绕单桩",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "疯狂",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "伏特",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "fun伏特",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "漫步向后",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "漫步向前",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "Q转",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "反Q转",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "Crazy Sun",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "墨西哥人",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "意大利人",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "双脚连续转向",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "反尼尔森向后",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "恰恰",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "蟹绕桩跳",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "蟹交叉跳",
-          other: "",
+          other: "", can: false,
         },
       ]
     },
@@ -249,87 +255,87 @@ App({
       figure: [
         {
           name: "刷子",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "X步",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "X跳",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "玛丽向前",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "玛丽向后",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "玛丽Speci",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "脚尖X",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "画8",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "反向画8",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "太空步",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "蟹步",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "蟹剪",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "Z蟹",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "内蟹",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "双轮蟹",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "双轮内蟹",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "交叉玛丽向前",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "交叉玛丽向后",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "天鹅蟹",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "蹲坐鱼形向前",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "小汽车",
-          other: "",
+          other: "", can: false,
         },
       ]
     },
@@ -340,87 +346,87 @@ App({
       figure: [
         {
           name: "茶壶向前",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "茶壶向后",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "茶壶跳向前",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "茶壶跳向后",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "蹲坐玛丽向后",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "天国向前",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "天国向后",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单轮茶壶向前",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单轮茶壶向后",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "蹲坐交叉玛丽向前",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单轮天国向前",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单轮天国向后",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单脚横跳",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单脚连续转向跳",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单脚连续正转向",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单脚连续反转向",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "双脚转",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "双轮转",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "天鹅过桩转",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "黑天鹅单桩转",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "黑天鹅过桩转",
-          other: "",
+          other: "", can: false,
         },
       ]
     },
@@ -431,90 +437,88 @@ App({
       figure: [
         {
           name: "单轮向前",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单轮前转后",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单轮后转前",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单轮捅捅",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单轮Special",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "脚尖X跳",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单轮Wiper",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单轮摆摆",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单轮反向摆摆",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单轮连续转向",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单轮前內刃单桩转",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单轮前內刃过桩转",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单轮前外刃单桩转",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单轮前外刃过桩转",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单轮后外刃单桩转",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单轮后内刃过桩转",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单轮后外刃过桩转",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单脚前外刃单桩转",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单脚后内刃单桩转",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单脚后外刃单桩转",
-          other: "",
+          other: "", can: false,
         },
         {
           name: "单轮半蹲转",
-          other: "",
+          other: "", can: false,
         },
       ]
     }]
-
-    
 })

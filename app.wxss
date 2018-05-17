@@ -8,6 +8,7 @@
   justify-content: space-between;
   box-sizing: border-box;
   padding: 45rpx;
+  background: #fff;
 }
 
 .global-block {
@@ -48,16 +49,9 @@
   text-align: center;
 }
 
-.global-title-icon {
-  height: 1.4rem;
-  width: 1.4rem;
-  margin-right: 30rpx;
-  vertical-align: middle;
-}
-
 .global-content-right {
   text-align: right;
-  font-size: 36rpx;
+  font-size: 32rpx;
   color: #999;
 }
 

@@ -5,19 +5,20 @@
   <view class="global-block column margin-top-15">
     <view class="global-item-row">
       <view class="global-title">我的进度</view>
-      <view class="global-content-right">66/99</view>
+      <view class="global-content-right">{{progress}}/{{total}}</view>
     </view>
     <view class="global-item-row">
-      <progress class="global-progress" stroke-width='2' percent="66" active='true'/>
+      <progress class="global-progress" stroke-width='2' percent="{{(progress/total)*100}}" active='true'/>
     </view>
   </view>
 
   <!-- 下面是一个循环 -->
+  <view class='margin-top-15'></view>
   <view class="global-block column margin-top-15" wx:for="{{grades}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" bindtap='goNext' data-grade='{{idx}}'>
 
     <view class="global-item-row">
       <view class="global-title">
-        <image class="global-title-icon" src="/src/images/lock.svg" />{{item.grade}}</view>
+        <image class="title-icon" src="/src/images/level-{{idx}}.svg" />{{item.grade}}</view>
       <view class="global-content-right">{{item.figure.length + "个动作"}}</view>
     </view>
   </view>

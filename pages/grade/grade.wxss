@@ -14,18 +14,49 @@
   display: flex;
 }
 
-.scroll-item {
+.scroll-item-passed {
   display: inline-block;
   /* display: inline-block;必须设置 */
   width: 66%;
-  margin: 40rpx 30rpx 40rpx 5rpx;
   /* margin: 上 右 下 左; 必须设置才能显示出阴影 */
   padding: 8rpx;
-  border-radius: 20rpx;
+  border-radius: 30rpx;
+  background: #06bd03;
+  text-align: center;
+  /* box-shadow:x y 虚化*/
+}
+
+.scroll-item-now {
+  width: 66%;
+  display: inline-block;
+  /* display: inline-block;必须设置 *//* margin: 上 右 下 左; 必须设置才能显示出阴影 */
+  padding: 8rpx;
+  border-radius: 30rpx;
+  background: #06bd03;
+  text-align: center;
+  /* box-shadow:x y 虚化*/
+}
+
+.scroll-item-will {
+  width: 66%;
+  display: inline-block;
+  /* display: inline-block;必须设置 *//* margin: 上 右 下 左; 必须设置才能显示出阴影 */
+  padding: 8rpx;
+  border-radius: 30rpx;
   background: #fff;
   text-align: center;
-  box-shadow: 0rpx 5rpx 16rpx rgba(0, 0, 0, 0.1);
   /* box-shadow:x y 虚化*/
+}
+
+.scroll-item {
+  background: #fff;
+  border-radius: 30rpx;
+}
+
+.margin-right-30 {
+  margin: 40rpx 30rpx 40rpx 5rpx;
+  box-shadow: 0rpx 5rpx 16rpx rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .text-figure {
@@ -34,14 +65,18 @@
   /* 垂直、水平居中 */
   width: 100%;
   color: #666;
-  margin: 20rpx 0 20rpx 0;
+  padding: 20rpx 0 20rpx 0;
   /* display: block;
   white-space: pre-line; *//* 上两行为文本换行 */
 }
 
-.icon {
-  width: 1.8em;
-  height: 1.8em;
+.icon-check {
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
+  top: -26rpx;
+  right: -26rpx;
+  z-index: 3;
 }
 
 .image-corner {
@@ -52,5 +87,5 @@
   width: 100%;
   box-sizing: border-box;
   /* margin: 15rpx 15rpx 0rpx 15rpx;  *//* margin:上 右 下 左 */
-  border-radius: 20rpx 20rpx 10rpx 10rpx;
+  border-radius: 30rpx 30rpx 15rpx 15rpx;
 }

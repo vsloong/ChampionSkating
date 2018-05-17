@@ -10,17 +10,25 @@
   </view>
 
   <scroll-view class='scroll-view margin-top-15' scroll-x="true">
-    <view class="scroll-item" wx:for="{{figures.figure}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" bindtap='goNext'>
-      <image class='image-corner' src='/src/images/test.jpg' mode='aspectFill' lazy-load='true'></image>
 
-      <!-- 
-      <view class='global-content-right'>
-        <image class="icon" src="/src/images/circle-unchecked.svg" />
-      </view> -->
-      <view class="text-figure">
-        {{item.name}}
+    <view class='scroll-item-passed margin-right-30'>
+      <view class="scroll-item">
+        <image class='image-corner' src='/src/images/test.jpg' mode='aspectFill' lazy-load='true'></image>
+        <view class="text-figure">
+          这是动作名
+        </view>
       </view>
+      <image class='icon-check' src='/src/images/circle-checked.svg '></image>
     </view>
 
+    <view class='scroll-item-will margin-right-30 ' wx:for="{{figures.figure}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" bindtap='goNext '>
+      <view class="scroll-item">
+        <image class='image-corner ' src='/src/images/test.jpg ' mode='aspectFill ' lazy-load='true '></image>
+        <view class="text-figure">
+          {{item.name}}
+        </view>
+      </view>
+      <image class='icon-check' src=''></image>
+    </view>
   </scroll-view>
 </view>

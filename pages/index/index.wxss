@@ -7,3 +7,10 @@ page {
 .margin-top-15 {
   margin: 30rpx 0 0 0;
 }
+
+.title-icon {
+  height: 2rem;
+  width: 2rem;
+  margin-right: 30rpx;
+  vertical-align: middle;
+}

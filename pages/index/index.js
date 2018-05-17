@@ -5,7 +5,9 @@ const app = getApp()
 Page({
   data: {
     //等级这里直接调用app.js中的变量
-    grades: app.grades
+    grades: app.grades,
+    total: 0,
+    progress: 0
   },
 
   goNext: function (event) {
@@ -15,48 +17,46 @@ Page({
     })
   },
 
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
+  onLoad: function (options) {
+    var self = this
+    getData()
+
+    function updateProgress(grades) {
+      var total = 0
+      var progress = 0
+      for (var i = 0; i < grades.length; i++) {
+        var length = grades[i].figure.length
+        total += length
+        for (var j = 0; j < length; j++) {
+          if (grades[i].figure[j].can)
+            progress++
         }
+      }
+
+      progress += 66
+
+      //这里其实就是更新数据
+      self.setData({
+        total: total,
+        progress: progress
       })
     }
-  },
-  getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  },
 
+    function getData() {
+      wx.getStorage({
+        key: 'grades',
+        success: function (res) {
+          updateProgress(res.data)
+        },
+        fail: function () {
+          wx.setStorage({
+            key: 'grades',
+            data: app.grades,
+          })
+          updateProgress(app.grades)
+        }
+      })
 
+    }
+  },
 })
