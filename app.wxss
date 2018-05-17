@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 15px;
+  padding: 45rpx;
 }
 
 .global-block {
@@ -18,10 +18,10 @@
   width: 100%;
   box-sizing: border-box;
   /* margin: 15px 15px 0px 15px;  *//* margin:上 右 下 左 */
-  padding: 15px;
-  border-radius: 8px;
+  padding: 36rpx;
+  border-radius: 18rpx;
   background: #fff;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0rpx 6rpx 24rpx rgba(0, 0, 0, 0.1);
 }
 
 .global-block.column {
@@ -43,30 +43,30 @@
 }
 
 .global-title {
-  font-size: 16px;
+  font-size: 38rpx;
+  vertical-align: middle;
+  text-align: center;
 }
 
 .global-title-icon {
-  height: 1.2em;
-  width: 1.2em;
-  margin-right: 10px;
+  height: 1.4rem;
+  width: 1.4rem;
+  margin-right: 30rpx;
   vertical-align: middle;
 }
 
 .global-content-right {
   text-align: right;
-  font-size: 14px;
+  font-size: 36rpx;
   color: #999;
 }
 
 .global-progress {
-  margin-top: 20px;
+  margin-top: 50rpx;
   flex-grow: 1;
 }
 
 .global-hint {
   color: #666;
-  font-size: 14px;
+  font-size: 32rpx;
 }
-
-

@@ -2,19 +2,21 @@
   <view class="global-block column">
     <view class="global-item-row">
       <view class="global-title">当前等级进度</view>
-      <view class="global-hint">1/{{figures.figure.length}}</view>
+      <view class="global-hint">{{progress}}/{{figures.figure.length}}</view>
     </view>
     <view class="global-item-row">
-      <progress class="global-progress" stroke-width='2' percent='20' active='true' />
+      <progress class="global-progress" stroke-width='2' percent='{{percent}}' active='true' />
     </view>
   </view>
 
   <scroll-view class='scroll-view margin-top-15' scroll-x="true">
     <view class="scroll-item" wx:for="{{figures.figure}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" bindtap='goNext'>
+      <image class='image-corner' src='/src/images/test.jpg' mode='aspectFill' lazy-load='true'></image>
 
+      <!-- 
       <view class='global-content-right'>
         <image class="icon" src="/src/images/circle-unchecked.svg" />
-      </view>
+      </view> -->
       <view class="text-figure">
         {{item.name}}
       </view>
