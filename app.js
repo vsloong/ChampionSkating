@@ -257,7 +257,7 @@ App({
           videoUrl: "http://p8wmn2ucc.bkt.clouddn.com/video/skating15%E3%80%81%E4%BC%8F%E7%89%B9%EF%BC%88volt%E5%9C%86%E8%A7%84%EF%BC%89%2000_00_07-.mp4",
         },
         {
-          name: "fun伏特",
+          name: "Fan伏特",
           other: "",
           can: false,
           videoUrl: "http://p8wmn2ucc.bkt.clouddn.com/video/skating22%E3%80%81Fan%20volt%EF%BC%88%E5%8F%8D%E5%9C%86%E8%A7%84%EF%BC%89%2000_00_07-.mp4",
