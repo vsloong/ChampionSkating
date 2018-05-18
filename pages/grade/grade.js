@@ -17,7 +17,7 @@ Page({
   onLoad: function (options) {
     //获取到当前的等级
     var grade = options.grade;
-    wx.setNavigationBarTitle({ title: app.grades[grade].grade })
+    wx.setNavigationBarTitle({ title: app.grades[grade].name })
 
     var figures = app.grades[grade];
     var progress = 11;
@@ -31,8 +31,18 @@ Page({
 
   goFigure(event) {
     var figure = event.currentTarget.dataset.figure
-    wx.navigateTo({
-      url: '../figure/figure?grade=' + this.data.grade + '&figure=' + figure,
-    })
+
+    if (this.data.grade == 0) {
+      wx.showModal({
+        title: '温馨提醒',
+        content: '基础动作当前暂无视频教程',
+        showCancel: false
+      })
+    } else {
+      wx.navigateTo({
+        url: '../figure/figure?grade=' + this.data.grade + '&figure=' + figure,
+      })
+    }
+
   }
 })

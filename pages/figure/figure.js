@@ -1,16 +1,24 @@
+var app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    videoUrl: ""
   },
 
   onLoad: function (options) {
-    var grade = options.grade;
-    var figure = options.figure;
+    var gradeIndex = options.grade;
+    var figureIndex = options.figure;
+    var figure = app.grades[gradeIndex].figures[figureIndex]
+    var title = figure.name
 
-    console.log("获取到的等级：" + grade + "；动作id：" + figure)
+    wx.setNavigationBarTitle({ title: title })
+
+    this.setData({
+      videoUrl: figure.videoUrl
+    })
   }
 })

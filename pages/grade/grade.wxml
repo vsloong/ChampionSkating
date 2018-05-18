@@ -2,28 +2,28 @@
   <view class="global-block column">
     <view class="global-item-row">
       <view class="global-title">当前等级进度</view>
-      <view class="global-hint">{{progress}}/{{figures.figure.length}}</view>
+      <view class="global-hint">{{progress}}/{{figures.figures.length}}</view>
     </view>
     <view class="global-item-row">
-      <progress class="global-progress" stroke-width='2' percent='{{(progress / figures.figure.length) * 100}}' active='true' />
+      <progress class="global-progress" stroke-width='2' percent='{{(progress / figures.figures.length) * 100}}' active='true' />
     </view>
   </view>
 
   <scroll-view class='scroll-view margin-top-15' scroll-x="true" scroll-with-animation="true">
 
-    <view class='scroll-item-passed margin-right-30'>
+    <!-- <view class='scroll-item-passed margin-right-30'>
       <view class="scroll-item">
-        <image class='image-corner' src='/src/images/test.jpg' mode='aspectFill' lazy-load='true'></image>
+        <image class='image-corner' src='/src/images/figure.jpg' mode='aspectFill' lazy-load='true'></image>
         <view class="text-figure">
           这是动作名
         </view>
       </view>
       <image class='icon-check' src='/src/images/circle-checked.svg '></image>
-    </view>
+    </view> -->
 
-    <view class='scroll-item-will margin-right-30 ' wx:for="{{figures.figure}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" bindtap='goFigure' data-figure='{{idx}}'>
+    <view class='scroll-item-will margin-right-30 ' wx:for="{{figures.figures}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" bindtap='goFigure' data-figure='{{idx}}'>
       <view class="scroll-item">
-        <image class='image-corner ' src='/src/images/test.jpg ' mode='aspectFill ' lazy-load='true '></image>
+        <image class='image-corner ' src='{{(idx%2==0) ? "/src/images/figure0.jpg" : "/src/images/figure2.jpg"}}' mode='center ' lazy-load='true '></image>
         <view class="text-figure">
           {{item.name}}
         </view>

@@ -8,20 +8,18 @@
       <view class="global-content-right">{{progress}}/{{total}}</view>
     </view>
     <view class="global-item-row">
-      <progress class="global-progress" stroke-width='2' percent="{{(progress/total)*100}}" active='true'/>
+      <progress class="global-progress" stroke-width='2' percent="{{(progress/total)*100}}" active='true' />
     </view>
   </view>
 
   <!-- 下面是一个循环 -->
   <view class='margin-top-15'></view>
-  <view class="global-block column margin-top-15" 
-  hover-class='hover'  
-  hover-hover-start-time='0' hover-stay-time='50' wx:for="{{grades}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" bindtap='goNext' data-grade='{{idx}}'>
+  <view class="global-block column margin-top-15" hover-class='hover' hover-hover-start-time='0' hover-stay-time='50' wx:for="{{grades}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" bindtap='goNext' data-grade='{{idx}}'>
 
     <view class="global-item-row">
       <view class="global-title">
-        <image class="title-icon" src="/src/images/level-{{idx}}.svg" />{{item.grade}}</view>
-      <view class="global-content-right">{{item.figure.length + "个动作"}}</view>
+        <image class="title-icon" src="/src/images/level-{{idx}}.svg" />{{item.name}}</view>
+      <view class="global-content-right">{{item.figures.length + "个动作"}}</view>
     </view>
   </view>
 </view>
