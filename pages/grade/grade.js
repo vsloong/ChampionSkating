@@ -6,9 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    grade: 0,
     figures: {},
-    progress: 0,
-    percent: 0
+    progress: 0
   },
 
   /**
@@ -16,18 +16,23 @@ Page({
    */
   onLoad: function (options) {
     //获取到当前的等级
-    var currentGrade = options.grade;
-    wx.setNavigationBarTitle({ title: app.grades[currentGrade].grade })
+    var grade = options.grade;
+    wx.setNavigationBarTitle({ title: app.grades[grade].grade })
 
-    var currentFigures = app.grades[currentGrade];
-    var currentProgress = 11;
-    var totalProgress = currentFigures.figure.length;
+    var figures = app.grades[grade];
+    var progress = 11;
 
-    console.log("进度：" + (currentProgress / totalProgress))
     this.setData({
-      figures: currentFigures,
-      progress: currentProgress,
-      percent: (currentProgress / totalProgress) * 100
+      grade: grade,
+      figures: app.grades[grade],
+      progress: progress
     })
   },
+
+  goFigure(event) {
+    var figure = event.currentTarget.dataset.figure
+    wx.navigateTo({
+      url: '../figure/figure?grade=' + this.data.grade + '&figure=' + figure,
+    })
+  }
 })

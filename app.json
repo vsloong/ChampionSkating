@@ -2,6 +2,7 @@
   "pages":[
     "pages/index/index",
     "pages/grade/grade",
+    "pages/figure/figure",
     "pages/logs/logs"
   ],
   "window":{
