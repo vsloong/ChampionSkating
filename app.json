@@ -1,14 +1,15 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/grade/grade",
     "pages/figure/figure",
+    "pages/map/map",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "冠军轮滑",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "轮滑平花进阶教学",
+    "navigationBarTextStyle": "black"
   }
 }

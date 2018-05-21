@@ -22,4 +22,12 @@
       <view class="global-content-right">{{item.figures.length + "个动作"}}</view>
     </view>
   </view>
+
+
+  <view class="global-block column margin-top-15" hover-class='global-hover' hover-start-time='0' hover-stay-time='50' bindtap='goMap'>
+
+    <view class="global-item-row">
+      <view class="global-content-right">找教练</view>
+    </view>
+  </view>
 </view>

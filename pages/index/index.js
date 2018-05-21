@@ -17,6 +17,12 @@ Page({
     })
   },
 
+  goMap: function (event) {
+    wx.navigateTo({
+      url: '../map/map',
+    })
+  },
+
   onLoad: function (options) {
     var self = this
     getData()
@@ -44,7 +50,7 @@ Page({
 
     function getData() {
       updateProgress(app.grades)
-      
+
       // 暂时不做缓存
       // wx.getStorage({
       //   key: 'grades',
@@ -63,10 +69,10 @@ Page({
     }
   },
 
-  onShareAppMessage:function(options){
-      return{
-        title:"学习轮滑的实用小程序",
-        path:"/pages/index/index"
-      }
+  onShareAppMessage: function (options) {
+    return {
+      title: "学习轮滑的实用小程序",
+      path: "/pages/index/index"
+    }
   }
 })
