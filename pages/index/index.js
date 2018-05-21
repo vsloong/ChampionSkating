@@ -10,7 +10,7 @@ Page({
     progress: 0
   },
 
-  goNext: function (event) {
+  goGrade: function (event) {
     var grade = event.currentTarget.dataset.grade
     wx.navigateTo({
       url: '../grade/grade?grade=' + grade,
@@ -62,4 +62,11 @@ Page({
 
     }
   },
+
+  onShareAppMessage:function(options){
+      return{
+        title:"学习轮滑的实用小程序",
+        path:"/pages/index/index"
+      }
+  }
 })

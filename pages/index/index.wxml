@@ -14,7 +14,7 @@
 
   <!-- 下面是一个循环 -->
   <view class='margin-top-15'></view>
-  <view class="global-block column margin-top-15" hover-class='hover' hover-hover-start-time='0' hover-stay-time='50' wx:for="{{grades}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" bindtap='goNext' data-grade='{{idx}}'>
+  <view class="global-block column margin-top-15" hover-class='global-hover' hover-start-time='0' hover-stay-time='50' wx:for="{{grades}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" bindtap='goGrade' data-grade='{{idx}}'>
 
     <view class="global-item-row">
       <view class="global-title">

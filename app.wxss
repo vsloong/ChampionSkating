@@ -65,6 +65,6 @@
   font-size: 32rpx;
 }
 
-.hover{
+.global-hover{
   background: #eee;
 }
