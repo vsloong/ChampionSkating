@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+var util = require('../../utils/util.js')
 
 Page({
   data: {
@@ -24,54 +25,23 @@ Page({
   },
 
   onLoad: function (options) {
-    var self = this
-    getData()
 
-    function updateProgress(grades) {
-      var total = 0
-      var progress = 0
-      for (var i = 0; i < grades.length; i++) {
-        var length = grades[i].figures.length
-        total += length
-        for (var j = 0; j < length; j++) {
-          if (grades[i].figures[j].can)
-            progress++
-        }
-      }
+  },
 
-      progress += 66
-
-      //这里其实就是更新数据
-      self.setData({
-        total: total,
-        progress: progress
-      })
-    }
-
-    function getData() {
-      updateProgress(app.grades)
-
-      // 暂时不做缓存
-      // wx.getStorage({
-      //   key: 'grades',
-      //   success: function (res) {
-      //     updateProgress(res.data)
-      //   },
-      //   fail: function () {
-      //     wx.setStorage({
-      //       key: 'grades',
-      //       data: app.grades,
-      //     })
-      //     updateProgress(app.grades)
-      //   }
-      // })
-
-    }
+  /**
+   * 每次新展示页面就刷新下进度
+   */
+  onShow: function () {
+    var data = util.getProgress()
+    this.setData({
+      total: data.total,
+      progress: data.progress
+    })
   },
 
   onShareAppMessage: function (options) {
     return {
-      title: "学习轮滑的实用小程序",
+      title: "轮滑平花进阶教学",
       path: "/pages/index/index"
     }
   }

@@ -1,4 +1,5 @@
 var app = getApp()
+var util = require('../../utils/util.js')
 
 Page({
 
@@ -6,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    videoUrl: ""
+    videoUrl: "",
+    can: false
   },
 
   onLoad: function (options) {
@@ -17,8 +19,12 @@ Page({
 
     wx.setNavigationBarTitle({ title: title })
 
+    var can = util.getProgress(gradeIndex, figureIndex)
+    console.log("到底会不会"+can)
     this.setData({
-      videoUrl: figure.videoUrl
+      videoUrl: figure.videoUrl,
+      can: util.getProgress(gradeIndex, figureIndex)
     })
+
   }
 })

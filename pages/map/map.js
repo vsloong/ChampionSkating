@@ -30,9 +30,14 @@ Page({
         var latitude = res.latitude
 
         console.log("经纬度：" + longitude + "-" + latitude)
-        self.setData({
+        // self.setData({
+        //   longitude: longitude,
+        //   latitude: latitude
+        // })
+        wx.openLocation({
+          latitude: latitude,
           longitude: longitude,
-          latitude: latitude
+          scale: 28
         })
       }
     })

@@ -1,4 +1,5 @@
 var app = getApp()
+var util = require('../../utils/util.js')
 
 Page({
 
@@ -6,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    grade: 0,
+    gradeIndex: 0,
     figures: {},
     progress: 0
   },
@@ -16,21 +17,28 @@ Page({
    */
   onLoad: function (options) {
     //获取到当前的等级
-    var grade = options.grade;
-    wx.setNavigationBarTitle({ title: app.grades[grade].name })
-
-    var figures = app.grades[grade];
-    var progress = 11;
+    var gradeIndex = options.grade;
+    wx.setNavigationBarTitle({ title: app.grades[gradeIndex].name })
 
     this.setData({
-      grade: grade,
-      figures: app.grades[grade],
-      progress: progress
+      grade: gradeIndex,
+      figures: app.grades[gradeIndex],
+      progress: util.getProgress(gradeIndex)
+    })
+  },
+
+  /**
+   * 每次新展示页面就刷新下进度
+   */
+  onShow: function () {
+    var data = util.getProgress()
+    this.setData({
+      progress: data.progress
     })
   },
 
   goFigure(event) {
-    var figure = event.currentTarget.dataset.figure
+    var figureIndex = event.currentTarget.dataset.figure
 
     if (this.data.grade == 0) {
       wx.showModal({
@@ -40,7 +48,7 @@ Page({
       })
     } else {
       wx.navigateTo({
-        url: '../figure/figure?grade=' + this.data.grade + '&figure=' + figure,
+        url: '../figure/figure?grade=' + this.data.gradeIndex + '&figure=' + figureIndex,
       })
     }
 
