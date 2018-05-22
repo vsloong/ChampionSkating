@@ -12,3 +12,13 @@
 .video {
   width: 100%;
 }
+
+.video-hide {
+  display: none;
+  width: 100%;
+}
+
+.button {
+  width: 80%;
+  margin: 20rpx;
+}

@@ -21,9 +21,7 @@ Page({
     wx.setNavigationBarTitle({ title: app.grades[gradeIndex].name })
 
     this.setData({
-      grade: gradeIndex,
-      figures: app.grades[gradeIndex],
-      progress: util.getProgress(gradeIndex)
+      gradeIndex: gradeIndex
     })
   },
 
@@ -31,26 +29,18 @@ Page({
    * 每次新展示页面就刷新下进度
    */
   onShow: function () {
-    var data = util.getProgress()
+    var data = util.getProgress(this.data.gradeIndex)
+    // console.log("什么玩意" + JSON.stringify(data))
     this.setData({
+      figures: data.grades[this.data.gradeIndex],
       progress: data.progress
     })
   },
 
   goFigure(event) {
     var figureIndex = event.currentTarget.dataset.figure
-
-    if (this.data.grade == 0) {
-      wx.showModal({
-        title: '温馨提醒',
-        content: '基础动作当前暂无视频教程',
-        showCancel: false
-      })
-    } else {
-      wx.navigateTo({
-        url: '../figure/figure?grade=' + this.data.gradeIndex + '&figure=' + figureIndex,
-      })
-    }
-
+    wx.navigateTo({
+      url: '../figure/figure?grade=' + this.data.gradeIndex + '&figure=' + figureIndex,
+    })
   }
 })

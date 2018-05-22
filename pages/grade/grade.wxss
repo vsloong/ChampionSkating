@@ -72,8 +72,8 @@
   position: absolute;
   width: 60rpx;
   height: 60rpx;
-  top: -26rpx;
-  right: -26rpx;
+  top: 10rpx;
+  right: 10rpx;
   z-index: 3;
 }
 
