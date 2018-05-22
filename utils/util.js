@@ -31,7 +31,7 @@ function updateProgress(gradeIndex, figureIndex, can) {
         grades[gradeIndex].figures[figureIndex].can = can
 
         console.log("更新结果" + gradeIndex + figureIndex + grades[gradeIndex].figures[figureIndex].can)
-        console.log(JSON.stringify(grades))
+        // console.log(JSON.stringify(grades))
         wx.setStorage({
           key: key,
           data: grades,

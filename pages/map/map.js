@@ -5,15 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    longitude: 120.13026, //中心经度
-    latitude: 30.291935,  //	中心纬度
+    longitude: 0, //中心经度
+    latitude: 0,  //	中心纬度
 
     //标记点
     markers: [{
-      iconPath: "/src/images/location.svg",
+      iconPath: "/res/images/map-avatar-boy.png",
       id: 0,
-      latitude: 120.12537,
-      longitude: 30.25961,
+      longitude: 120.13026,
+      latitude: 30.291935,
       width: 36,
       height: 36
     }],
@@ -21,23 +21,38 @@ Page({
 
   onLoad: function (options) {
     var self = this
+    wx.setNavigationBarTitle({
+      title: "地图找教练"
+    })
 
     wx.getLocation({
       type: 'gcj02',
       success: function (res) {
-        var longitude = res.longitude
-
         var latitude = res.latitude
+        var longitude = res.longitude
+        var speed = res.speed
+        var accuracy = res.accuracy
 
-        console.log("经纬度：" + longitude + "-" + latitude)
-        // self.setData({
-        //   longitude: longitude,
-        //   latitude: latitude
-        // })
-        wx.openLocation({
-          latitude: latitude,
+        //更新自身的位置
+        self.setData({
           longitude: longitude,
-          scale: 28
+          latitude: latitude,
+          markers: [{
+            iconPath: "/res/images/map-avatar-boy.png",
+            id: 0,
+            longitude: 120.13026,
+            latitude: 30.291935,
+            width: 36,
+            height: 36
+          },
+          {
+            iconPath: "/res/images/map-avatar-girl.png",
+            id: 1,
+            longitude: 120.13126,
+            latitude: 30.292935,
+            width: 36,
+            height: 36
+          }],
         })
       }
     })

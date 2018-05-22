@@ -13,22 +13,22 @@
 
     <!-- <view class='scroll-item-passed margin-right-30'>
       <view class="scroll-item">
-        <image class='image-corner' src='/src/images/figure.jpg' mode='aspectFill' lazy-load='true'></image>
+        <image class='image-corner' src='/res/images/figure.jpg' mode='aspectFill' lazy-load='true'></image>
         <view class="text-figure">
           这是动作名
         </view>
       </view>
-      <image class='icon-check' src='/src/images/circle-checked.svg '></image>
+      <image class='icon-check' src='/res/images/circle-checked.svg '></image>
     </view> -->
 
     <view class='scroll-item-will margin-right-30' wx:for="{{figures.figures}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" bindtap='goFigure' data-figure='{{idx}}'>
       <view class="scroll-item">
-        <image class='image-corner' src='{{(idx%2==0) ? "/src/images/figure0.jpg" : "/src/images/figure2.jpg"}}' mode='center ' lazy-load='true '></image>
+        <image class='image-corner' src='{{(idx%2==0) ? "/res/images/figure0.jpg" : "/res/images/figure2.jpg"}}' mode='center ' lazy-load='true '></image>
         <view class="text-figure">
           {{item.name}}
         </view>
       </view>
-      <image class='icon-check' src="{{item.can?'/src/images/circle-checked.svg':''}}"></image>
+      <image class='icon-check' src="{{item.can?'/res/images/circle-checked.svg':''}}"></image>
     </view>
   </scroll-view>
 </view>

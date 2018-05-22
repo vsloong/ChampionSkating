@@ -35,7 +35,7 @@ Page({
       gradeIndex: gradeIndex,
       figureIndex: figureIndex,
       videoUrl: figure.videoUrl,
-      can: util.getProgress(gradeIndex, figureIndex)
+      can: can
     })
   },
 

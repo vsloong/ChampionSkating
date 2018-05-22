@@ -18,7 +18,7 @@
 
     <view class="global-item-row">
       <view class="global-title">
-        <image class="title-icon" src="/src/images/level-{{idx}}.svg" />{{item.name}}</view>
+        <image class="title-icon" src="/res/images/level-{{idx}}.svg" />{{item.name}}</view>
       <view class="global-content-right">{{item.figures.length + "个动作"}}</view>
     </view>
   </view>

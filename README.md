@@ -2,4 +2,4 @@
 正在开发当中，喜欢轮滑运动的程序yuan们不要错过，快来激励我~~
 
 ## 程序示例图
-![image](./src/pictures/home.jpg)  ![image](./src/pictures/grade.jpg)
+![image](./res/pictures/home.jpg)  ![image](./res/pictures/grade.jpg)
