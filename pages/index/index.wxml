@@ -27,7 +27,7 @@
   <view class="global-block column margin-top-15" hover-class='global-hover' hover-start-time='0' hover-stay-time='50' bindtap='goMap'>
 
     <view class="global-item-row">
-      <view class="global-content-right">找教练</view>
+      <view class="global-content-right">附近玩轮滑的人</view>
     </view>
   </view>
 </view>
