@@ -1,10 +1,38 @@
 <!--pages/register/register.wxml-->
 <view class='global-container'>
-  <image class="avatar" src='{{avatar}}'></image>
-  <open-data class="avatar" type="userAvatarUrl"></open-data>
-  <open-data type="userNickName"></open-data>
-  <open-data type="userGender"></open-data>
-  <open-data type="userSex"></open-data>
-  <open-data type="userCountry"></open-data>
 
+  <view class='global-block'>
+    <open-data class="avatar" type="userAvatarUrl"></open-data>
+    <view class='card'>
+      <open-data class="text-nickname" type="userNickName"></open-data>
+      <open-data class="text-gender" type="userGender" lang="zh_CN"></open-data>
+      <text wx:if="{{address}}" class='text-gender'>{{address}}</text>
+    </view>
+  </view>
+
+  <view class='content'>
+    <view class='left'>
+      <image class="check-box" src='{{address?"/res/images/circle-checked.svg":"/res/images/circle-unchecked.svg"}}' bindtap='chooseLocation'></image>
+      <view class='location'>注册我的位置信息</view>
+    </view>
+    <view class='right'>
+      <image class="question" src='/res/images/question.svg' bindtap='locationQuestion'></image>
+    </view>
+  </view>
+
+  <view class='content'>
+    <view class='left'>
+      <image class="check-box" src='{{contact?"/res/images/circle-checked.svg":"/res/images/circle-unchecked.svg"}}' bindtap=''></image>
+      <view class='location'>注册我的联系方式</view>
+    </view>
+    <view class='right'>
+      <image class="question" src='/res/images/question.svg' bindtap='contactQuestion'></image>
+    </view>
+  </view>
+
+  <view class='button' hover-class='button-hover' hover-start-time='0' hover-stay-time='50'>
+    <view class='button-text'>
+      立即认证高级教练
+    </view>
+  </view>
 </view>
