@@ -24,8 +24,14 @@ Page({
     })
   },
 
+  goRegister: function (event) {
+    wx.navigateTo({
+      url: '../register/register',
+    })
+  },
+
   onLoad: function (options) {
-    
+
   },
 
   /**

@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/grade/grade",
     "pages/figure/figure",
+    "pages/register/register",
     "pages/map/map",
     "pages/logs/logs"
   ],
