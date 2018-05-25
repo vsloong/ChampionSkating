@@ -1,8 +1,8 @@
 <!--index.wxml-->
 <view class="global-container">
-  <view class='global-hint'>该轮滑动作分级表目前只为各位轮滑爱好者提供参考，并不作为真实考核</view>
+  <!-- <view class='global-hint'>该轮滑动作分级表目前只为各位轮滑爱好者提供参考，并不作为真实考核</view> -->
 
-  <view class="global-block column margin-top-15">
+  <view class="global-block column">
     <view class="global-item-row">
       <view class="global-title">我的进度</view>
       <view class="global-content-right">{{progress}}/{{total}}</view>
