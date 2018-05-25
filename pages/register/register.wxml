@@ -1,40 +1,53 @@
 <!--pages/register/register.wxml-->
 <view class='global-container'>
 
-  <view class='global-block'>
+
+  <view class='global-block' wx:if="{{false}}">
     <open-data class="avatar" type="userAvatarUrl"></open-data>
     <view class='card'>
       <open-data class="text-nickname" type="userNickName"></open-data>
       <open-data class="text-gender" type="userGender" lang="zh_CN"></open-data>
-      <text wx:if="{{address}}" class='text-gender'>{{address}}</text>
-      <input wx:if="{{focus}}" class='text-gender' placeholder="建议输入自己的微信号" focus="{{focus}}" />
+      <text wx:if="{{showAddress}}" class='text-gender'>{{address}}</text>
+      <input wx:if="{{showContact}}" class='text-gender' placeholder="建议输入自己的微信号" focus="{{showContact}}" />
     </view>
   </view>
 
-  <view class='content'>
-    <view class='left'>
-      <image class="check-box" src='{{address?"/res/images/circle-checked.svg":"/res/images/circle-unchecked.svg"}}' bindtap='chooseLocation'></image>
-      <view class='location' bindtap='chooseLocation'>展示位置信息</view>
+
+  <view class='global-block'>
+    <image class="avatar" src='{{avatar?avatar:"/res/images/figure0.jpg"}}'></image>
+    <view class='card'>
+      <view class="text-nickname">{{nickname?nickname:"用户昵称"}}</view>
+      <view class="text-gender">{{gender==1?"男":(gender==0?"女":"性别")}}</view>
+      <view wx:if="{{showAddress}}" class='text-gender'>{{address}}</view>
+      <input wx:if="{{showContact}}" class='text-gender' placeholder="建议输入自己的微信号" focus="{{showContact}}" />
+    </view>
+  </view>
+
+  <!-- 选择展示位置功能 -->
+  <view class='content' wx:if="{{showRegister}}">
+    <view class='left' bindtap='chooseLocation'>
+      <image class="check-box" src='{{showAddress?"/res/images/circle-checked.svg":"/res/images/circle-unchecked.svg"}}'></image>
+      <view class='location'>展示位置信息</view>
     </view>
     <view class='right'>
       <image class="question" src='/res/images/question.svg' bindtap='locationQuestion'></image>
     </view>
   </view>
 
-  <view class='content'>
-    <view class='left'>
-      <image class="check-box" src='{{focus?"/res/images/circle-checked.svg":"/res/images/circle-unchecked.svg"}}' bindtap='showContact'></image>
-      <view class='location' bindlongtap='showContact'>展示联系方式</view>
+  <!-- 暂时不做展示联系方式的功能 -->
+  <view class='content' wx:if="{{false}}">
+    <view class='left' bindtap='showContactInput'>
+      <image class="check-box" src='{{showContact?"/res/images/circle-checked.svg":"/res/images/circle-unchecked.svg"}}'></image>
+      <view class='location'>展示联系方式</view>
     </view>
     <view class='right'>
       <image class="question" src='/res/images/question.svg' bindtap='contactQuestion'></image>
     </view>
   </view>
 
-  <button class='button' open-type="getUserInfo" bindgetuserinfo="getUserInfo" hover-class='button-hover' hover-start-time='0' hover-stay-time='50'>点击获取微信基本信息</button>
+  <!-- 获取微信基本信息组件 -->
+  <button class='button' open-type="getUserInfo" bindgetuserinfo="getUserInfo" hover-class='button-hover' hover-start-time='0' hover-stay-time='50' wx:if="{{!showRegister}}">点击自动填写微信基本信息</button>
 
   <button class='{{showRegister?"button":"button-dis"}}' bindtap='register' hover-class='{{showRegister?"button-hover":"button-dis-hover"}}' hover-start-time='0' hover-stay-time='50'>立即注册认证</button>
-
-
 
 </view>

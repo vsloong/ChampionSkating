@@ -6,6 +6,7 @@
   border-radius: 50%;
   display: block;
   overflow: hidden;
+  background: #eee;
 }
 
 .card {

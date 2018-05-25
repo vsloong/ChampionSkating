@@ -4,14 +4,16 @@ Page({
   data: {
     avatar: "",
     nickname: "",
-    grand: "",
+    gender: 2,            //0：女；1：男；2性别
     address: "",
     contact: "",
-    focus: false,
 
     showContact: false,    //控制联系方式的隐藏
     showAddress: false,   //控制地址栏的隐藏
-    showRegister: false   //控制认证按钮的隐藏
+    showRegister: false,   //控制认证按钮的隐藏
+
+    postUserInfo: {},
+    postAddressInfo: {},
   },
 
   onLoad: function (options) {
@@ -22,8 +24,9 @@ Page({
 
   chooseLocation: function () {
     var self = this
-    if (this.data.address) {
+    if (this.data.showAddress) {
       this.setData({
+        showAddress: false,
         address: ""
       })
     } else {
@@ -31,40 +34,55 @@ Page({
         success: function (res) {
           console.log("获取位置信息成功：" + JSON.stringify(res))
           self.setData({
-            address: res.address
+            address: res.address,
+            showAddress: true,
+            postAddressInfo: res
           })
         },
         fail: function (res) {
           console.log("获取位置信息失败：" + JSON.stringify(res))
+          self.setData({
+            showAddress: false
+          })
         }
       })
     }
   },
 
-  showContact: function () {
+  showContactInput: function () {
     this.setData({
-      focus: !this.data.focus
+      showContact: !this.data.showContact
     })
   },
 
   getUserInfo: function () {
+    var self = this
     wx.getUserInfo({
       withCredentials: true,
       lang: '',
       success: function (res) {
+
         console.log("获取微信数据成功：" + JSON.stringify(res))
         // console.log( JSON.stringify(res.userInfo))
+
+        self.setData({
+          avatar: res.userInfo.avatarUrl,
+          nickname: res.userInfo.nickName,
+          gender: res.userInfo.gender,
+          showRegister: true,
+          postUserInfo: res
+        })
       },
       fail: function (res) {
         console.log("获取微信数据失败：" + JSON.stringify(res))
       },
       complete: function (res) {
-        // console.log("获取微信数据完成：" + JSON.stringify(res))
       },
     })
   },
 
   register: function () {
+    var self = this
     if (this.data.showRegister)
       wx.login({
         success: function (res) {
@@ -74,13 +92,16 @@ Page({
             url: 'https://xdrqojro.qcloud.la/weapp/skating/register', //仅为示例，并非真实的接口地址
             data: {
               code: res.code,
-              y: '哇哈哈'
+              userData: self.data.postUserInfo,
+              showAddress: self.data.showAddress,
+              addressData: self.data.postAddressInfo
             },
             header: {
-              'content-type': 'application/json' // 默认值
+              // 'content-type': 'application/x-www-form-urlencoded' // 会将数据转换成 query string
+              'content-type': 'application/json ' // 会对数据进行 JSON 序列化
             },
             success: function (res) {
-              console.log(res.data)
+              console.log("服务器返回：" + JSON.stringify(res.data))
             }
           })
         }
