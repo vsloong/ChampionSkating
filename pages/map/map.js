@@ -35,34 +35,11 @@ Page({
           latitude: latitude,
           loadLocation: true,
           load: true && self.data.loadMarkers
-          //   markers: [{
-          //     iconPath: "/res/images/map-avatar-boy.png",
-          //     id: 0,
-          //     longitude: 120.13026,
-          //     latitude: 30.291935,
-          //     width: 36,
-          //     height: 36
-          //   },
-          //   {
-          //     iconPath: "/res/images/map-avatar-girl.png",
-          //     id: 1,
-          //     longitude: 120.13126,
-          //     latitude: 30.292935,
-          //     width: 36,
-          //     height: 36
-          //   }],
         })
 
         console.log("1结果：" + self.data.load)
       }
     })
-
-    //会打开选择位置的地图
-    // wx.chooseLocation({
-    //   success: function () {
-    //     console.log(res)
-    //   }
-    // })
 
     //获取附近的好友
     wx.request({
@@ -82,11 +59,19 @@ Page({
             longitude: temp.longitude,
             latitude: temp.latitude,
             iconPath: i % 2 == 0 ? "/res/images/map-avatar-boy.png" : "/res/images/map-avatar-girl.png",
-            width: 36,
-            height: 36,
+            width: 48,
+            height: 48,
             callout: {
-              content: "title"
-            }
+              content: "用户名",
+              fontSize: 16,
+              borderRadius: 12,
+              bgColor: "#fff",
+              padding: 12
+            },
+            // label:{
+            //   content:"不知道是什么",
+            //   fontSize: 16,
+            // }
           })
         }
 
@@ -100,6 +85,17 @@ Page({
 
         console.log("2结果：" + self.data.load)
       }
+    })
+  },
+
+  clickMarker: function (res) {
+    console.log("点击了标记点+" + JSON.stringify(res))
+  },
+
+  clickCallout: function (res) {
+    console.log("点击了气泡：" + JSON.stringify(res))
+    wx.navigateTo({
+      url: '/pages/personal/personal',
     })
   }
 })

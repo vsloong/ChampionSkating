@@ -1,2 +1,3 @@
 <!--pages/map.wxml-->
-<map id="map" wx:if="{{load}}" longitude="{{longitude}}" latitude="{{latitude}}" scale="15" markers="{{markers}}" show-location style="width: 100%; height: 100vh"></map>
+<map id="map" wx:if="{{load}}" longitude="{{longitude}}" latitude="{{latitude}}" scale="15" markers="{{markers}}" show-location style="width: 100%; height: 100vh"
+bindmarkertap='clickMarker' bindcallouttap='clickCallout'></map>

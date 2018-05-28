@@ -5,6 +5,7 @@
     "pages/figure/figure",
     "pages/register/register",
     "pages/map/map",
+    "pages/personal/personal",
     "pages/logs/logs"
   ],
   "window": {
