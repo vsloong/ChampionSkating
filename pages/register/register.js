@@ -102,6 +102,20 @@ Page({
             },
             success: function (res) {
               console.log("服务器返回：" + JSON.stringify(res.data))
+              wx.showModal({
+                title: '温馨提醒',
+                content: res.data.msg,
+                showCancel: false,
+                confirmText: '我知道了'
+              })
+            },
+            fail:function(){
+              wx.showModal({
+                title: '温馨提醒',
+                content: "注册遇到了异常，请联系开发者",
+                showCancel: false,
+                confirmText: '我知道了'
+              })
             }
           })
         }
