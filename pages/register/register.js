@@ -1,5 +1,6 @@
 // pages/register/register.js
-var util = require('../../utils/config.js')
+var config = require('../../utils/config.js')
+var util = require('../../utils/util.js')
 
 Page({
 
@@ -12,7 +13,6 @@ Page({
 
     showContact: false,    //控制联系方式的隐藏
     showAddress: false,   //控制地址栏的隐藏
-    showRegister: false,   //控制认证按钮的隐藏
 
     postUserInfo: {},
     postAddressInfo: {},
@@ -31,6 +31,9 @@ Page({
         showAddress: false,
         address: ""
       })
+
+      //删除存储的位置信息
+      util.removeAddressInfo()
     } else {
       wx.chooseLocation({
         success: function (res) {
@@ -40,12 +43,65 @@ Page({
             showAddress: true,
             postAddressInfo: res
           })
+
+          //存储位置信息
+          util.setAddressInfo(res)
         },
         fail: function (res) {
-          console.log("获取位置信息失败：" + JSON.stringify(res))
-          self.setData({
-            showAddress: false
+          wx.getSetting({
+            success: function (res) {
+              var statu = res.authSetting;
+              if (!statu['scope.userLocation']) {
+                wx.showModal({
+                  title: '是否授权当前位置',
+                  content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
+                  success: function (tip) {
+                    if (tip.confirm) {
+                      wx.openSetting({
+                        success: function (data) {
+                          if (data.authSetting["scope.userLocation"] === true) {
+                            //授权成功之后，再调用chooseLocation选择地方
+                            wx.chooseLocation({
+                              success: function (res) {
+                                console.log("获取位置信息成功：" + JSON.stringify(res))
+                                self.setData({
+                                  address: res.address,
+                                  showAddress: true,
+                                  postAddressInfo: res
+                                })
+                              },
+                            })
+                          } else {
+                            wx.showToast({
+                              title: '授权失败',
+                              icon: 'success',
+                              duration: 1000
+                            })
+                            console.log("获取位置信息失败：" + JSON.stringify(res))
+                            self.setData({
+                              showAddress: false
+                            })
+                          }
+                        }
+                      })
+                    }
+                  }
+                })
+              }
+            },
+            fail: function (res) {
+              wx.showToast({
+                title: '调用授权窗口失败',
+                icon: 'success',
+                duration: 1000
+              })
+              console.log("获取位置信息失败：" + JSON.stringify(res))
+              self.setData({
+                showAddress: false
+              })
+            }
           })
+
         }
       })
     }
@@ -74,11 +130,16 @@ Page({
           showRegister: true,
           postUserInfo: res
         })
+
+        //保存用户信息
+        util.setUserInfo(res.userInfo)
+
+        //获取完微信信息后直接去注册
+        self.register()
       },
       fail: function (res) {
         console.log("获取微信数据失败：" + JSON.stringify(res))
-      },
-      complete: function (res) {
+        self.showDialog("认证失败，请允许获取微信相关的信息")
       },
     })
   },
@@ -91,7 +152,7 @@ Page({
           //console.log("获取微信登录数据成功：" + JSON.stringify(res.code))
           wx.request({
             method: "POST",
-            url: util.registerUrl, //仅为示例，并非真实的接口地址
+            url: config.registerUrl,
             data: {
               code: res.code,
               userData: self.data.postUserInfo,
@@ -104,20 +165,10 @@ Page({
             },
             success: function (res) {
               console.log("服务器返回：" + JSON.stringify(res.data))
-              wx.showModal({
-                title: '温馨提醒',
-                content: res.data.msg,
-                showCancel: false,
-                confirmText: '我知道了'
-              })
+              self.showDialog(res.data.msg)
             },
             fail: function () {
-              wx.showModal({
-                title: '温馨提醒',
-                content: "注册遇到了异常，请联系开发者",
-                showCancel: false,
-                confirmText: '我知道了'
-              })
+              self.showDialog("注册遇到了异常，请联系开发者")
             }
           })
         }
@@ -139,6 +190,15 @@ Page({
       content: '展示自己的联系方式信息后附近和你一起志同道合的小伙伴就可以很方便的联系你了',
       showCancel: false,
       confirmText: "我知道了"
+    })
+  },
+
+  showDialog: function (content) {
+    wx.showModal({
+      title: '温馨提醒',
+      content: content,
+      showCancel: false,
+      confirmText: '我知道了'
     })
   }
 })

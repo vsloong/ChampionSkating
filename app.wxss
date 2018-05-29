@@ -68,3 +68,55 @@
 .global-hover{
   background: #eee;
 }
+
+
+.button {
+  width: 88%;
+  height: 88rpx;
+  margin-top: 80rpx;
+  box-sizing: border-box;
+  border-radius: 44rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: #01a862;
+  font-size: 36rpx;
+  color: #fff;
+}
+
+button::after {
+  border: 0;
+}
+
+.button-dis {
+  width: 88%;
+  height: 88rpx;
+  margin-top: 80rpx;
+  box-sizing: border-box;
+  border-radius: 44rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: #eee;
+  font-size: 36rpx;
+  color: #fff;
+}
+
+.button-hover {
+  background: #199659;
+  /* 比默认颜色深了10% */
+}
+
+.button-dis-hover {
+  background: #eee;
+  /* 比默认颜色深了10% */
+}
+
+.button-text {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 36rpx;
+  color: #fff;
+}

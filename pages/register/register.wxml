@@ -2,7 +2,7 @@
 <view class='global-container'>
 
 
-  <view class='global-block' wx:if="{{false}}">
+  <view class='global-block'>
     <open-data class="avatar" type="userAvatarUrl"></open-data>
     <view class='card'>
       <open-data class="text-nickname" type="userNickName"></open-data>
@@ -12,8 +12,7 @@
     </view>
   </view>
 
-
-  <view class='global-block'>
+  <view class='global-block' wx:if="{{false}}">
     <image class="avatar" src='{{avatar?avatar:"/res/images/figure0.jpg"}}'></image>
     <view class='card'>
       <view class="text-nickname">{{nickname?nickname:"用户昵称"}}</view>
@@ -24,7 +23,7 @@
   </view>
 
   <!-- 选择展示位置功能 -->
-  <view class='content' wx:if="{{showRegister}}">
+  <view class='content'>
     <view class='left' bindtap='chooseLocation'>
       <image class="check-box" src='{{showAddress?"/res/images/circle-checked.svg":"/res/images/circle-unchecked.svg"}}'></image>
       <view class='location'>展示位置信息</view>
@@ -46,8 +45,8 @@
   </view>
 
   <!-- 获取微信基本信息组件 -->
-  <button class='button' open-type="getUserInfo" bindgetuserinfo="getUserInfo" hover-class='button-hover' hover-start-time='0' hover-stay-time='50' wx:if="{{!showRegister}}">点击自动填写微信基本信息</button>
+  <button class='button' open-type="getUserInfo" bindgetuserinfo="getUserInfo" hover-class='button-hover' hover-start-time='0' hover-stay-time='50' >立即认证轮滑爱好者</button>
 
-  <button class='{{showRegister?"button":"button-dis"}}' bindtap='register' hover-class='{{showRegister?"button-hover":"button-dis-hover"}}' hover-start-time='0' hover-stay-time='50'>立即注册认证</button>
+  <button wx:if="{{false}}" class='{{showRegister?"button":"button-dis"}}' bindtap='register' hover-class='{{showRegister?"button-hover":"button-dis-hover"}}' hover-start-time='0' hover-stay-time='50'>立即注册认证</button>
 
 </view>

@@ -1,1 +1,54 @@
 /* pages/personal/personal.wxss */
+
+.linear-layout-vertical {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.linear-layout-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.avatar {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  display: block;
+  overflow: hidden;
+  background: #eee;
+}
+
+.text-nickname {
+  font-size: 40rpx;
+  text-align: right;
+}
+
+.text-gender {
+  font-size: 32rpx;
+  text-align: right;
+}
+
+.text-badge {
+  font-size: 36rpx;
+  color: #666;
+}
+
+.card {
+  width: 60%;
+  height: 250rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.badge {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.margin-top-50 {
+  margin-top: 50rpx;
+}

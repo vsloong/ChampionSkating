@@ -3,13 +3,26 @@
   <!-- <view class='global-hint'>该轮滑动作分级表目前只为各位轮滑爱好者提供参考，并不作为真实考核</view> -->
 
   <view class="global-block column">
-    <view class="global-item-row">
-      <view class="global-title">我的进度</view>
-      <view class="global-content-right">{{progress}}/{{total}}</view>
+
+    <view class='global-item-column'>
+
+      <view class='left' bindtap='goPersonal'>
+        <open-data class="avatar" type="userAvatarUrl"></open-data>
+      </view>
+
+      <view class='right'>
+        <view class="global-item-row">
+          <view class="global-title">我的进度</view>
+          <view class="global-content-right">{{progress}}/{{total}}</view>
+        </view>
+        <view class="global-item-row">
+          <progress class="global-progress" stroke-width='2' percent="{{(progress/total)*100}}" active='true' />
+        </view>
+      </view>
     </view>
-    <view class="global-item-row">
-      <progress class="global-progress" stroke-width='2' percent="{{(progress/total)*100}}" active='true' />
-    </view>
+
+
+
   </view>
 
   <!-- 下面是一个循环 -->
@@ -25,10 +38,6 @@
 
 
   <view class="global-block column margin-top-15" hover-class='global-hover' hover-start-time='0' hover-stay-time='50' bindtap='goMap'>
-      附近玩轮滑的人
-  </view>
-
-  <view class="global-block column margin-top-15" hover-class='global-hover' hover-start-time='0' hover-stay-time='50' bindtap='goRegister'>
-      申请认证
+    附近玩轮滑的人
   </view>
 </view>

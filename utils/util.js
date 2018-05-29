@@ -14,6 +14,10 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const key_grades = "grades"
+const key_user = "user"
+const key_address = "address"
+
 /**
  * 更新学习进度，缓存数据
  */
@@ -126,8 +130,60 @@ function getProgress(gradeIndex, figureIndex) {
   }
 }
 
+function setUserInfo(userInfo) {
+  wx.setStorage({
+    key: key_user,
+    data: userInfo,
+    success: function () {
+      console.log("添加用户数据成功")
+    },
+    fail: function () {
+      console.log("添加用户数据失败")
+    }
+  })
+}
+
+function isSetUserInfo() {
+  try {
+    var value = wx.getStorageSync(key_user)
+    if (value) {
+      return true
+    } else {
+      return false
+    }
+  } catch (e) {
+    return false
+  }
+}
+
+function setAddressInfo(addressInfo) {
+  wx.setStorage({
+    key: key_address,
+    data: addressInfo,
+    success: function () {
+      console.log("添加地址数据成功")
+    },
+    fail: function () {
+      console.log("添加地址数据失败")
+    }
+  })
+}
+
+function removeAddressInfo() {
+  wx.removeStorage({
+    key: key_address,
+    success: function (res) {
+      console.log("删除地址数据成功")
+    },
+  })
+}
+
 module.exports = {
   formatTime: formatTime,
   updateProgress: updateProgress,
-  getProgress: getProgress
+  getProgress: getProgress,
+  setUserInfo: setUserInfo,
+  isSetUserInfo: isSetUserInfo,
+  setAddressInfo: setAddressInfo,
+  removeAddressInfo: removeAddressInfo
 }

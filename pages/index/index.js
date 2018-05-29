@@ -24,9 +24,9 @@ Page({
     })
   },
 
-  goRegister: function (event) {
+  goPersonal: function (event) {
     wx.navigateTo({
-      url: '../register/register',
+      url: '../personal/personal',
     })
   },
 
