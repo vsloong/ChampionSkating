@@ -1,4 +1,6 @@
 // pages/register/register.js
+var util = require('../../utils/config.js')
+
 Page({
 
   data: {
@@ -89,7 +91,7 @@ Page({
           //console.log("获取微信登录数据成功：" + JSON.stringify(res.code))
           wx.request({
             method: "POST",
-            url: 'https://xdrqojro.qcloud.la/weapp/skating/register', //仅为示例，并非真实的接口地址
+            url: util.registerUrl, //仅为示例，并非真实的接口地址
             data: {
               code: res.code,
               userData: self.data.postUserInfo,
@@ -109,7 +111,7 @@ Page({
                 confirmText: '我知道了'
               })
             },
-            fail:function(){
+            fail: function () {
               wx.showModal({
                 title: '温馨提醒',
                 content: "注册遇到了异常，请联系开发者",
