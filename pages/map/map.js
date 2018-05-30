@@ -1,4 +1,7 @@
 // pages/map.js
+
+var config = require('../../utils/config.js')
+
 Page({
 
   /**
@@ -37,53 +40,75 @@ Page({
           load: true && self.data.loadMarkers
         })
 
+        //联网获取附近的人
+        self.getNearbyUser(res)
+
         console.log("1结果：" + self.data.load)
       }
     })
+  },
 
+  chooseLocation: function () {
+    var self = this
+    wx.chooseLocation({
+      success: function (res) {
+        console.log("地理位置信息：" + JSON.stringify(res))
+        self.getNearbyUser(res)
+      },
+    })
+  },
+
+  getNearbyUser: function (addressData) {
     //获取附近的好友
     wx.request({
-      url: 'https://xdrqojro.qcloud.la/skating/location',
+      method: "POST",
+      url: config.nearbyUrl,
+      data: {
+        addressData: addressData
+      },
+      header: {
+        'content-type': 'application/json ' // 会对数据进行 JSON 序列化
+      },
       success: function (res) {
         console.log("测试接口" + JSON.stringify(res.data))
 
-        var data = res.data.datas
-        var markers = []
-        var marker = {}
-        for (var i = 0; i < data.length; i++) {
-          var temp = data[i]
-          //markers的格式
-          markers.push({
-            id: i,
-            title: "你好" + i,
-            longitude: temp.longitude,
-            latitude: temp.latitude,
-            iconPath: i % 2 == 0 ? "/res/images/map-avatar-boy.png" : "/res/images/map-avatar-girl.png",
-            width: 48,
-            height: 48,
-            callout: {
-              content: "用户名",
-              fontSize: 16,
-              borderRadius: 12,
-              bgColor: "#fff",
-              padding: 12
-            },
-            // label:{
-            //   content:"不知道是什么",
-            //   fontSize: 16,
-            // }
-          })
-        }
+        // var data = res.data.datas
+        // var markers = []
+        // var marker = {}
+        // for (var i = 0; i < data.length; i++) {
+        //   var temp = data[i]
+        //   //markers的格式
+        //   markers.push({
+        //     id: i,
+        //     title: "你好" + i,
+        //     longitude: temp.longitude,
+        //     latitude: temp.latitude,
+        //     iconPath: i % 2 == 0 ? "/res/images/map-avatar-boy.png" : "/res/images/map-avatar-girl.png",
+        //     width: 48,
+        //     height: 48,
+        //     callout: {
+        //       content: "用户名",
+        //       fontSize: 16,
+        //       borderRadius: 12,
+        //       bgColor: "#fff",
+        //       padding: 12
+        //     },
+        //     // label:{
+        //     //   content:"不知道是什么",
+        //     //   fontSize: 16,
+        //     // }
+        //   })
+        // }
 
-        console.log(JSON.stringify(markers))
+        // console.log(JSON.stringify(markers))
 
-        self.setData({
-          markers: markers,
-          loadMarkers: true,
-          load: true && self.data.loadLocation
-        })
+        // self.setData({
+        //   markers: markers,
+        //   loadMarkers: true,
+        //   load: true && self.data.loadLocation
+        // })
 
-        console.log("2结果：" + self.data.load)
+        // console.log("2结果：" + self.data.load)
       }
     })
   },

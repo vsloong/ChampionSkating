@@ -27,4 +27,9 @@
       <image class="badge" src='/res/images/badge-coach-gao.svg'></image>
     </view>
   </view>
+
+
+  <contact-button type="default-dark" size="20" session-from="weapp">
+    客服按钮
+  </contact-button>
 </view>

@@ -13,6 +13,7 @@ Page({
 
     showContact: false,    //控制联系方式的隐藏
     showAddress: false,   //控制地址栏的隐藏
+    showRegister: true,
 
     postUserInfo: {},
     postAddressInfo: {},
@@ -127,12 +128,8 @@ Page({
           avatar: res.userInfo.avatarUrl,
           nickname: res.userInfo.nickName,
           gender: res.userInfo.gender,
-          showRegister: true,
           postUserInfo: res
         })
-
-        //保存用户信息
-        util.setUserInfo(res.userInfo)
 
         //获取完微信信息后直接去注册
         self.register()
@@ -146,33 +143,41 @@ Page({
 
   register: function () {
     var self = this
-    if (this.data.showRegister)
-      wx.login({
-        success: function (res) {
-          //console.log("获取微信登录数据成功：" + JSON.stringify(res.code))
-          wx.request({
-            method: "POST",
-            url: config.registerUrl,
-            data: {
-              code: res.code,
-              userData: self.data.postUserInfo,
-              showAddress: self.data.showAddress,
-              addressData: self.data.postAddressInfo
-            },
-            header: {
-              // 'content-type': 'application/x-www-form-urlencoded' // 会将数据转换成 query string
-              'content-type': 'application/json ' // 会对数据进行 JSON 序列化
-            },
-            success: function (res) {
-              console.log("服务器返回：" + JSON.stringify(res.data))
-              self.showDialog(res.data.msg)
-            },
-            fail: function () {
-              self.showDialog("注册遇到了异常，请联系开发者")
+    wx.login({
+      success: function (res) {
+        //console.log("获取微信登录数据成功：" + JSON.stringify(res.code))
+        wx.request({
+          method: "POST",
+          url: config.registerUrl,
+          data: {
+            code: res.code,
+            userData: self.data.postUserInfo,
+            showAddress: self.data.showAddress,
+            addressData: self.data.postAddressInfo
+          },
+          header: {
+            // 'content-type': 'application/x-www-form-urlencoded' // 会将数据转换成 query string
+            'content-type': 'application/json ' // 会对数据进行 JSON 序列化
+          },
+          success: function (res) {
+            console.log("服务器返回：" + JSON.stringify(res.data))
+            self.showDialog(res.data.msg)
+
+            if (res.data.code == 200) {
+              self.setData({
+                showRegister: false
+              })
+
+              //保存用户信息
+              util.setUserInfo(self.data.postUserInfo)
             }
-          })
-        }
-      })
+          },
+          fail: function () {
+            self.showDialog("注册遇到了异常，请联系开发者")
+          }
+        })
+      }
+    })
   },
 
   locationQuestion: function () {
