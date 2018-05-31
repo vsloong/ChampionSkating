@@ -10,10 +10,10 @@
   <view wx:if='{{!showRegister}}' class='block-layout margin-top-30 padding-40'>
     <view class='linear-layout-vertical'>
       <view class='linear-layout-horizontal'>
-        <view class='text-title'>公开我的位置信息</view>
-        <switch bindchange="locationSwitchChange" />
+        <view class='text-title'>展示我的位置信息</view>
+        <switch checked='{{showAddress}}' bindchange="locationSwitchChange" />
       </view>
-      <view class='text-hint'>开启后，其他用户可以在“附近的人”中查看到我的位置以及基本信息，方便一起玩耍</view>
+      <view class='text-hint'>{{showAddress?address:"开启后，其他用户可以在“附近的人”中查看到我的位置以及基本信息，方便一起玩耍"}}</view>
     </view>
   </view>
 

@@ -45,8 +45,6 @@ Page({
             postAddressInfo: res
           })
 
-          //存储位置信息
-          util.setAddressInfo(res)
         },
         fail: function (res) {
           wx.getSetting({
@@ -170,6 +168,13 @@ Page({
 
               //保存用户信息
               util.setUserInfo(self.data.postUserInfo)
+
+              //存储位置信息
+              if (self.data.showAddress) {
+                util.setAddressInfo(self.data.postAddressInfo)
+              }
+              //保存用户的openid
+              util.setOpenId(res.data.openid)
             }
           },
           fail: function () {

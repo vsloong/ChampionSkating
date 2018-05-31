@@ -16,6 +16,7 @@ const formatNumber = n => {
 
 const key_grades = "grades"
 const key_user = "user"
+const key_openid = "openid"
 const key_address = "address"
 
 /**
@@ -169,12 +170,43 @@ function setAddressInfo(addressInfo) {
   })
 }
 
+function getAddressInfo() {
+  try {
+    var value = wx.getStorageSync(key_address)
+    return value
+  } catch (e) {
+    return false
+  }
+}
+
 function removeAddressInfo() {
   wx.removeStorage({
     key: key_address,
     success: function (res) {
       console.log("删除地址数据成功")
     },
+  })
+}
+
+function getOpenId() {
+  try {
+    var value = wx.getStorageSync(key_openid)
+    return value
+  } catch (e) {
+    return false
+  }
+}
+
+function setOpenId(openid) {
+  wx.setStorage({
+    key: key_openid,
+    data: openid,
+    success: function () {
+      console.log("添加用户数据成功")
+    },
+    fail: function () {
+      console.log("添加用户数据失败")
+    }
   })
 }
 
@@ -185,5 +217,8 @@ module.exports = {
   setUserInfo: setUserInfo,
   isSetUserInfo: isSetUserInfo,
   setAddressInfo: setAddressInfo,
-  removeAddressInfo: removeAddressInfo
+  getAddressInfo: getAddressInfo,
+  removeAddressInfo: removeAddressInfo,
+  setOpenId: setOpenId,
+  getOpenId: getOpenId,
 }

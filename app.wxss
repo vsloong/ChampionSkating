@@ -111,6 +111,10 @@ global-button::after {
   color: #fff;
 }
 
+global-button-dis::after {
+  border: 0;
+}
+
 .global-button-hover {
   background: #199659;
   /* 比默认颜色深了10% */
