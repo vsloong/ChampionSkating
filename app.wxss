@@ -11,6 +11,15 @@
   background: #fff;
 }
 
+.global-container-nopadding {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  background: #f6f7f9;
+}
+
 .global-block {
   position: relative;
   display: flex;
@@ -70,7 +79,7 @@
 }
 
 
-.button {
+.global-button {
   width: 88%;
   height: 88rpx;
   margin-top: 80rpx;
@@ -84,11 +93,11 @@
   color: #fff;
 }
 
-button::after {
+global-button::after {
   border: 0;
 }
 
-.button-dis {
+.global-button-dis {
   width: 88%;
   height: 88rpx;
   margin-top: 80rpx;
@@ -102,17 +111,17 @@ button::after {
   color: #fff;
 }
 
-.button-hover {
+.global-button-hover {
   background: #199659;
   /* 比默认颜色深了10% */
 }
 
-.button-dis-hover {
+.global-button-dis-hover {
   background: #eee;
   /* 比默认颜色深了10% */
 }
 
-.button-text {
+.global-button-text {
   height: 100%;
   display: flex;
   flex-direction: column;

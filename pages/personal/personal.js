@@ -19,5 +19,9 @@ Page({
     this.setData({
       showRegister: !isSetUserInfo
     })
+  },
+
+  locationSwitchChange:function(){
+    
   }
 })

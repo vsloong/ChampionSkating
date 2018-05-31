@@ -1,24 +1,33 @@
 <!--pages/personal/personal.wxml-->
-<view class='global-container'>
-  <view class='global-block'>
-    <open-data class="avatar" type="userAvatarUrl"></open-data>
-    <view class='card'>
-      <open-data class="text-nickname" type="userNickName"></open-data>
-      <open-data class="text-gender" type="userGender" lang="zh_CN"></open-data>
-      <text wx:if="{{showAddress}}" class='text-gender'>{{address}}</text>
-      <input wx:if="{{showContact}}" class='text-gender' placeholder="建议输入自己的微信号" focus="{{showContact}}" />
+<view class='global-container-nopadding'>
+  <view class='linear-layout-vertical center padding-top-30 background-white'>
+    <open-data class="avatar" type="userAvatarUrl" mode='scaleToFill'></open-data>
+    <open-data class="text-nickname" type="userNickName"></open-data>
+  </view>
+
+  <button wx:if='{{showRegister}}' class='global-button' bindtap='goRegister' hover-class='global-button-hover' hover-start-time='0' hover-stay-time='50'>轮滑爱好者认证</button>
+
+  <view wx:if='{{!showRegister}}' class='block-layout margin-top-30 padding-40'>
+    <view class='linear-layout-vertical'>
+      <view class='linear-layout-horizontal'>
+        <view class='text-title'>公开我的位置信息</view>
+        <switch bindchange="locationSwitchChange" />
+      </view>
+      <view class='text-hint'>开启后，其他用户可以在“附近的人”中查看到我的位置以及基本信息，方便一起玩耍</view>
     </view>
   </view>
 
-  <button wx:if='{{showRegister}}' class='button' bindtap='goRegister' hover-class='button-hover' hover-start-time='0' hover-stay-time='50'>轮滑爱好者认证</button>
+  <view class='linear-layout-horizontal service-layout' hover-class='global-hover' hover-start-time='0' hover-stay-time='50'>
+    <image class='icon' src='/res/images/icon-service.svg'></image>
+    <button class='button' open-type="contact">联系客服</button>
+  </view>
 
-  <view class='linear-layout-vertical margin-top-50'>
+  <!-- <view class='linear-layout-vertical margin-top-50'>
     <view class='text-badge'>爱好者认证徽章</view>
     <view class='linear-layout-horizontal'>
       <image class="badge" src='/res/images/badge-66.svg'></image>
     </view>
   </view>
-
   <view class='linear-layout-vertical margin-top-50'>
     <view class='text-badge'>教练认证徽章</view>
     <view class='linear-layout-horizontal'>
@@ -31,5 +40,5 @@
 
   <contact-button type="default-dark" size="20" session-from="weapp">
     客服按钮
-  </contact-button>
+  </contact-button> -->
 </view>

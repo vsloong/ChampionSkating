@@ -45,7 +45,7 @@
   </view>
 
   <!-- 获取微信基本信息组件 -->
-  <button class='{{showRegister?"button":"button-dis"}}' open-type="getUserInfo" bindgetuserinfo="getUserInfo" hover-class='{{showRegister?"button-hover":"button-dis-hover"}}' hover-start-time='0' hover-stay-time='50' disabled='{{!showRegister}}'>{{showRegister?"立即认证轮滑爱好者":"轮滑爱好者已认证"}}</button>
+  <button class='{{showRegister?"global-button":"global-button-dis"}}' open-type="getUserInfo" bindgetuserinfo="getUserInfo" hover-class='{{showRegister?"global-button-hover":"global-button-dis-hover"}}' hover-start-time='0' hover-stay-time='50' disabled='{{!showRegister}}'>{{showRegister?"立即认证轮滑爱好者":"轮滑爱好者已认证"}}</button>
 
   <button wx:if="{{false}}" class='{{showRegister?"button":"button-dis"}}' bindtap='register' hover-class='{{showRegister?"button-hover":"button-dis-hover"}}' hover-start-time='0' hover-stay-time='50'>立即注册认证</button>
 
