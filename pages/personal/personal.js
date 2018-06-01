@@ -1,5 +1,6 @@
 // pages/personal/personal.js
 var util = require("../../utils/util.js")
+var config = require("../../utils/config.js")
 
 Page({
 
@@ -41,7 +42,7 @@ Page({
       wx.chooseLocation({
         success: function (res) {
           //上传更新地址的信息
-          self.updateAddress(res)
+          self.updateAddress(true, res)
         },
         fail: function (res) {
           wx.getSetting({
@@ -60,7 +61,7 @@ Page({
                             wx.chooseLocation({
                               success: function (res) {
                                 //上传更新地址的信息
-                                self.updateAddress(res)
+                                self.updateAddress(true, res)
                               },
                             })
                           } else {
@@ -93,51 +94,53 @@ Page({
     }
     //如果关闭展示位置
     else {
-      this.setData({
-        showAddress: false
-      })
+      self.updateAddress(false, "")
     }
   },
 
-  updateAddress: function (address) {
-    console.log("获取位置信息成功：" + JSON.stringify(address))
-    this.setData({
-      showAddress: true,
-      address: address.address + "--" + address.name
+  updateAddress: function (show, address) {
+    console.log("位置信息修改：" + show + "；" + JSON.stringify(address))
+    var self = this
+    wx.request({
+      method: "POST",
+      url: config.addressUrl,
+      data: {
+        openId: util.getOpenId(),
+        showAddress: show,
+        addressData: address
+      },
+      header: {
+        // 'content-type': 'application/x-www-form-urlencoded' // 会将数据转换成 query string
+        'content-type': 'application/json ' // 会对数据进行 JSON 序列化
+      },
+      success: function (res) {
+        console.log("服务器返回：" + JSON.stringify(res.data))
+        if (res.data.code == 200) {
+          self.setData({
+            showAddress: show,
+            address: show ? (address.address + "--" + address.name) : ""
+          })
+
+          //别忘了修改本地文件
+          if (show) {
+            util.setAddressInfo(address)
+          } else {
+            util.removeAddressInfo()
+          }
+        } else {
+          self.updateAddressFail(show)
+        }
+      },
+      fail: function () {
+        self.updateAddressFail(show)
+      }
     })
+  },
 
-    // wx.request({
-    //   method: "POST",
-    //   url: config.registerUrl,
-    //   data: {
-    //     code: res.code,
-    //     userData: self.data.postUserInfo,
-    //     showAddress: self.data.showAddress,
-    //     addressData: self.data.postAddressInfo
-    //   },
-    //   header: {
-    //     // 'content-type': 'application/x-www-form-urlencoded' // 会将数据转换成 query string
-    //     'content-type': 'application/json ' // 会对数据进行 JSON 序列化
-    //   },
-    //   success: function (res) {
-    //     console.log("服务器返回：" + JSON.stringify(res.data))
-    //     self.showDialog(res.data.msg)
-
-    //     if (res.data.code == 200) {
-    //       self.setData({
-    //         showRegister: false
-    //       })
-
-    //       //保存用户信息
-    //       util.setUserInfo(self.data.postUserInfo)
-
-    //       //存储位置信息
-    //       util.setAddressInfo(self.data.postAddressInfo)
-    //     }
-    //   },
-    //   fail: function () {
-    //     self.showDialog("注册遇到了异常，请联系开发者")
-    //   }
-    // })
+  updateAddressFail: function (show) {
+    this.setData({
+      showAddress: !show
+    })
+    util.showDialog("更新地址信息异常，请联系开发者")
   }
 })

@@ -7,8 +7,8 @@
 
   <button wx:if='{{showRegister}}' class='global-button' bindtap='goRegister' hover-class='global-button-hover' hover-start-time='0' hover-stay-time='50'>轮滑爱好者认证</button>
 
-  <view wx:if='{{!showRegister}}' class='block-layout margin-top-30 padding-40'>
-    <view class='linear-layout-vertical'>
+  <view wx:if='{{!showRegister}}' class='block-layout margin-top-30'>
+    <view class='linear-layout-vertical padding-40'>
       <view class='linear-layout-horizontal'>
         <view class='text-title'>展示我的位置信息</view>
         <switch checked='{{showAddress}}' bindchange="locationSwitchChange" />
@@ -16,11 +16,12 @@
       <view class='text-hint'>{{showAddress?address:"开启后，其他用户可以在“附近的人”中查看到我的位置以及基本信息，方便一起玩耍"}}</view>
     </view>
   </view>
-
-  <view class='linear-layout-horizontal service-layout' hover-class='global-hover' hover-start-time='0' hover-stay-time='50'>
+  
+  <button class='button' open-type="contact">联系客服</button>
+  <!-- <view class='linear-layout-horizontal service-layout' hover-class='global-hover' hover-start-time='0' hover-stay-time='50'>
     <image class='icon' src='/res/images/icon-service.svg'></image>
     <button class='button' open-type="contact">联系客服</button>
-  </view>
+  </view> -->
 
   <!-- <view class='linear-layout-vertical margin-top-50'>
     <view class='text-badge'>爱好者认证徽章</view>

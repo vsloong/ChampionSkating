@@ -210,6 +210,15 @@ function setOpenId(openid) {
   })
 }
 
+function showDialog(content) {
+  wx.showModal({
+    title: '温馨提醒',
+    content: content,
+    showCancel: false,
+    confirmText: '我知道了'
+  })
+}
+
 module.exports = {
   formatTime: formatTime,
   updateProgress: updateProgress,
@@ -221,4 +230,5 @@ module.exports = {
   removeAddressInfo: removeAddressInfo,
   setOpenId: setOpenId,
   getOpenId: getOpenId,
+  showDialog: showDialog
 }

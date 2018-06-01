@@ -161,7 +161,7 @@ Page({
             console.log("服务器返回：" + JSON.stringify(res.data))
             self.showDialog(res.data.msg)
 
-            if (res.data.code == 200) {
+            if (res.data.code == 201) {
               self.setData({
                 showRegister: false
               })
