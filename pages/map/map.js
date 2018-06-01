@@ -90,6 +90,13 @@ Page({
               bgColor: "#fff",
               padding: 12
             },
+            user: {
+              nickName: temp.nickName,
+              gender: temp.gender,
+              avatarUrl: temp.avatarUrl,
+              address: temp.address,
+              addressName: temp.addressName,
+            }
             // label:{
             //   content:"不知道是什么",
             //   fontSize: 16,
@@ -114,8 +121,12 @@ Page({
 
   clickCallout: function (res) {
     console.log("点击了气泡：" + JSON.stringify(res))
+    var index = res.markerId
+    var self = this
+    var user = JSON.stringify(self.data.markers[index].user)
+    console.log("地图传来的信息：" + user)
     wx.navigateTo({
-      url: '/pages/personal/personal',
+      url: '/pages/profile/profile?user=' + user,
     })
   }
 })

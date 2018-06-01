@@ -148,6 +148,7 @@ function isSetUserInfo() {
   try {
     var value = wx.getStorageSync(key_user)
     if (value) {
+      console.log("用户信息：" + JSON.stringify(value))
       return true
     } else {
       return false

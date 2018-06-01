@@ -1,0 +1,25 @@
+<!--pages/profile/profile.wxml-->
+<view class='layout-center'>
+
+  <view class='layout-vertical shadow'>
+    <image class="avatar" src='{{avatarUrl}}'></image>
+
+    <view class="text-nickname  {{gender==1?'male':'female'}}">{{nickName}}</view>
+
+    <view wx:if='{{false}}' class="text-gender {{gender==1?'male':'female'}}">{{gender==1?"男":"女"}}</view>
+
+    <view class="text-address">{{address}}</view>
+
+    <view class="text-hint">注意：联系方式暂不公开，抱歉！</view>
+  </view>
+
+  <!-- <view class=''>
+    <image class="avatar" src='{{avatar?avatar:"/res/images/figure0.jpg"}}'></image>
+    <view class='card'>
+      <view class="text-nickname">{{nickname?nickname:"用户昵称"}}</view>
+      <view class="text-gender">{{gender==1?"男":(gender==0?"女":"性别")}}</view>
+      <view wx:if="{{showAddress}}" class='text-gender'>{{address}}</view>
+      <input wx:if="{{showContact}}" class='text-gender' placeholder="建议输入自己的微信号" focus="{{showContact}}" />
+    </view>
+  </view> -->
+</view>

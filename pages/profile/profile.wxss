@@ -1,0 +1,69 @@
+/* pages/profile/profile.wxss */
+
+/* 居中布局 */
+
+.layout-center {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 竖向居中布局 */
+
+.layout-vertical {
+  width: 80%;
+  height: 60%;
+  padding-top: 50rpx;
+  padding-bottom: 50rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 40rpx;
+  align-items: center;
+}
+
+.shadow {
+  box-sizing: border-box;
+  box-shadow: 0rpx 6rpx 24rpx rgba(0, 0, 0, 0.1);
+  border-radius: 18rpx;
+}
+
+.avatar {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+}
+
+.text-nickname {
+  font-size: 56rpx;
+  font-weight: 900;
+}
+
+.female {
+  color: #f6c8f5;
+}
+
+.male {
+  color: #82b4fc;
+}
+
+/* 文字换行并居中  */
+
+.text-address {
+  font-size: 40rpx;
+  color: #666;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.text-hint{
+  font-size: 24rpx;
+  color: #999;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}

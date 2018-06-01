@@ -31,7 +31,7 @@ Page({
   },
 
   onLoad: function (options) {
-
+    // wx.clearStorageSync()
   },
 
   /**
