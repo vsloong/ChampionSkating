@@ -15,7 +15,7 @@
 
 .layout-vertical {
   width: 80%;
-  height: 60%;
+  height: 70%;
   padding-top: 50rpx;
   padding-bottom: 50rpx;
   display: flex;
@@ -23,6 +23,15 @@
   justify-content: space-around;
   padding: 40rpx;
   align-items: center;
+}
+
+.layout-relative {
+  height: 250px;
+  width: 200px;
+  margin: 0, auto;
+  background: #eee;
+  overflow: hidden;
+  position: relative;
 }
 
 .shadow {
@@ -60,10 +69,28 @@
   text-align: center;
 }
 
-.text-hint{
+.text-hint {
   font-size: 24rpx;
   color: #999;
   display: table-cell;
   vertical-align: middle;
   text-align: center;
+}
+
+.type {
+  color: #fff;
+  height: 60rpx;
+  width: 240rpx;
+  position: absolute;
+  right: -20rpx;
+  top: 200rpx;
+  text-align: center;
+  line-height: 60rpx;
+  font-family: "黑体";
+  background-color: #0c60ee;
+   -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg); 
 }

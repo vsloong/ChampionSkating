@@ -18,7 +18,7 @@ Page({
   onLoad: function (options) {
     var self = this
     wx.setNavigationBarTitle({
-      title: "地图找教练"
+      title: "附近的人"
     })
 
     //更新自身位置
@@ -77,18 +77,19 @@ Page({
           //markers的格式
           markers.push({
             id: i,
-            title: "你好" + i,
             longitude: temp.longitude,
             latitude: temp.latitude,
-            iconPath: temp.gender == 1 ? "/res/images/map-avatar-boy.png" : "/res/images/map-avatar-girl.png",
+            iconPath: "/res/images/map-avatar.png",
             width: 48,
             height: 48,
             callout: {
               content: temp.nickName,
-              fontSize: 16,
+              color: "#ffffff",
+              fontSize: 14,
               borderRadius: 12,
-              bgColor: "#fff",
-              padding: 12
+              bgColor: "#000000",
+              textAlign: "center",
+              padding: 6
             },
             user: {
               nickName: temp.nickName,

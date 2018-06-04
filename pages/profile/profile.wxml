@@ -1,6 +1,10 @@
 <!--pages/profile/profile.wxml-->
 <view class='layout-center'>
 
+  <!-- <view class='layout-relative'>
+
+    <view class='type'>爱好者</view> -->
+
   <view class='layout-vertical shadow'>
     <image class="avatar" src='{{avatarUrl}}'></image>
 
@@ -10,8 +14,10 @@
 
     <view class="text-address">{{address}}</view>
 
-    <view class="text-hint">注意：联系方式暂不公开，抱歉！</view>
+    <view class="text-hint">注意：为避免造成不良影响，联系方式暂不提供！</view>
   </view>
+  <!-- </view> -->
+
 
   <!-- <view class=''>
     <image class="avatar" src='{{avatar?avatar:"/res/images/figure0.jpg"}}'></image>
