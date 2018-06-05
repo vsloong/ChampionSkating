@@ -14,6 +14,8 @@
 /* 竖向居中布局 */
 
 .layout-vertical {
+  position: relative;
+  overflow: hidden;
   width: 80%;
   height: 70%;
   padding-top: 50rpx;
@@ -77,17 +79,17 @@
   text-align: center;
 }
 
-.type {
+.label {
+  position: absolute;
+  right:-60rpx;
+  top:40rpx;
   color: #fff;
   height: 60rpx;
-  width: 240rpx;
-  position: absolute;
-  right: -20rpx;
-  top: 200rpx;
+  width: 260rpx;
   text-align: center;
   line-height: 60rpx;
   font-family: "黑体";
-  background-color: #0c60ee;
+  background-color: #82b4fc;
    -moz-transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   -o-transform: rotate(45deg);

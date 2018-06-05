@@ -3,9 +3,11 @@
 
   <!-- <view class='layout-relative'>
 
-    <view class='type'>爱好者</view> -->
+     <view class='type'>爱好者</view>  -->
 
   <view class='layout-vertical shadow'>
+
+    <view class='label'>{{title}}</view>
     <image class="avatar" src='{{avatarUrl}}'></image>
 
     <view class="text-nickname  {{gender==1?'male':'female'}}">{{nickName}}</view>

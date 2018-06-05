@@ -13,6 +13,7 @@ Page({
     loadLocation: false,
     //标记点
     markers: [],
+    circles: [],
   },
 
   onLoad: function (options) {
@@ -35,12 +36,16 @@ Page({
           longitude: longitude,
           latitude: latitude,
           loadLocation: true,
+          circles: [{
+            latitude: latitude,
+            longitude: longitude,
+            fillColor: "#e6e6e699",
+            radius: 5000
+          }]
         })
 
         //联网获取附近的人
         self.getNearbyUser(res)
-
-        console.log("1结果：" + self.data.load)
       }
     })
   },
@@ -70,20 +75,20 @@ Page({
       success: function (res) {
         console.log("测试接口" + JSON.stringify(res.data))
 
-        var data = res.data.data
+        var users = res.data.data
         var markers = []
-        for (var i = 0; i < data.length; i++) {
-          var temp = data[i]
+        for (var i = 0; i < users.length; i++) {
+          var user = users[i]
           //markers的格式
           markers.push({
             id: i,
-            longitude: temp.longitude,
-            latitude: temp.latitude,
+            longitude: user.longitude,
+            latitude: user.latitude,
             iconPath: "/res/images/map-avatar.png",
             width: 48,
             height: 48,
             callout: {
-              content: temp.nickName,
+              content: user.nickName,
               color: "#ffffff",
               fontSize: 14,
               borderRadius: 12,
@@ -91,13 +96,7 @@ Page({
               textAlign: "center",
               padding: 6
             },
-            user: {
-              nickName: temp.nickName,
-              gender: temp.gender,
-              avatarUrl: temp.avatarUrl,
-              address: temp.address,
-              addressName: temp.addressName,
-            }
+            user: user
             // label:{
             //   content:"不知道是什么",
             //   fontSize: 16,

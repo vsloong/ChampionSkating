@@ -1,7 +1,25 @@
-<view class="global-container">
+<view>
 
   <video class="{{gradeIndex==0?'video-hide':'video'}}" src='{{videoUrl}}'>
   </video>
+  <scroll-view style='height:{{scrollHeight}}vh' scroll-y='true'>
+    <view class='content'>
+      <view class='text-name'>{{figureName}}</view>
+      <view class='view-divider'></view>
+      <view class='text-title'>要领</view>
+      <!-- 步骤列表 -->
+      <view class='text-content' wx:for="{{skill}}" wx:for-index="idx" wx:for-item="item" wx:key="unique">
+        <text class='text-point' space='ensp'>· </text> {{item}}
+      </view>
+
+      <view class='text-title margin-top'>注意</view>
+      <!-- 常见错误列表 -->
+      <view class='text-content' wx:for="{{attention}}" wx:for-index="idx" wx:for-item="item" wx:key="unique">
+        <text class='text-point' space='ensp'>· </text> {{item}}
+      </view>
+    </view>
+  </scroll-view>
+
 
   <view class='bottom'>
     <view class='right'>

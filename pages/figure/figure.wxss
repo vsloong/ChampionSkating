@@ -1,22 +1,12 @@
-.global-container {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-  padding: 0;
-  background: #eee;
-}
-
 .video {
   width: 100%;
+  height: 35vh;
 }
 
 .video-hide {
   display: none;
   width: 100%;
+  height: 0;
 }
 
 .button {
@@ -49,16 +39,61 @@
 
 .bottom {
   width: 100%;
-  height: 120rpx;
+  height: 10vh;
   position: fixed;
   bottom: 0;
-  background: #fff;
+  background: #efefef;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
 .right {
   position: fixed;
   right: 0;
+}
+
+.content {
+  padding: 40rpx;
+}
+
+.text-name {
+  font-size: 66rpx;
+  color: #333;
+  font-weight: bolder;
+}
+
+.view-divider {
+  height: 0.5px;
+  background: #efefef;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.text-title {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bolder;
+}
+
+.text-point {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bolder;
+}
+
+.text-content {
+  margin-top: 10rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.margin-top {
+  margin-top: 50rpx;
 }
