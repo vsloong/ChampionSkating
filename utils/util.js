@@ -35,7 +35,7 @@ function updateProgress(gradeIndex, figureIndex, can) {
         grades = res.data
         grades[gradeIndex].figures[figureIndex].can = can
 
-        console.log("更新结果" + gradeIndex + figureIndex + grades[gradeIndex].figures[figureIndex].can)
+        // console.log("更新结果" + gradeIndex + figureIndex + grades[gradeIndex].figures[figureIndex].can)
         // console.log(JSON.stringify(grades))
         wx.setStorage({
           key: key,
@@ -56,10 +56,10 @@ function updateProgress(gradeIndex, figureIndex, can) {
           key: key,
           data: grades,
           success: function () {
-            console.log("添加数据成功")
+            console.log("首次添加数据成功")
           },
           fail: function () {
-            console.log("添加数据失败")
+            console.log("首次添加数据失败")
           }
         })
       }

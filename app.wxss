@@ -74,15 +74,14 @@
   font-size: 32rpx;
 }
 
-.global-hover{
+.global-hover {
   background: #eee;
 }
-
 
 .global-button {
   width: 88%;
   height: 88rpx;
-  margin-top: 80rpx;
+  /* margin-top: 80rpx; */
   box-sizing: border-box;
   border-radius: 44rpx;
   display: flex;
@@ -93,7 +92,9 @@
   color: #fff;
 }
 
-global-button::after {
+/* 去除小程序按钮边框 */
+
+button::after {
   border: 0;
 }
 
@@ -111,9 +112,6 @@ global-button::after {
   color: #fff;
 }
 
-global-button-dis::after {
-  border: 0;
-}
 
 .global-button-hover {
   background: #199659;

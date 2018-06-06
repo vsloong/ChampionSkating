@@ -50,9 +50,12 @@ Page({
       videoUrl: figure.videoUrl,
       can: can,
       figureName: figure.name,
-      scrollHeight: scrollHeight
+      scrollHeight: scrollHeight,
+      // skill: figure.skill ? figure.skill : ["内容正在编辑中，敬请期待"],
+      // attention: figure.attention ? figure.attention : ["内容正在编辑中，敬请期待"],
     })
 
+    //联网获取动作信息
     this.getFigureInfo()
   },
 
@@ -75,6 +78,9 @@ Page({
       url: 'https://easy-mock.com/mock/5b1649566b9c525d07ae12f7/skating/figure?gradeIndex=' + self.data.gradeIndex + "&figureIndex=" + self.data.figureIndex,
       success: function (res) {
         console.log("动作详情：" + JSON.stringify(res.data))
+
+        
+        //更新当前页面数据
         self.setData({
           attention: res.data.data.attention,
           skill: res.data.data.skill,

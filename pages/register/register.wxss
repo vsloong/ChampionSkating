@@ -66,3 +66,7 @@
   color: #666;
   margin-left: 20rpx;
 }
+
+.margin-top-30rpx {
+  margin-top: 30rpx;
+}

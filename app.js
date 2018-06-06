@@ -50,6 +50,15 @@ App({
           other: "外八站立",
           can: false,
           videoUrl: "",
+          skill: [
+            "抬头挺胸",
+            "抬头挺胸"
+          ],
+          attention: [
+            "大步向前",
+            "抬头挺胸",
+            "抬头挺胸"
+          ],
         },
         {
           name: "平行站立",

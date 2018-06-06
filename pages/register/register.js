@@ -175,6 +175,9 @@ Page({
               }
               //保存用户的openid
               util.setOpenId(res.data.openid)
+
+              //返回上一页面
+              //wx.navigateBack()
             }
           },
           fail: function () {

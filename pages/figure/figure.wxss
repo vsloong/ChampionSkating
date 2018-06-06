@@ -9,7 +9,7 @@
   height: 0;
 }
 
-.button {
+.global-button {
   width: 250rpx;
   height: 88rpx;
   margin: 20rpx;
@@ -18,23 +18,6 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-}
-
-.button-primary {
-  background: #01a862;
-}
-
-.button-disabled {
-  background: #eee;
-}
-
-.button-text {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: 36rpx;
-  color: #fff;
 }
 
 .bottom {

@@ -5,7 +5,7 @@
     <open-data class="text-nickname" type="userNickName"></open-data>
   </view>
 
-  <button wx:if='{{showRegister}}' class='global-button' bindtap='goRegister' hover-class='global-button-hover' hover-start-time='0' hover-stay-time='50'>轮滑爱好者认证</button>
+  <button wx:if='{{showRegister}}' class='global-button margin-top-30' bindtap='goRegister' hover-class='global-button-hover' hover-start-time='0' hover-stay-time='50'>轮滑爱好者认证</button>
 
   <view wx:if='{{!showRegister}}' class='block-layout margin-top-30'>
     <view class='linear-layout-vertical padding-40'>
@@ -16,8 +16,8 @@
       <view class='text-hint'>{{showAddress?address:"开启后，其他用户可以在“附近的人”中查看到我的位置以及基本信息，方便一起玩耍"}}</view>
     </view>
   </view>
-  
-  <button class='button' open-type="contact">联系客服</button>
+
+  <button class='service-button' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' open-type="contact">联系客服</button>
   <!-- <view class='linear-layout-horizontal service-layout' hover-class='global-hover' hover-start-time='0' hover-stay-time='50'>
     <image class='icon' src='/res/images/icon-service.svg'></image>
     <button class='button' open-type="contact">联系客服</button>
