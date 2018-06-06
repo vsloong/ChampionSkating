@@ -1,20 +1,20 @@
 <view>
 
-  <video class="{{gradeIndex==0?'video-hide':'video'}}" src='{{videoUrl}}'>
+  <video class="{{gradeIndex==0?'video-hide':'video'}}" src='{{figure.videoUrl}}'>
   </video>
   <scroll-view style='height:{{scrollHeight}}vh' scroll-y='true'>
     <view class='content'>
-      <view class='text-name'>{{figureName}}</view>
+      <view class='text-name'>{{figure.name}}</view>
       <view class='view-divider'></view>
       <view class='text-title'>要领</view>
       <!-- 步骤列表 -->
-      <view class='text-content' wx:for="{{skill}}" wx:for-index="idx" wx:for-item="item" wx:key="unique">
+      <view class='text-content' wx:for="{{figure.skill}}" wx:for-index="idx" wx:for-item="item" wx:key="unique">
         <text class='text-point' space='ensp'>· </text> {{item}}
       </view>
 
       <view class='text-title margin-top'>注意</view>
       <!-- 常见错误列表 -->
-      <view class='text-content' wx:for="{{attention}}" wx:for-index="idx" wx:for-item="item" wx:key="unique">
+      <view class='text-content' wx:for="{{figure.attention}}" wx:for-index="idx" wx:for-item="item" wx:key="unique">
         <text class='text-point' space='ensp'>· </text> {{item}}
       </view>
     </view>
@@ -29,7 +29,7 @@
         </view>
       </view> -->
 
-      <button class="global-button" disabled='{{can}}' bindtap='updateProgress'>{{can?"已会":"我学会了"}}</button>
+      <button class="global-button" disabled='{{figure.can}}' bindtap='updateProgress'>{{figure.can?"已学会":"我学会了"}}</button>
     </view>
 
   </view>

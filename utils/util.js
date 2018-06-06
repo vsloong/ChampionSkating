@@ -19,85 +19,123 @@ const key_user = "user"
 const key_openid = "openid"
 const key_address = "address"
 
+// 判断某一个 Storage 是否存在
+function isStorageSetted(key) {
+  var res = wx.getStorageInfoSync()
+  console.log("本地存储信息：" + JSON.stringify(res))
+  //{"keys":["logs","grades"],"currentSize":21,"limitSize":10240}
+  var keys = res.keys;
+  return keys.indexOf(key) > -1 ? true : false
+}
+
+/**
+ * 存储动作等级的基础信息，方便下一次修改
+ */
+function setGradesStorage() {
+  try {
+    wx.setStorageSync(key_grades, getApp().grades)
+    console.log("首次添加数据成功")
+  } catch (e) {
+    console.log("首次添加数据失败")
+  }
+}
+
 /**
  * 更新学习进度，缓存数据
  */
 function updateProgress(gradeIndex, figureIndex, can) {
+
+  //如果没有缓存信息那么先去缓存数据，然后再取出修改
+  if (!isStorageSetted(key_grades)) {
+    setGradesStorage()
+  }
+
   //如果参数都传递了，才进行值的更改
   if (arguments.length === 3) {
-    console.log("updateProgress()")
-    const key = "grades"
-    var grades
     wx.getStorage({
-      key: key,
+      key: key_grades,
       //已经保存过缓存的数据了
       success: function (res) {
-        grades = res.data
+        var grades = res.data
         grades[gradeIndex].figures[figureIndex].can = can
 
-        // console.log("更新结果" + gradeIndex + figureIndex + grades[gradeIndex].figures[figureIndex].can)
-        // console.log(JSON.stringify(grades))
         wx.setStorage({
-          key: key,
+          key: key_grades,
           data: grades,
           success: function () {
-            console.log("更新数据成功")
+            console.log("更新进度数据成功")
           },
           fail: function () {
-            console.log("更新数据失败")
+            console.log("更新进度数据失败")
           }
         })
       },
       //之前还未保存过缓存数据
       fail: function () {
-        grades = getApp().grades
-        grades[gradeIndex].figures[figureIndex].can = can
-        wx.setStorage({
-          key: key,
-          data: grades,
-          success: function () {
-            console.log("首次添加数据成功")
-          },
-          fail: function () {
-            console.log("首次添加数据失败")
-          }
-        })
+        console.log("获取存储信息数据失败，key：" + key_grades)
       }
     })
   }
 }
 
+function updateFigureInfo(gradeIndex, figureIndex, figure) {
+  //如果没有缓存信息那么先去缓存数据，然后再取出修改
+  if (!isStorageSetted(key_grades)) {
+    setGradesStorage()
+  }
 
+  wx.getStorage({
+    key: key_grades,
+    //已经保存过缓存的数据了
+    success: function (res) {
+      var grades = res.data
+      grades[gradeIndex].figures[figureIndex].version = figure.version
+      grades[gradeIndex].figures[figureIndex].skill = figure.skill
+      grades[gradeIndex].figures[figureIndex].attention = figure.attention
+
+      wx.setStorage({
+        key: key_grades,
+        data: grades,
+        success: function () {
+          console.log("更新动作信息数据成功：" + JSON.stringify(grades[gradeIndex].figures[figureIndex]))
+
+        },
+        fail: function () {
+          console.log("更新动作信息数据失败")
+        }
+      })
+    },
+    //之前还未保存过缓存数据
+    fail: function () {
+      console.log("获取存储信息数据失败，key：" + key_grades)
+    }
+  })
+}
+
+/**
+ * 获取学习进度
+ */
 function getProgress(gradeIndex, figureIndex) {
   console.log("getProgress()")
   var total = 0
   var progress = 0
   var grades
 
-  try {
-    var temp = wx.getStorageSync("grades")
-    // console.log("等级数据" + JSON.stringify(temp))
-    if (!temp) {
-      grades = getApp().grades
-      for (var i = 0; i < grades.length; i++) {
-        total += grades[i].figures.length
-      }
-      if (arguments.length === 2) {
-        return false
-      } else {
-        return { grades: grades, total: total, progress: progress }
-      }
-    } else {
-      grades = temp
-      // console.log("等级数据" + JSON.stringify(grades))
-    }
-  } catch (e) {
-    console.log("同步获取等级数据错误")
+  if (isStorageSetted(key_grades)) {
+    grades = wx.getStorageSync(key_grades)
+  } else {
+    //存储等级基本信息，等级进度默认都是0
+    setGradesStorage()
+
     grades = getApp().grades
     for (var i = 0; i < grades.length; i++) {
       total += grades[i].figures.length
     }
-    return { grades: grades, total: total, progress: progress }
+    if (arguments.length === 2) {
+      return false
+    } else {
+      return { grades: grades, total: total, progress: progress }
+    }
   }
 
   //没有参数则代表要获取所有的进度
@@ -131,6 +169,9 @@ function getProgress(gradeIndex, figureIndex) {
   }
 }
 
+/**
+ * 添加用户基本信息
+ */
 function setUserInfo(userInfo) {
   wx.setStorage({
     key: key_user,
@@ -223,6 +264,7 @@ function showDialog(content) {
 module.exports = {
   formatTime: formatTime,
   updateProgress: updateProgress,
+  updateFigureInfo: updateFigureInfo,
   getProgress: getProgress,
   setUserInfo: setUserInfo,
   isSetUserInfo: isSetUserInfo,

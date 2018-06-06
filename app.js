@@ -48,112 +48,86 @@ App({
         {
           name: "V字站立",
           other: "外八站立",
-          can: false,
           videoUrl: "",
-          skill: [
-            "抬头挺胸",
-            "抬头挺胸"
-          ],
-          attention: [
-            "大步向前",
-            "抬头挺胸",
-            "抬头挺胸"
-          ],
         },
         {
           name: "平行站立",
           other: "",
-          can: false,
           videoUrl: "",
         },
         {
           name: "A字站立",
           other: "内八站立",
-          can: false,
           videoUrl: "",
         },
         {
           name: "扶膝抬脚",
           other: "",
-          can: false,
           videoUrl: "",
         },
         {
           name: "提膝抬脚",
           other: "",
-          can: false,
           videoUrl: "",
         },
         {
           name: "横向侧行",
           other: "",
-          can: false,
           videoUrl: "",
         },
         {
           name: "扶膝踏步前行",
           other: "",
-          can: false,
           videoUrl: "",
         },
         {
           name: "背手踏步前行",
           other: "",
-          can: false,
           videoUrl: "",
         },
         {
           name: "原地蹬收脚",
           other: "",
-          can: false,
           videoUrl: "",
         },
         {
           name: "扶膝单侧蹬收脚滑行",
           other: "",
-          can: false,
           videoUrl: "",
         },
         {
           name: "背手蹬收脚滑行",
           other: "",
-          can: false,
           videoUrl: "",
         },
         {
           name: "摆臂蹬收脚滑行",
           other: "",
-          can: false,
           videoUrl: "",
         },
         {
           name: "画葫芦向前",
           other: "",
-          can: false,
           videoUrl: "",
         },
         {
           name: "画葫芦向后",
           other: "",
-          can: false,
           videoUrl: "",
         },
         {
           name: "A形刹车",
           other: "",
-          can: false,
           videoUrl: "",
         },
         {
           name: "T形刹车",
           other: "",
-          can: false,
           videoUrl: "",
         },
         {
           name: "后铲刹车",
           other: "",
-          can: false,
           videoUrl: "",
         },
       ]
