@@ -12,7 +12,6 @@ Page({
     scrollHeight: 0,
     figure: {
       name: "",
-      other: "",
       videoUrl: "",
       can: false,
       version: 100,
@@ -51,7 +50,6 @@ Page({
         self.setData({
           figure: {
             name: figure.name,
-            other: figure.other,
             videoUrl: figure.videoUrl,
             can: figure.can ? figure.can : self.data.figure.can,
             version: figure.version ? figure.version : self.data.figure.version,

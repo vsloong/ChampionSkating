@@ -81,18 +81,26 @@
 
 .label {
   position: absolute;
-  right:-60rpx;
-  top:40rpx;
+  right: -60rpx;
+  top: 40rpx;
   color: #fff;
   height: 60rpx;
   width: 260rpx;
   text-align: center;
   line-height: 60rpx;
   font-family: "黑体";
-  background-color: #82b4fc;
-   -moz-transform: rotate(45deg);
+  background-color: #f6c8f5;
+  -moz-transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
-  transform: rotate(45deg); 
+  transform: rotate(45deg);
+}
+
+.label-color-male {
+  background-color: #82b4fc;
+}
+
+.lable-color-female {
+  background-color: #f6c8f5;
 }

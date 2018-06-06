@@ -1,13 +1,7 @@
-<!--pages/profile/profile.wxml-->
 <view class='layout-center'>
 
-  <!-- <view class='layout-relative'>
-
-     <view class='type'>爱好者</view>  -->
-
   <view class='layout-vertical shadow'>
-
-    <view class='label'>{{title}}</view>
+    <view class="label {{gender==1?'label-color-male':'label-color-female'}}">{{title}}</view>
     <image class="avatar" src='{{avatarUrl}}'></image>
 
     <view class="text-nickname  {{gender==1?'male':'female'}}">{{nickName}}</view>
@@ -16,18 +10,6 @@
 
     <view class="text-address">{{address}}</view>
 
-    <view class="text-hint">注意：为避免造成不良影响，联系方式暂不提供！</view>
+    <view class="text-hint">注：联系方式稍后提供！</view>
   </view>
-  <!-- </view> -->
-
-
-  <!-- <view class=''>
-    <image class="avatar" src='{{avatar?avatar:"/res/images/figure0.jpg"}}'></image>
-    <view class='card'>
-      <view class="text-nickname">{{nickname?nickname:"用户昵称"}}</view>
-      <view class="text-gender">{{gender==1?"男":(gender==0?"女":"性别")}}</view>
-      <view wx:if="{{showAddress}}" class='text-gender'>{{address}}</view>
-      <input wx:if="{{showContact}}" class='text-gender' placeholder="建议输入自己的微信号" focus="{{showContact}}" />
-    </view>
-  </view> -->
 </view>
