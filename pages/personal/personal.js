@@ -43,57 +43,17 @@ Page({
     if (e.detail.value) {
       wx.chooseLocation({
         success: function (res) {
+          console.log("获取地址信息成功：" + JSON.stringify(res))
           //上传更新地址的信息
           self.updateAddress(true, res)
         },
         fail: function (res) {
-          wx.getSetting({
-            success: function (res) {
-              var statu = res.authSetting;
-              if (!statu['scope.userLocation']) {
-                //第一次请求获取授权
-                wx.showModal({
-                  title: '是否授权当前位置',
-                  content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
-                  success: function (tip) {
-                    if (tip.confirm) {
-                      wx.openSetting({
-                        success: function (data) {
-                          if (data.authSetting["scope.userLocation"] === true) {
-                            //授权成功之后，再调用chooseLocation选择地方
-                            wx.chooseLocation({
-                              success: function (res) {
-                                //上传更新地址的信息
-                                self.updateAddress(true, res)
-                              },
-                            })
-                          } else {
-                            wx.showModal({
-                              title: '权限获取失败',
-                              content: '您未给该程序授权获取地理位置信息，请授权后在进行尝试',
-                              showCancel: false,
-                              confirmText: "我知道了"
-                            })
-                          }
-                        }
-                      })
-                    }
-                  }
-                })
-              }
-            },
-            fail: function (res) {
-
-              wx.showModal({
-                title: '权限获取失败',
-                content: '当前微信版本过低，请升级微信后在进行尝试',
-                showCancel: false,
-                confirmText: "我知道了"
-              })
-
-            }
-          })
-
+          console.log("获取地址信息失败：" + JSON.stringify(res))
+          self.updateAddressFail(true, '请点击下方“权限管理”按钮进入设置页面并允许“使用我的地理位置”')
+        },
+        cancel: function () {
+          console.log("取消了")
+          self.updateAddressFail(true, "您取消了位置选择")
         }
       })
     }
@@ -102,6 +62,66 @@ Page({
       self.updateAddress(false, "")
     }
   },
+
+  // locationSwitchChange: function (e) {
+  //   console.log("开关事件：" + e.detail.value)
+  //   var self = this
+  //   if (e.detail.value) {
+  //     wx.chooseLocation({
+  //       success: function (res) {
+  //         //上传更新地址的信息
+  //         self.updateAddress(true, res)
+  //       },
+  //       fail: function (res) {
+  //         wx.getSetting({
+  //           success: function (res) {
+  //             var statu = res.authSetting;
+  //             if (!statu['scope.userLocation']) {
+  //               //第一次请求获取授权
+  //               wx.showModal({
+  //                 title: '是否授权当前位置',
+  //                 content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
+  //                 success: function (tip) {
+  //                   if (tip.confirm) {
+  //                     wx.openSetting({
+  //                       success: function (data) {
+  //                         if (data.authSetting["scope.userLocation"] === true) {
+  //                           //授权成功之后，再调用chooseLocation选择地方
+  //                           wx.chooseLocation({
+  //                             success: function (res) {
+  //                               //上传更新地址的信息
+  //                               self.updateAddress(true, res)
+  //                             },
+  //                             cancel: function () {
+  //                               self.updateAddressFail(true, "cancel您取消了位置选择")
+  //                             }
+  //                           })
+  //                         } else {
+  //                           self.updateAddressFail(true, "您未给该程序授权获取地理位置信息，请授权后在进行尝试")
+  //                         }
+  //                       }
+  //                     })
+  //                   } else {
+  //                     self.updateAddressFail(true, "您未给该程序授权获取地理位置信息，请授权后在进行尝试")
+  //                   }
+  //                 },
+
+  //               })
+  //             }
+  //           },
+  //           fail: function (res) {
+  //             self.updateAddressFail(true, "您未给该程序授权获取地理位置信息，请授权后在进行尝试")
+  //           }
+  //         })
+
+  //       }
+  //     })
+  //   }
+  //   //如果关闭展示位置
+  //   else {
+  //     self.updateAddress(false, "")
+  //   }
+  // },
 
   updateAddress: function (show, address) {
     console.log("位置信息修改：" + show + "；" + JSON.stringify(address))
@@ -133,7 +153,7 @@ Page({
             util.removeAddressInfo()
           }
         } else {
-          self.updateAddressFail(show,"更新位置信息失败")
+          self.updateAddressFail(show, "更新位置信息失败")
         }
       },
       fail: function () {
@@ -143,6 +163,7 @@ Page({
   },
 
   updateAddressFail: function (show, msg) {
+    console.log("更新位置失败执行这里")
     this.setData({
       showAddress: !show
     })

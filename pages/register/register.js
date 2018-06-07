@@ -5,18 +5,9 @@ var util = require('../../utils/util.js')
 Page({
 
   data: {
-    avatar: "",
-    nickname: "",
-    gender: 2,            //0：女；1：男；2性别
-    address: "",
-    contact: "",
-
-    showContact: false,    //控制联系方式的隐藏
-    showAddress: false,   //控制地址栏的隐藏
     showRegister: true,
-
     postUserInfo: {},
-    postAddressInfo: {},
+    code: ""
   },
 
   onLoad: function (options) {
@@ -25,108 +16,18 @@ Page({
     })
   },
 
-  chooseLocation: function () {
-    var self = this
-    if (this.data.showAddress) {
-      this.setData({
-        showAddress: false,
-        address: ""
-      })
-
-      //删除存储的位置信息
-      util.removeAddressInfo()
-    } else {
-      wx.chooseLocation({
-        success: function (res) {
-          console.log("获取位置信息成功：" + JSON.stringify(res))
-          self.setData({
-            address: res.address,
-            showAddress: true,
-            postAddressInfo: res
-          })
-
-        },
-        fail: function (res) {
-          wx.getSetting({
-            success: function (res) {
-              var statu = res.authSetting;
-              if (!statu['scope.userLocation']) {
-                wx.showModal({
-                  title: '是否授权当前位置',
-                  content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
-                  success: function (tip) {
-                    if (tip.confirm) {
-                      wx.openSetting({
-                        success: function (data) {
-                          if (data.authSetting["scope.userLocation"] === true) {
-                            //授权成功之后，再调用chooseLocation选择地方
-                            wx.chooseLocation({
-                              success: function (res) {
-                                console.log("获取位置信息成功：" + JSON.stringify(res))
-                                self.setData({
-                                  address: res.address,
-                                  showAddress: true,
-                                  postAddressInfo: res
-                                })
-                              },
-                            })
-                          } else {
-                            wx.showToast({
-                              title: '授权失败',
-                              icon: 'success',
-                              duration: 1000
-                            })
-                            console.log("获取位置信息失败：" + JSON.stringify(res))
-                            self.setData({
-                              showAddress: false
-                            })
-                          }
-                        }
-                      })
-                    }
-                  }
-                })
-              }
-            },
-            fail: function (res) {
-              wx.showToast({
-                title: '调用授权窗口失败',
-                icon: 'success',
-                duration: 1000
-              })
-              console.log("获取位置信息失败：" + JSON.stringify(res))
-              self.setData({
-                showAddress: false
-              })
-            }
-          })
-
-        }
-      })
-    }
-  },
-
-  showContactInput: function () {
-    this.setData({
-      showContact: !this.data.showContact
-    })
-  },
-
   getUserInfo: function () {
     var self = this
     wx.getUserInfo({
-      withCredentials: true,
+      withCredentials: true,//要求此前有调用过 wx.login 且登录态尚未过期
       success: function (res) {
         console.log("获取用户微信基本信息成功：" + JSON.stringify(res))
         self.setData({
-          avatar: res.userInfo.avatarUrl,
-          nickname: res.userInfo.nickName,
-          gender: res.userInfo.gender,
           postUserInfo: res
         })
 
         //获取完微信信息后直接去注册
-        self.register()
+        self.request()
       },
       fail: function (res) {
         console.log("获取用户微信基本信息成功：" + JSON.stringify(res))
@@ -140,72 +41,64 @@ Page({
     wx.login({
       success: function (res) {
         console.log("获取微信登录数据成功：" + JSON.stringify(res.code))
-        wx.request({
-          method: "POST",
-          url: config.registerUrl,
-          data: {
-            code: res.code,
-            userData: self.data.postUserInfo,
-            showAddress: self.data.showAddress,
-            addressData: self.data.postAddressInfo
-          },
-          header: {
-            // 'content-type': 'application/x-www-form-urlencoded' // 会将数据转换成 query string
-            'content-type': 'application/json ' // 会对数据进行 JSON 序列化
-          },
-          success: function (res) {
-            console.log("服务器返回：" + JSON.stringify(res.data))
-            if (res.data.code == 201 || res.data.code == 200) {
-              self.setData({
-                showRegister: false
-              })
-
-              //保存用户信息
-              util.setUserInfo(self.data.postUserInfo)
-
-              //存储位置信息
-              if (self.data.showAddress) {
-                util.setAddressInfo(self.data.postAddressInfo)
-              }
-              //保存用户的openid
-              util.setOpenId(res.data.openid)
-
-              //展示相应的信息，确定后返回上一页面，
-              wx.showModal({
-                title: '温馨提醒',
-                content: res.data.msg,
-                showCancel: false,
-                success: function (res) {
-                  //无论点击的哪里都要返回上一页面
-                  wx.navigateBack()
-                }
-              })
-
-            }
-          },
-          fail: function () {
-            self.showDialog("网络请求异常，请检查网络连接后重新尝试")
-          }
+        self.setData({
+          code: res.code
         })
+        self.getUserInfo();
       }
     })
   },
 
-  locationQuestion: function () {
-    wx.showModal({
-      title: '展示位置信息需知',
-      content: '1、完成注册后可以在“附近玩轮滑的人”中查看到自己的定位信息；\r\n2、如果认证了教练的话那么周围的人有意愿学习轮滑就可以直接联系你啦',
-      showCancel: false,
-      confirmText: "我知道了"
-    })
-  },
+  request: function () {
+    var self = this
+    wx.request({
+      method: "POST",
+      url: config.registerUrl,
+      data: {
+        code: self.data.code,
+        userData: self.data.postUserInfo,
+      },
+      header: {
+        // 'content-type': 'application/x-www-form-urlencoded' // 会将数据转换成 query string
+        'content-type': 'application/json ' // 会对数据进行 JSON 序列化
+      },
+      success: function (res) {
+        console.log("服务器返回：" + JSON.stringify(res.data))
+        if (res.data.code == 201 || res.data.code == 200) {
+          self.setData({
+            showRegister: false
+          })
 
-  contactQuestion: function () {
-    wx.showModal({
-      title: '展示联系方式需知',
-      content: '展示自己的联系方式信息后附近和你一起志同道合的小伙伴就可以很方便的联系你了',
-      showCancel: false,
-      confirmText: "我知道了"
+          //保存用户信息，其实这里基本没用
+          util.setUserInfo(self.data.postUserInfo)
+          //保存用户的openid
+          util.setOpenId(res.data.openid)
+          //如果是已注册用户判断是否需要保存地址信息
+          if (res.data.code == 201 && res.data.user.showAddress == 1) {
+            //其实也就是需要一个地址跟地址名就好
+            var address = new Object()
+            address.name = res.data.user.addressName
+            address.address = res.data.user.address
+            util.setAddressInfo(address)
+          }
+
+          //展示相应的信息，确定后返回上一页面，
+          wx.showModal({
+            title: '温馨提醒',
+            content: res.data.msg,
+            showCancel: false,
+            success: function (res) {
+              //无论点击的哪里都要返回上一页面
+              wx.navigateBack()
+            }
+          })
+        } else {
+          self.showDialog(res.data.msg)
+        }
+      },
+      fail: function () {
+        self.showDialog("网络请求异常，请检查网络连接后重新尝试")
+      }
     })
   },
 

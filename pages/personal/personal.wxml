@@ -1,6 +1,7 @@
 <!--pages/personal/personal.wxml-->
 <view class='global-container-nopadding'>
   <view class='linear-layout-vertical center padding-top-30 background-white'>
+
     <open-data class="avatar" type="userAvatarUrl" mode='scaleToFill'></open-data>
     <open-data class="text-nickname" type="userNickName"></open-data>
   </view>
@@ -17,7 +18,9 @@
     </view>
   </view>
 
-  <button class='service-button' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' open-type="contact">联系客服</button>
+  <button class='service-button margin-top-30' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' open-type="contact">联系客服</button>
+  <view class='divider'></view>
+  <button class='service-button' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' open-type="openSetting">权限管理</button>
   <!-- <view class='linear-layout-horizontal service-layout' hover-class='global-hover' hover-start-time='0' hover-stay-time='50'>
     <image class='icon' src='/res/images/icon-service.svg'></image>
     <button class='button' open-type="contact">联系客服</button>
