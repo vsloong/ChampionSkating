@@ -17,19 +17,21 @@ Page({
   },
 
   onShow: function () {
-    var isSetUserInfo = util.isSetUserInfo()
+    //如果本地没有存储openid那么就展示认证按钮
+    var showRegister = util.isStorageSetted(getApp().data.key_openid)
     this.setData({
-      showRegister: !isSetUserInfo
+      showRegister: !showRegister
     })
 
     var addressInfo = util.getAddressInfo()
     var openid = util.getOpenId()
     console.log("地址信息：" + JSON.stringify(addressInfo))
     console.log("openid" + JSON.stringify(openid))
-    if (addressInfo) {//判断数据不为空
+
+    //当获取地址失败或者没有存储地址信息（即获取的地址信息为""）时都不会展示
+    if (addressInfo) {
       this.setData({
         showAddress: true,
-        showRegister: !isSetUserInfo,
         address: addressInfo.address + "--" + addressInfo.name
       })
     }
@@ -49,6 +51,7 @@ Page({
             success: function (res) {
               var statu = res.authSetting;
               if (!statu['scope.userLocation']) {
+                //第一次请求获取授权
                 wx.showModal({
                   title: '是否授权当前位置',
                   content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
@@ -80,12 +83,14 @@ Page({
               }
             },
             fail: function (res) {
+
               wx.showModal({
                 title: '权限获取失败',
                 content: '当前微信版本过低，请升级微信后在进行尝试',
                 showCancel: false,
                 confirmText: "我知道了"
               })
+
             }
           })
 
@@ -128,19 +133,19 @@ Page({
             util.removeAddressInfo()
           }
         } else {
-          self.updateAddressFail(show)
+          self.updateAddressFail(show,"更新位置信息失败")
         }
       },
       fail: function () {
-        self.updateAddressFail(show)
+        self.updateAddressFail(show, "更新位置信息失败，请检查网络连接后重试")
       }
     })
   },
 
-  updateAddressFail: function (show) {
+  updateAddressFail: function (show, msg) {
     this.setData({
       showAddress: !show
     })
-    util.showDialog("更新地址信息异常，请联系开发者")
-  }
+    util.showDialog(msg)
+  },
 })

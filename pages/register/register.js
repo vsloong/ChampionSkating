@@ -116,12 +116,8 @@ Page({
     var self = this
     wx.getUserInfo({
       withCredentials: true,
-      lang: '',
       success: function (res) {
-
-        console.log("获取微信数据成功：" + JSON.stringify(res))
-        // console.log( JSON.stringify(res.userInfo))
-
+        console.log("获取用户微信基本信息成功：" + JSON.stringify(res))
         self.setData({
           avatar: res.userInfo.avatarUrl,
           nickname: res.userInfo.nickName,
@@ -133,7 +129,7 @@ Page({
         self.register()
       },
       fail: function (res) {
-        console.log("获取微信数据失败：" + JSON.stringify(res))
+        console.log("获取用户微信基本信息成功：" + JSON.stringify(res))
         self.showDialog("认证失败，请允许获取微信相关的信息")
       },
     })
@@ -143,7 +139,7 @@ Page({
     var self = this
     wx.login({
       success: function (res) {
-        //console.log("获取微信登录数据成功：" + JSON.stringify(res.code))
+        console.log("获取微信登录数据成功：" + JSON.stringify(res.code))
         wx.request({
           method: "POST",
           url: config.registerUrl,
@@ -159,8 +155,6 @@ Page({
           },
           success: function (res) {
             console.log("服务器返回：" + JSON.stringify(res.data))
-            self.showDialog(res.data.msg)
-
             if (res.data.code == 201 || res.data.code == 200) {
               self.setData({
                 showRegister: false
@@ -176,12 +170,21 @@ Page({
               //保存用户的openid
               util.setOpenId(res.data.openid)
 
-              //返回上一页面
-              //wx.navigateBack()
+              //展示相应的信息，确定后返回上一页面，
+              wx.showModal({
+                title: '温馨提醒',
+                content: res.data.msg,
+                showCancel: false,
+                success: function (res) {
+                  //无论点击的哪里都要返回上一页面
+                  wx.navigateBack()
+                }
+              })
+
             }
           },
           fail: function () {
-            self.showDialog("注册遇到了异常，请联系开发者")
+            self.showDialog("网络请求异常，请检查网络连接后重新尝试")
           }
         })
       }
