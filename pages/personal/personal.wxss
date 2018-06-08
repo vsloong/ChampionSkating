@@ -1,5 +1,12 @@
 /* pages/personal/personal.wxss */
 
+/* 设置页面背景色 */
+
+page {
+  background: #f6f7f9;
+  height: 100%;
+}
+
 .block-layout {
   width: 100%;
   display: flex;
@@ -88,8 +95,18 @@
   color: #666;
 }
 
+.text-input {
+  /* width: 80%; */
+  font-size: 36rpx;
+  color: #666;
+}
+
 .margin-top-30 {
   margin-top: 30rpx;
+}
+
+.margin-top-10 {
+  margin-top: 10rpx;
 }
 
 .padding-top-30 {
@@ -97,7 +114,6 @@
 }
 
 .icon {
-  margin-left: 40rpx;
   width: 50rpx;
   height: 50rpx;
 }

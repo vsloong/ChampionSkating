@@ -7,7 +7,12 @@ Page({
   data: {
     showRegister: false,
     showAddress: false,   //是否展示地址
-    address: ""
+    address: "",
+    showContact: false,
+    showInput: false,     //展示输入框
+    showText: false,      //展示文本
+    contact: "",
+    tempContact: ""
   },
 
   goRegister: function (event) {
@@ -33,6 +38,15 @@ Page({
       this.setData({
         showAddress: true,
         address: addressInfo.address + "--" + addressInfo.name
+      })
+    }
+
+    var contactInfo = "这里是微信号啊"
+    if (contactInfo) {
+      this.setData({
+        showContact: true,
+        showText: true,
+        contact: contactInfo
       })
     }
   },
@@ -63,65 +77,115 @@ Page({
     }
   },
 
-  // locationSwitchChange: function (e) {
-  //   console.log("开关事件：" + e.detail.value)
-  //   var self = this
-  //   if (e.detail.value) {
-  //     wx.chooseLocation({
-  //       success: function (res) {
-  //         //上传更新地址的信息
-  //         self.updateAddress(true, res)
-  //       },
-  //       fail: function (res) {
-  //         wx.getSetting({
-  //           success: function (res) {
-  //             var statu = res.authSetting;
-  //             if (!statu['scope.userLocation']) {
-  //               //第一次请求获取授权
-  //               wx.showModal({
-  //                 title: '是否授权当前位置',
-  //                 content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
-  //                 success: function (tip) {
-  //                   if (tip.confirm) {
-  //                     wx.openSetting({
-  //                       success: function (data) {
-  //                         if (data.authSetting["scope.userLocation"] === true) {
-  //                           //授权成功之后，再调用chooseLocation选择地方
-  //                           wx.chooseLocation({
-  //                             success: function (res) {
-  //                               //上传更新地址的信息
-  //                               self.updateAddress(true, res)
-  //                             },
-  //                             cancel: function () {
-  //                               self.updateAddressFail(true, "cancel您取消了位置选择")
-  //                             }
-  //                           })
-  //                         } else {
-  //                           self.updateAddressFail(true, "您未给该程序授权获取地理位置信息，请授权后在进行尝试")
-  //                         }
-  //                       }
-  //                     })
-  //                   } else {
-  //                     self.updateAddressFail(true, "您未给该程序授权获取地理位置信息，请授权后在进行尝试")
-  //                   }
-  //                 },
+  /**
+   * 选择展示联系方式
+   */
+  contactSwitchChange: function (e) {
+    console.log("开关事件：" + e.detail.value)
+    var self = this
+    if (e.detail.value) {
+      this.setData({
+        showInput: true,
+        showText: false,
+      })
+    } else {
+      //如果本来是展示状态，那么现在需要联网去关闭
+      if (this.data.showContact) {
+        console.log("之前是展示状态，现在需要联网关闭")
+        this.setData({
+          showContact: false,
+          showInput: false,
+          showText: false
+        })
+      }
+      //否则直接关闭即可
+      else {
+        console.log("之前是不展示状态，现在直接关闭了")
+        this.setData({
+          showContact: false,
+          showInput: false,
+          showText: false
+        })
+      }
 
-  //               })
-  //             }
-  //           },
-  //           fail: function (res) {
-  //             self.updateAddressFail(true, "您未给该程序授权获取地理位置信息，请授权后在进行尝试")
-  //           }
-  //         })
+    }
+    // this.setData({
+    //   showContact: e.detail.value
+    // })
+  },
 
-  //       }
-  //     })
-  //   }
-  //   //如果关闭展示位置
-  //   else {
-  //     self.updateAddress(false, "")
-  //   }
-  // },
+  isShowInput: function (e) {
+    console.log("按钮点击事件：" + JSON.stringify(e.target.id))
+    var self = this
+    switch (e.target.id) {
+      case "image-edit-show":
+        //如果已经是展示输入框的状态那么就不让点击这里
+        // this.setData({
+        //   showInput: false
+        // })
+        break
+      case "image-edit-hidden":
+        this.setData({
+          showInput: true,
+          showText: false,
+        })
+        break
+      case "image-edit-cancel":
+        //如果原来是展示状态，那么直接关闭输入框
+        if (this.data.showContact) {
+          console.log("之前是展示状态，直接关闭输入框，展示文本框")
+          this.setData({
+            showContact: true,
+            showInput: false,
+            showText: true
+          })
+        } else {
+          //如果原来是不展示状态，那么全部关闭
+          this.setData({
+            showContact: false,
+            showInput: false,
+            showText: false
+          })
+        }
+
+        break
+      case "image-edit-confirm":
+        if (this.data.tempContact.length > 0 && this.data.tempContact.length < 30) {
+          //确认开启或者修改联系信息，联网请求
+
+
+          this.setData({
+            contact: this.data.tempContact,
+            showContact: true,
+            showInput: false,
+            showText: true
+          })
+        }
+        else {
+          wx.showModal({
+            title: '温馨提示',
+            content: '字符串限制为0-30个，请您规范输入',
+            showCancel: false,
+            confirmText: "我知道了"
+          })
+        }
+
+        break
+      default:
+        break
+    }
+  },
+
+  /**
+   * 输入监听
+   */
+  bindContactInput: function (e) {
+    var temp = e.detail.value
+    console.log(temp.length)
+    this.setData({
+      tempContact: temp
+    })
+  },
 
   updateAddress: function (show, address) {
     console.log("位置信息修改：" + show + "；" + JSON.stringify(address))
