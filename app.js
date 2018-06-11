@@ -46,15 +46,15 @@ App({
           videoUrl: "",
         },
         {
+          name: "T字站立",
+          videoUrl: "",
+        },
+        {
           name: "扶膝抬脚",
           videoUrl: "",
         },
         {
           name: "提膝抬脚",
-          videoUrl: "",
-        },
-        {
-          name: "横向侧行",
           videoUrl: "",
         },
         {
@@ -167,19 +167,19 @@ App({
       name: "初级",
       figures: [
         {
-          name: "疯狂绕单桩",
+          name: "Crazy绕单桩",
           videoUrl: "http://p8wmn2ucc.bkt.clouddn.com/video/skating13%E3%80%81Crazy%E7%BB%95%E5%8D%95%E6%A1%A9%EF%BC%88one%20cone%20crazy%EF%BC%89%2000_00_07-.mp4",
         },
         {
-          name: "疯狂",
+          name: "Crazy",
           videoUrl: "http://p8wmn2ucc.bkt.clouddn.com/video/skating14%E3%80%81%E7%96%AF%E7%8B%82%EF%BC%88crazy%EF%BC%89%2000_00_07-.mp4",
         },
         {
-          name: "伏特",
+          name: "Volt",
           videoUrl: "http://p8wmn2ucc.bkt.clouddn.com/video/skating15%E3%80%81%E4%BC%8F%E7%89%B9%EF%BC%88volt%E5%9C%86%E8%A7%84%EF%BC%89%2000_00_07-.mp4",
         },
         {
-          name: "Fan伏特",
+          name: "Fan Volt",
           videoUrl: "http://p8wmn2ucc.bkt.clouddn.com/video/skating22%E3%80%81Fan%20volt%EF%BC%88%E5%8F%8D%E5%9C%86%E8%A7%84%EF%BC%89%2000_00_07-.mp4",
         },
         {
@@ -260,7 +260,7 @@ App({
           videoUrl: "http://p8wmn2ucc.bkt.clouddn.com/video/skating32%E3%80%81%E7%8E%9B%E4%B8%BD%E5%90%91%E5%90%8E%EF%BC%88heel%20toe%20backward%EF%BC%89%2000_00_07-.mp4",
         },
         {
-          name: "玛丽Speci",
+          name: "玛丽Special",
           videoUrl: "http://p8wmn2ucc.bkt.clouddn.com/video/skating33%E3%80%81%E7%8E%9B%E4%B8%BDSpecial%2000_00_07-.mp4",
         },
         {
