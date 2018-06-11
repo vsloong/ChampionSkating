@@ -46,6 +46,18 @@ Page({
 
         //联网获取附近的人
         self.getNearbyUser(res)
+      },
+      //如果没有给获取地理位置权限，那么就退出地图功能
+      fail: function () {
+        wx.showModal({
+          title: '温馨提示',
+          content: '请进入个人中心点击“权限管理”进入设置页面并允许“使用我的地理位置”',
+          showCancel: false,
+          confirmText: "我知道了",
+          complete: function () {
+            wx.navigateBack()
+          }
+        })
       }
     })
   },

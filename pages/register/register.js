@@ -82,6 +82,11 @@ Page({
             util.setAddressInfo(address)
           }
 
+          //判断是否保存联系信息
+          if (res.data.code == 201 && res.data.user.showContact == 1) {
+            util.setContactInfo(res.data.user.contact)
+          }
+
           //展示相应的信息，确定后返回上一页面，
           wx.showModal({
             title: '温馨提醒',

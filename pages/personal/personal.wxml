@@ -8,7 +8,7 @@
 
   <button wx:if='{{showRegister}}' class='global-button margin-top-30' bindtap='goRegister' hover-class='global-button-hover' hover-start-time='0' hover-stay-time='50'>轮滑爱好者认证</button>
 
-  <view wx:if='{{!false}}' class='block-layout margin-top-30'>
+  <view wx:if='{{!showRegister}}' class='block-layout margin-top-30'>
     <view class='linear-layout-vertical padding-40'>
       <view class='linear-layout-horizontal'>
         <view class='text-title'>展示我的位置信息</view>
@@ -18,22 +18,22 @@
     </view>
   </view>
   <view class='divider'></view>
-  <view wx:if='{{!false}}' class='block-layout'>
+  <view wx:if='{{!showRegister}}' class='block-layout'>
     <view class='linear-layout-vertical padding-40'>
       <view class='linear-layout-horizontal'>
         <view class='text-title'>展示我的联系方式</view>
         <switch checked='{{showContact}}' bindchange="contactSwitchChange" />
       </view>
       <view wx:if="{{!showContact}}" class='text-hint'>{{showContact?address:"开启后，输入自己的联系方式，其他用户可以在“附近的人”中查看到我的联系方式"}}</view>
-      <view wx:if="{{showInput}}" class='linear-layout-horizontal margin-top-10'>
+      <view wx:if="{{showInput}}" class='linear-layout-horizontal height'>
         <image id="image-edit-show" class="icon" src='/res/images/personal-edit.svg' bindtap='isShowInput'> </image>
-        <input class='text-input' bindinput="bindContactInput" placeholder='例如输入微信：xxx'></input>
+        <input class='text-input' bindinput="bindContactInput" placeholder='如输入【微信号：xxx】'></input>
         <image id="image-edit-cancel" bindtap='isShowInput' class='icon' src='/res/images/personal-cancel.svg'></image>
         <image id="image-edit-confirm" bindtap='isShowInput' class='icon' src='/res/images/personal-confirm.svg'></image>
       </view>
-      <view wx:if="{{showText}}" class='linear-layout-horizontal margin-top-10'>
+      <view wx:if="{{showText}}" class='contact-layout height'>
         <image id="image-edit-hidden" class="icon" src='/res/images/personal-edit.svg' bindtap='isShowInput'> </image>
-        <text class='text-input'>{{contact}}</text>
+        <text class='text-input margin-left-20'>{{contact}}</text>
       </view>
     </view>
   </view>

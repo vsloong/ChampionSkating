@@ -26,10 +26,13 @@ page {
   align-items: center;
 }
 
-.user-layout {
+.height {
+  height: 100rpx;
+}
+
+.contact-layout {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -89,9 +92,13 @@ page {
 }
 
 .text-hint {
+  display: flex;
+  flex-direction: row;
   width: 100%;
-  margin-top: 10rpx;
+  height: 100rpx;
+  margin-top: 20rpx;
   font-size: 32rpx;
+  align-items: center;
   color: #666;
 }
 
@@ -105,8 +112,8 @@ page {
   margin-top: 30rpx;
 }
 
-.margin-top-10 {
-  margin-top: 10rpx;
+.margin-left-20 {
+  margin-left: 20rpx;
 }
 
 .padding-top-30 {

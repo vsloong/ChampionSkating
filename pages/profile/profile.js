@@ -10,6 +10,7 @@ Page({
     gender: 0,
     avatarUrl: "",
     address: "",
+    contact: "这是联系方式啊"
   },
 
   /**
@@ -42,6 +43,7 @@ Page({
       gender: user.gender,
       nickName: user.nickName,
       address: user.address + "--" + user.addressName,
+      contact: user.contact,
       title: title
     })
   },

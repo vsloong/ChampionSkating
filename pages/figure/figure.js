@@ -44,18 +44,28 @@ Page({
       success: function (res) {
         var grades = res.data
         var figure = grades[gradeIndex].figures[figureIndex]
-        console.log("本地缓存figure内容：" + JSON.stringify(figure))
+        console.log("本地缓存figure基础内容：" + JSON.stringify(figure))
 
         wx.setNavigationBarTitle({ title: figure.name })
         self.setData({
-          figure: {
-            name: figure.name,
-            videoUrl: figure.videoUrl,
-            can: figure.can ? figure.can : self.data.figure.can,
-            version: figure.version ? figure.version : self.data.figure.version,
-            skill: figure.skill ? figure.skill : self.data.figure.skill,
-            attention: figure.attention ? figure.attention : self.data.figure.attention
-          }
+          "figure.name": figure.name,
+          "figure.videoUrl": figure.videoUrl,
+          "figure.can": figure.can ? figure.can : self.data.figure.can,
+        })
+      },
+    })
+
+    wx.getStorage({
+      key: 'grade' + this.data.gradeIndex,
+      success: function (res) {
+        var grade = res.data
+        var figure = grade.figures[figureIndex]
+        console.log("本地缓存figure技能内容：" + JSON.stringify(figure))
+
+        self.setData({
+          "figure.version": figure.version ? figure.version : self.data.figure.version,
+          "figure.skill": figure.skill ? figure.skill : self.data.figure.skill,
+          "figure.attention": figure.attention ? figure.attention : self.data.figure.attention
         })
       },
     })

@@ -10,6 +10,8 @@
 
     <view class="text-address">{{address}}</view>
 
-    <view class="text-hint">注：联系方式稍后提供！</view>
+    <view wx:if="{{contact}}" class="text-contact">{{contact}}</view>
+
   </view>
+  <view class="text-hint">注：非诚勿扰，请不要随意骚扰他人！</view>
 </view>

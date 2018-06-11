@@ -71,12 +71,26 @@
   text-align: center;
 }
 
+.text-contact {
+  font-size: 32rpx;
+  color: #666;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
 .text-hint {
   font-size: 24rpx;
   color: #999;
   display: table-cell;
   vertical-align: middle;
   text-align: center;
+  position: absolute;
+  right: 0rpx;
+  left: 0rpx;
+  bottom: 0rpx;
+  line-height: 60rpx;
+  font-family: "黑体";
 }
 
 .label {
