@@ -4,3 +4,4 @@
 
 ## 程序示例图
 ![image](./res/pictures/home.jpg)  ![image](./res/pictures/grade.jpg)
+![image](./res/pictures/map.jpg)  ![image](./res/pictures/profile.jpg)
