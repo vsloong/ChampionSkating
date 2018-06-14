@@ -273,7 +273,7 @@ Page({
   updateContactFail: function (show, msg) {
     console.log("更新位置失败执行这里")
     this.setData({
-      showAddress: !show
+      showContact: !show
     })
     util.showDialog(msg)
   },
