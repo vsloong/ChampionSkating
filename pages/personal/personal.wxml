@@ -40,6 +40,8 @@
 
   <button class='service-button margin-top-30' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' open-type="contact">联系客服</button>
   <view class='divider'></view>
+  <button class='service-button' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' open-type="feedback">建议反馈</button>
+  <view class='divider'></view>
   <button class='service-button' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' open-type="openSetting">权限管理</button>
   <!-- <view class='linear-layout-horizontal service-layout' hover-class='global-hover' hover-start-time='0' hover-stay-time='50'>
     <image class='icon' src='/res/images/icon-service.svg'></image>
