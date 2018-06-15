@@ -2,11 +2,11 @@
 <view class="global-container">
   <!-- <view class='global-hint'>该轮滑动作分级表目前只为各位轮滑爱好者提供参考，并不作为真实考核</view> -->
 
-  <view class="global-block column">
+  <view class="global-block column" bindtap='goPersonal'>
 
     <view class='global-item-column'>
 
-      <view class='left' bindtap='goPersonal'>
+      <view class='left'>
         <open-data class="avatar" type="userAvatarUrl"></open-data>
       </view>
 
