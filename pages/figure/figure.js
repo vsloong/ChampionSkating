@@ -13,6 +13,7 @@ Page({
     figure: {
       name: "",
       videoUrl: "",
+      vid: "",
       can: false,
       version: 100,
       skill: ["程序员小哥哥跟轮滑小姐姐正在加紧配合完善中，请耐心等待"],
@@ -20,7 +21,7 @@ Page({
     }
   },
 
-  onLoad: function (options) {
+  onLoad: function(options) {
     var gradeIndex = options.grade;
     var figureIndex = options.figure;
     var self = this
@@ -39,14 +40,17 @@ Page({
       scrollHeight: scrollHeight,
     })
 
+    //从本地加载数据
     wx.getStorage({
       key: 'grades',
-      success: function (res) {
+      success: function(res) {
         var grades = res.data
         var figure = grades[gradeIndex].figures[figureIndex]
         console.log("本地缓存figure基础内容：" + JSON.stringify(figure))
 
-        wx.setNavigationBarTitle({ title: figure.name })
+        wx.setNavigationBarTitle({
+          title: figure.name
+        })
         self.setData({
           "figure.name": figure.name,
           "figure.videoUrl": figure.videoUrl,
@@ -57,13 +61,14 @@ Page({
 
     wx.getStorage({
       key: 'grade' + this.data.gradeIndex,
-      success: function (res) {
+      success: function(res) {
         var grade = res.data
         var figure = grade.figures[figureIndex]
         console.log("本地缓存figure技能内容：" + JSON.stringify(figure))
 
         self.setData({
           "figure.version": figure.version ? figure.version : self.data.figure.version,
+          "figure.vid": figure.vid ? figure.vid : self.data.figure.vid,
           "figure.skill": figure.skill ? figure.skill : self.data.figure.skill,
           "figure.attention": figure.attention ? figure.attention : self.data.figure.attention
         })
@@ -75,7 +80,7 @@ Page({
   },
 
   //按钮点击执行
-  updateProgress: function () {
+  updateProgress: function() {
     util.updateProgress(this.data.gradeIndex, this.data.figureIndex, true)
     this.setData({
       //只将figuer对象的can属性刷新
@@ -91,14 +96,14 @@ Page({
   },
 
   //加载完成后自动执行获取最新动作信息
-  getFigureInfo: function () {
+  getFigureInfo: function() {
     var self = this
     var url = 'https://easy-mock.com/mock/5b1649566b9c525d07ae12f7/skating/figure?gradeIndex=' + self.data.gradeIndex + "&figureIndex=" + self.data.figureIndex
 
     console.log("请求的url：" + url)
     wx.request({
       url: url,
-      success: function (res) {
+      success: function(res) {
         console.log("网络获取figure内容：" + JSON.stringify(res.data))
         var figure = res.data.data;
         //version为100表示当前动作信息等还未编辑
@@ -115,7 +120,7 @@ Page({
           util.updateFigureInfo(self.data.gradeIndex, self.data.figureIndex, figure)
         }
       },
-      fail: function () {
+      fail: function() {
         console.log("动作详情获取失败")
       }
     })

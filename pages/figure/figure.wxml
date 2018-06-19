@@ -2,6 +2,8 @@
 
   <video class="{{gradeIndex==0?'video-hide':'video'}}" src='{{figure.videoUrl}}'>
   </video>
+
+  <tx-video class="{{gradeIndex==0?'video-hide':'video'}}" vid="{{figure.vid}}" autoplay='true'></tx-video>
   <scroll-view style='height:{{scrollHeight}}vh' scroll-y='true'>
     <view class='content'>
       <view class='text-name'>{{figure.name}}</view>
