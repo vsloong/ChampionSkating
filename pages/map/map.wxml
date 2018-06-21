@@ -1,7 +1,3 @@
-<!--pages/map.wxml-->
 <view>
-<map id="map" wx:if="{{loadLocation}}" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" markers="{{markers}}"  show-location style="width: 100%; height: 100vh"
-bindmarkertap='clickMarker' bindcallouttap='clickCallout'></map>
-
- <!-- <button bindtap='chooseLocation'>位置选择</button>  -->
+  <map id="map" wx:if="{{loadLocation}}" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" markers="{{markers}}" circles='{{circles}}' show-location style="width: 100%; height: 100vh" bindmarkertap='clickMarker' bindcallouttap='clickCallout'></map>
 </view>

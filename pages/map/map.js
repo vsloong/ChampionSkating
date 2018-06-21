@@ -39,7 +39,8 @@ Page({
           circles: [{
             latitude: latitude,
             longitude: longitude,
-            fillColor: "#e6e6e699",
+            fillColor: "#87cefa88",
+            //默认5km半径
             radius: 5000
           }]
         })

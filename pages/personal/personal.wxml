@@ -38,33 +38,9 @@
     </view>
   </view>
 
-  <button class='service-button margin-top-30' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' open-type="contact">联系客服</button>
-  <view class='divider'></view>
+   <button class='service-button margin-top-30' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' open-type="contact">联系客服</button>
+  <view class='divider'></view> 
   <button class='service-button' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' open-type="feedback">建议反馈</button>
   <view class='divider'></view>
   <button class='service-button' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' open-type="openSetting">权限管理</button>
-  <!-- <view class='linear-layout-horizontal service-layout' hover-class='global-hover' hover-start-time='0' hover-stay-time='50'>
-    <image class='icon' src='/res/images/icon-service.svg'></image>
-    <button class='button' open-type="contact">联系客服</button>
-  </view> -->
-
-  <!-- <view class='linear-layout-vertical margin-top-50'>
-    <view class='text-badge'>爱好者认证徽章</view>
-    <view class='linear-layout-horizontal'>
-      <image class="badge" src='/res/images/badge-66.svg'></image>
-    </view>
-  </view>
-  <view class='linear-layout-vertical margin-top-50'>
-    <view class='text-badge'>教练认证徽章</view>
-    <view class='linear-layout-horizontal'>
-      <image class="badge" src='/res/images/badge-coach-chu.svg'></image>
-      <image class="badge" src='/res/images/badge-coach-zhong.svg'></image>
-      <image class="badge" src='/res/images/badge-coach-gao.svg'></image>
-    </view>
-  </view>
-
-
-  <contact-button type="default-dark" size="20" session-from="weapp">
-    客服按钮
-  </contact-button> -->
 </view>

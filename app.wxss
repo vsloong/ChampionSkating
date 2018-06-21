@@ -1,5 +1,13 @@
 /**app.wxss**/
-
+/**
+,
+  "plugins": {
+    "tencentVideo": {
+      "version": "1.0.5",
+      "provider": "wxa75efa648b60994b"
+    }
+  }
+*/
 .global-container {
   height: 100%;
   display: flex;
