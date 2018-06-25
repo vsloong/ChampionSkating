@@ -3,9 +3,7 @@
   <!-- <view class='global-hint'>该轮滑动作分级表目前只为各位轮滑爱好者提供参考，并不作为真实考核</view> -->
 
   <view class="global-block column" bindtap='goPersonal'>
-
     <view class='global-item-column'>
-
       <view class='left'>
         <open-data class="avatar" type="userAvatarUrl"></open-data>
       </view>
@@ -20,9 +18,18 @@
         </view>
       </view>
     </view>
+  </view>
 
+  <view class='layout-row margin-top-15'>
+    <view class='layout-column' bindtap='goMap'>
+      <image class='image-ic' src='/res/images/ic_nearby.jpg'></image>
+      <view class='text-ic margin-top-10'>附近的人</view>
+    </view>
 
-
+    <view class='layout-column'>
+      <image class='image-ic' src='/res/images/ic_activity.jpg'></image>
+      <view class='text-ic  margin-top-10'>线下活动</view>
+    </view>
   </view>
 
   <!-- 下面是一个循环 -->
@@ -37,7 +44,7 @@
   </view>
 
 
-  <view class="global-block column margin-top-15" hover-class='global-hover' hover-start-time='0' hover-stay-time='50' bindtap='goMap'>
+  <!-- <view class="global-block column margin-top-15" hover-class='global-hover' hover-start-time='0' hover-stay-time='50' bindtap='goMap'>
     附近玩轮滑的人
-  </view>
+  </view> -->
 </view>

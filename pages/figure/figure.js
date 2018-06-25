@@ -16,8 +16,10 @@ Page({
       vid: "",
       can: false,
       version: 100,
-      skill: ["程序员小哥哥跟轮滑小姐姐正在加紧配合完善中，请耐心等待"],
-      attention: ["程序员小姐姐跟轮滑小哥哥正在加紧配合完善中，请耐心等待"]
+      skill: [],
+      attention: [],
+      skillTemp: ["程序员小哥哥跟轮滑小姐姐正在加紧配合完善中，请耐心等待"],
+      attentionTemp: ["程序员小姐姐跟轮滑小哥哥正在加紧配合完善中，请耐心等待"]
     }
   },
 
@@ -54,6 +56,7 @@ Page({
         self.setData({
           "figure.name": figure.name,
           "figure.videoUrl": figure.videoUrl,
+          "figure.vid": figure.vid ? figure.vid : self.data.figure.vid,
           "figure.can": figure.can ? figure.can : self.data.figure.can,
         })
       },
@@ -68,11 +71,16 @@ Page({
 
         self.setData({
           "figure.version": figure.version ? figure.version : self.data.figure.version,
-          "figure.vid": figure.vid ? figure.vid : self.data.figure.vid,
-          "figure.skill": figure.skill ? figure.skill : self.data.figure.skill,
-          "figure.attention": figure.attention ? figure.attention : self.data.figure.attention
+          "figure.skill": figure.skill ? figure.skill : self.data.figure.skillTemp,
+          "figure.attention": figure.attention ? figure.attention : self.data.figure.attentionTemp
         })
       },
+      fail: function() {
+        self.setData({
+          "figure.skill": self.data.figure.skillTemp,
+          "figure.attention": self.data.figure.attentionTemp
+        })
+      }
     })
 
     //联网获取动作信息
