@@ -40,8 +40,8 @@ Page({
             latitude: latitude,
             longitude: longitude,
             fillColor: "#87cefa88",
-            //默认5km半径
-            radius: 5000
+            //默认20km半径
+            radius: 20000
           }]
         })
 

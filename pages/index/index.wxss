@@ -52,23 +52,40 @@ page {
 }
 
 .layout-row {
+  margin-left: 45rpx;
+  margin-right: 45rpx;
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .layout-column {
+  width: 48%;
+  height: 250rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.circle {
+  border-radius: 30rpx;
+  box-shadow: 0rpx 6rpx 24rpx rgba(0, 0, 0, 0.1);
+}
+
 .image-ic {
-  width: 200rpx;
-  height: 200rpx;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  /* margin: 15rpx 15rpx 0rpx 15rpx;  *//* margin:上 右 下 左 */
+  border-radius: 30rpx 30rpx 15rpx 15rpx;
 }
 
 .text-ic {
-  font-size: 32rpx;
+  color: #333;
+  font-size: 30rpx;
+  margin: 16rpx;
 }

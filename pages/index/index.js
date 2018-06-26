@@ -11,33 +11,42 @@ Page({
     progress: 0
   },
 
-  goGrade: function (event) {
+  goGrade: function(event) {
     var grade = event.currentTarget.dataset.grade
     wx.navigateTo({
       url: '../grade/grade?grade=' + grade,
     })
   },
 
-  goMap: function (event) {
+  goMap: function(event) {
     wx.navigateTo({
       url: '../map/map',
     })
   },
 
-  goPersonal: function (event) {
+  goPersonal: function(event) {
     wx.navigateTo({
       url: '../personal/personal',
     })
   },
 
-  onLoad: function (options) {
+  goActivity: function() {
+    wx.showModal({
+      title: '温馨提示',
+      content: '该功能暂未开放，敬请期待',
+      showCancel: false,
+      confirmText: '我知道了'
+    })
+  },
+
+  onLoad: function(options) {
     // wx.clearStorageSync()
   },
 
   /**
    * 每次新展示页面就刷新下进度
    */
-  onShow: function () {
+  onShow: function() {
     var data = util.getProgress()
     this.setData({
       total: data.total,
@@ -45,7 +54,7 @@ Page({
     })
   },
 
-  onShareAppMessage: function (options) {
+  onShareAppMessage: function(options) {
     return {
       title: "轮滑平花进阶教学",
       path: "/pages/index/index"
