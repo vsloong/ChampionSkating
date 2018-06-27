@@ -9,14 +9,14 @@ Page({
    */
   data: {
     longitude: 0, //中心经度
-    latitude: 0,  //	中心纬度
+    latitude: 0, //	中心纬度
     loadLocation: false,
     //标记点
     markers: [],
     circles: [],
   },
 
-  onLoad: function (options) {
+  onLoad: function(options) {
     var self = this
     wx.setNavigationBarTitle({
       title: "附近的人"
@@ -25,7 +25,7 @@ Page({
     //更新自身位置
     wx.getLocation({
       type: 'gcj02',
-      success: function (res) {
+      success: function(res) {
         var latitude = res.latitude
         var longitude = res.longitude
         var speed = res.speed
@@ -39,7 +39,7 @@ Page({
           circles: [{
             latitude: latitude,
             longitude: longitude,
-            fillColor: "#87cefa88",
+            fillColor: "#418be211",
             //默认20km半径
             radius: 20000
           }]
@@ -49,13 +49,13 @@ Page({
         self.getNearbyUser(res)
       },
       //如果没有给获取地理位置权限，那么就退出地图功能
-      fail: function () {
+      fail: function() {
         wx.showModal({
           title: '温馨提示',
           content: '请进入个人中心点击“权限管理”进入设置页面并允许“使用我的地理位置”',
           showCancel: false,
           confirmText: "我知道了",
-          complete: function () {
+          complete: function() {
             wx.navigateBack()
           }
         })
@@ -63,17 +63,17 @@ Page({
     })
   },
 
-  chooseLocation: function () {
+  chooseLocation: function() {
     var self = this
     wx.chooseLocation({
-      success: function (res) {
+      success: function(res) {
         console.log("地理位置信息：" + JSON.stringify(res))
         self.getNearbyUser(res)
       },
     })
   },
 
-  getNearbyUser: function (addressData) {
+  getNearbyUser: function(addressData) {
     var self = this
     //获取附近的好友
     wx.request({
@@ -85,7 +85,7 @@ Page({
       header: {
         'content-type': 'application/json ' // 会对数据进行 JSON 序列化
       },
-      success: function (res) {
+      success: function(res) {
         console.log("测试接口" + JSON.stringify(res.data))
 
         var users = res.data.data
@@ -98,8 +98,8 @@ Page({
             longitude: user.longitude,
             latitude: user.latitude,
             iconPath: "/res/images/map-avatar.png",
-            width: 48,
-            height: 48,
+            width: 45,
+            height: 45,
             callout: {
               content: user.nickName,
               color: "#ffffff",
@@ -128,11 +128,11 @@ Page({
     })
   },
 
-  clickMarker: function (res) {
+  clickMarker: function(res) {
     console.log("点击了标记点+" + JSON.stringify(res))
   },
 
-  clickCallout: function (res) {
+  clickCallout: function(res) {
     console.log("点击了气泡：" + JSON.stringify(res))
     var index = res.markerId
     var self = this
