@@ -33,6 +33,11 @@
       <image class='image-ic' src='/res/images/ic-activity.png' mode='aspectFill'></image>
       <view class='text-ic'>线下活动</view>
     </view>
+
+    <view class='layout-column circle' bindtap='goActivity'>
+      <image class='image-ic' src='/res/images/ic-nearby.png' mode='aspectFill'></image>
+      <view class='text-ic'>兼职教练</view>
+    </view>
   </view>
 
   <!-- 下面是一个循环 -->

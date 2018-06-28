@@ -61,7 +61,7 @@ page {
 }
 
 .layout-column {
-  width: 48%;
+  width: 30%;
   height: 250rpx;
   display: flex;
   flex-direction: column;

@@ -6,22 +6,22 @@ Page({
 
   data: {
     showRegister: false,
-    showAddress: false,   //是否展示地址
+    showAddress: false, //是否展示地址
     address: "",
     showContact: false,
-    showInput: false,     //展示输入框
-    showText: false,      //展示文本
+    showInput: false, //展示输入框
+    showText: false, //展示文本
     contact: "",
     tempContact: ""
   },
 
-  goRegister: function (event) {
+  goRegister: function(event) {
     wx.navigateTo({
       url: '../register/register',
     })
   },
 
-  onShow: function () {
+  onShow: function() {
     //如果本地没有存储openid那么就展示认证按钮
     var showRegister = util.isStorageSetted(getApp().data.key_openid)
     this.setData({
@@ -51,21 +51,21 @@ Page({
     }
   },
 
-  locationSwitchChange: function (e) {
+  locationSwitchChange: function(e) {
     console.log("开关事件：" + e.detail.value)
     var self = this
     if (e.detail.value) {
       wx.chooseLocation({
-        success: function (res) {
+        success: function(res) {
           console.log("获取地址信息成功：" + JSON.stringify(res))
           //上传更新地址的信息
           self.updateAddress(true, res)
         },
-        fail: function (res) {
+        fail: function(res) {
           console.log("获取地址信息失败：" + JSON.stringify(res))
           self.updateAddressFail(true, '请点击下方“权限管理”按钮进入设置页面并允许“使用我的地理位置”')
         },
-        cancel: function () {
+        cancel: function() {
           console.log("取消了")
           self.updateAddressFail(true, "您取消了位置选择")
         }
@@ -80,7 +80,7 @@ Page({
   /**
    * 选择展示联系方式
    */
-  contactSwitchChange: function (e) {
+  contactSwitchChange: function(e) {
     console.log("开关事件：" + e.detail.value)
     var self = this
     if (e.detail.value) {
@@ -110,7 +110,7 @@ Page({
     // })
   },
 
-  isShowInput: function (e) {
+  isShowInput: function(e) {
     console.log("按钮点击事件：" + JSON.stringify(e.target.id))
     var self = this
     switch (e.target.id) {
@@ -147,8 +147,7 @@ Page({
         if (this.data.tempContact.length > 0 && this.data.tempContact.length < 30) {
           //确认开启或者修改联系信息，联网请求
           this.updateContact(true)
-        }
-        else {
+        } else {
           wx.showModal({
             title: '温馨提示',
             content: '字符串限制为0-30个，请您规范输入',
@@ -166,7 +165,7 @@ Page({
   /**
    * 输入监听
    */
-  bindContactInput: function (e) {
+  bindContactInput: function(e) {
     var temp = e.detail.value
     console.log(temp.length)
     this.setData({
@@ -174,7 +173,7 @@ Page({
     })
   },
 
-  updateContact: function (show) {
+  updateContact: function(show) {
     var self = this
     wx.request({
       method: "POST",
@@ -187,10 +186,10 @@ Page({
       header: {
         'content-type': 'application/json ' // 会对数据进行 JSON 序列化
       },
-      fail: function () {
+      fail: function() {
         self.updateContactFail(show, "更新联系方式失败，请检查网络连接后重试")
       },
-      success: function (res) {
+      success: function(res) {
         console.log("服务器返回：" + JSON.stringify(res.data))
         if (res.data.code == 200) {
           if (show) {
@@ -223,7 +222,7 @@ Page({
     })
   },
 
-  updateAddress: function (show, address) {
+  updateAddress: function(show, address) {
     console.log("位置信息修改：" + show + "；" + JSON.stringify(address))
     var self = this
     wx.request({
@@ -238,7 +237,7 @@ Page({
         // 'content-type': 'application/x-www-form-urlencoded' // 会将数据转换成 query string
         'content-type': 'application/json ' // 会对数据进行 JSON 序列化
       },
-      success: function (res) {
+      success: function(res) {
         console.log("服务器返回：" + JSON.stringify(res.data))
         if (res.data.code == 200) {
           self.setData({
@@ -256,13 +255,13 @@ Page({
           self.updateAddressFail(show, "更新位置信息失败")
         }
       },
-      fail: function () {
+      fail: function() {
         self.updateAddressFail(show, "更新位置信息失败，请检查网络连接后重试")
       }
     })
   },
 
-  updateAddressFail: function (show, msg) {
+  updateAddressFail: function(show, msg) {
     console.log("更新位置失败执行这里")
     this.setData({
       showAddress: !show
@@ -270,11 +269,25 @@ Page({
     util.showDialog(msg)
   },
 
-  updateContactFail: function (show, msg) {
+  updateContactFail: function(show, msg) {
     console.log("更新位置失败执行这里")
     this.setData({
       showContact: !show
     })
     util.showDialog(msg)
   },
+
+  clearCache: function() {
+    wx.removeStorage({
+      key: 'grades',
+      success: function(res) {
+        wx.showModal({
+          title: '温馨提示',
+          content: '等级信息已清空',
+          showCancel: false,
+          confirmText: "我知道了"
+        })
+      },
+    })
+  }
 })

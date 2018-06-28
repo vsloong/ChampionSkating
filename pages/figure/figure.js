@@ -13,7 +13,7 @@ Page({
     figure: {
       name: "",
       videoUrl: "",
-      vid: "e0686q34mz7", //需要设置一个默认的vid否则组件报错，但是不影响运行
+      vid: "", //需要设置一个默认的vid否则组件报错，但是不影响运行
       can: false,
       version: 100,
       skill: [],
