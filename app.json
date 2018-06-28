@@ -13,5 +13,11 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "轮滑平花进阶教学",
     "navigationBarTextStyle": "black"
+  },
+  "plugins": {
+    "tencentVideo": {
+      "version": "1.0.5",
+      "provider": "wxa75efa648b60994b"
+    }
   }
 }

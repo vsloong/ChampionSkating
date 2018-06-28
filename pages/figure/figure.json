@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "tx-video": "plugin://tencentVideo/video"
+  }
+}
