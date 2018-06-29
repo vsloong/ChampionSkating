@@ -97,9 +97,9 @@ Page({
             id: i,
             longitude: user.longitude,
             latitude: user.latitude,
-            iconPath: "/res/images/map-avatar.png",
-            width: 45,
-            height: 45,
+            iconPath: user.gender == 0 ? "/res/images/map-avatar-girl.png" : "/res/images/map-avatar-boy.png",
+            width: 46,
+            height: 46,
             callout: {
               content: user.nickName,
               color: "#ffffff",

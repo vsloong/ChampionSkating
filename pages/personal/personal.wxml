@@ -14,10 +14,19 @@
         <view class='text-title'>展示我的位置信息</view>
         <switch checked='{{showAddress}}' bindchange="locationSwitchChange" />
       </view>
-      <view class='text-hint'>{{showAddress?address:"开启后，其他用户可以在“附近的人”中查看到我的位置以及基本信息"}}</view>
+      <view wx:if="{{!showAddress}}" class='text-hint'>开启后，其他用户可以在“附近的人”中查看到我的位置以及基本信息</view>
+      <view wx:if="{{showAddress}}" class='contact-layout height'>
+        <view class='icon'>
+          <image class="icon" src='/res/images/personal-edit.svg' bindtap='chooseLocation'> </image>
+        </view>
+
+        <text class='text-input margin-left-20'>{{address}}</text>
+      </view>
     </view>
   </view>
+
   <view class='divider'></view>
+
   <view wx:if='{{!showRegister}}' class='block-layout'>
     <view class='linear-layout-vertical padding-40'>
       <view class='linear-layout-horizontal'>
@@ -26,23 +35,33 @@
       </view>
       <view wx:if="{{!showContact}}" class='text-hint'>{{showContact?address:"开启后，输入自己的联系方式，其他用户可以在“附近的人”中查看到我的联系方式"}}</view>
       <view wx:if="{{showInput}}" class='linear-layout-horizontal height'>
-        <image id="image-edit-show" class="icon" src='/res/images/personal-edit.svg' bindtap='isShowInput'> </image>
-        <input class='text-input' bindinput="bindContactInput" placeholder='如输入【微信号：xxx】'></input>
-        <image id="image-edit-cancel" bindtap='isShowInput' class='icon' src='/res/images/personal-cancel.svg'></image>
-        <image id="image-edit-confirm" bindtap='isShowInput' class='icon' src='/res/images/personal-confirm.svg'></image>
+        <view class='icon'>
+          <image id="image-edit-show" class="icon" src='/res/images/personal-edit.svg' bindtap='isShowInput'> </image>
+        </view>
+        <view class='margin-left-20'>
+          <input class='text-input' bindinput="bindContactInput" placeholder='如输入【微信号：xxx】'></input>
+        </view>
+        <view class='icon margin-left-20'>
+          <image id="image-edit-cancel" bindtap='isShowInput' class='icon' src='/res/images/personal-cancel.png'></image>
+        </view>
+        <view class='icon margin-left-20'>
+          <image id="image-edit-confirm" bindtap='isShowInput' class='icon' src='/res/images/personal-confirm.png'></image>
+        </view>
       </view>
       <view wx:if="{{showText}}" class='contact-layout height'>
-        <image id="image-edit-hidden" class="icon" src='/res/images/personal-edit.svg' bindtap='isShowInput'> </image>
+        <view class='icon'>
+          <image id="image-edit-hidden" class="icon" src='/res/images/personal-edit.svg' bindtap='isShowInput'> </image>
+        </view>
         <text class='text-input margin-left-20'>{{contact}}</text>
       </view>
     </view>
   </view>
 
-   <button class='service-button margin-top-30' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' open-type="contact">联系客服</button>
-  <view class='divider'></view> 
+  <button class='service-button margin-top-30' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' open-type="contact">联系客服</button>
+  <view class='divider'></view>
   <button class='service-button' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' open-type="feedback">建议反馈</button>
   <view class='divider'></view>
   <button class='service-button' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' open-type="openSetting">权限管理</button>
-  <view class='divider'></view>
-  <button class='service-button' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' bindtap='clearCache'>清理缓存</button>
+  <!-- <view class='divider'></view>
+  <button class='service-button' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' bindtap='clearCache'>清理缓存</button> -->
 </view>

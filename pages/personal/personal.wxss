@@ -27,7 +27,7 @@ page {
 }
 
 .height {
-  height: 100rpx;
+  height: 110rpx;
 }
 
 .contact-layout {
@@ -104,7 +104,7 @@ page {
 
 .text-input {
   /* width: 80%; */
-  font-size: 36rpx;
+  font-size: 34rpx;
   color: #666;
 }
 
@@ -121,8 +121,8 @@ page {
 }
 
 .icon {
-  width: 50rpx;
-  height: 50rpx;
+  width: 55rpx;
+  height: 55rpx;
 }
 
 .service-button {

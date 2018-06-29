@@ -78,6 +78,20 @@ Page({
   },
 
   /**
+   * 选择位置
+   */
+  chooseLocation: function() {
+    var self = this
+    wx.chooseLocation({
+      success: function(res) {
+        console.log("获取地址信息成功：" + JSON.stringify(res))
+        //上传更新地址的信息
+        self.updateAddress(true, res)
+      }
+    })
+  },
+
+  /**
    * 选择展示联系方式
    */
   contactSwitchChange: function(e) {
@@ -278,16 +292,23 @@ Page({
   },
 
   clearCache: function() {
-    wx.removeStorage({
-      key: 'grades',
-      success: function(res) {
-        wx.showModal({
-          title: '温馨提示',
-          content: '等级信息已清空',
-          showCancel: false,
-          confirmText: "我知道了"
-        })
-      },
+    wx.clearStorage()
+    wx.showModal({
+      title: '温馨提示',
+      content: '等级信息已清空',
+      showCancel: false,
+      confirmText: "我知道了"
     })
+    // wx.removeStorage({
+    //   key: 'grades',
+    //   success: function(res) {
+    //     wx.showModal({
+    //       title: '温馨提示',
+    //       content: '等级信息已清空',
+    //       showCancel: false,
+    //       confirmText: "我知道了"
+    //     })
+    //   },
+    // })
   }
 })

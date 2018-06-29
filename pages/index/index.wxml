@@ -24,9 +24,7 @@
   <view class='layout-row margin-top-15'>
     <view class="layout-column circle" bindtap='goMap'>
       <image class='image-ic' src='/res/images/ic-nearby.png' mode='aspectFill'></image>
-      <view class="text-ic">
-        附近的人
-      </view>
+      <view class="text-ic">附近的人</view>
     </view>
 
     <view class='layout-column circle' bindtap='goActivity'>
@@ -35,7 +33,7 @@
     </view>
 
     <view class='layout-column circle' bindtap='goActivity'>
-      <image class='image-ic' src='/res/images/ic-nearby.png' mode='aspectFill'></image>
+      <image class='image-ic' src='/res/images/ic-nearby.png' mode='bottom right'></image>
       <view class='text-ic'>兼职教练</view>
     </view>
   </view>

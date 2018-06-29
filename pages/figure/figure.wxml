@@ -1,9 +1,9 @@
 <view>
 
-  <!-- <video class="{{gradeIndex==0?'video-hide':'video'}}" src='{{figure.videoUrl}}'>
-  </video> -->
+  <video wx:if="{{gradeIndex!=0}}" class="video" src='{{figure.videoUrl}}'>
+  </video>
 
-  <tx-video wx:if="{{gradeIndex!=0}}" playerid="playerid" class="{{video}}" vid="{{figure.vid}}"></tx-video>
+  <!-- <tx-video wx:if="{{gradeIndex!=0}}" playerid="playerid" class="{{video}}" vid="{{figure.vid}}"></tx-video> -->
   <scroll-view style='height:{{scrollHeight}}vh' scroll-y='true'>
     <view class='content'>
       <view class='text-name'>{{figure.name}}</view>
@@ -25,12 +25,6 @@
 
   <view class='bottom'>
     <view class='right'>
-      <!-- <view class='button {{can?"button-disabled":"button-primary"}}' bindtap='updateProgress'>
-        <view class='button-text'>
-          {{can?"已会":"我学会了"}}
-        </view>
-      </view> -->
-
       <button class="global-button" disabled='{{figure.can}}' bindtap='updateProgress'>{{figure.can?"已学会":"我学会了"}}</button>
     </view>
 
