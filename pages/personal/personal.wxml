@@ -62,6 +62,6 @@
   <button class='service-button' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' open-type="feedback">建议反馈</button>
   <view class='divider'></view>
   <button class='service-button' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' open-type="openSetting">权限管理</button>
-  <!-- <view class='divider'></view>
-  <button class='service-button' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' bindtap='clearCache'>清理缓存</button> -->
+  <view class='divider'></view>
+  <button class='service-button' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' bindtap='clearCache'>重新认证</button>
 </view>

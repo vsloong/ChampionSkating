@@ -292,23 +292,33 @@ Page({
   },
 
   clearCache: function() {
-    wx.clearStorage()
+    // wx.clearStorage()
+    var self = this
     wx.showModal({
       title: '温馨提示',
-      content: '等级信息已清空',
-      showCancel: false,
-      confirmText: "我知道了"
+      content: '将清除当前本地的认证信息，请谨慎操作',
+      cancelText: "算了",
+      confirmText: "继续",
+      success: function(res) {
+        if (res.confirm) {
+          try {
+            wx.removeStorageSync("address")
+            wx.removeStorageSync("contact")
+          } catch (e) {}
+
+          wx.removeStorage({
+            key: 'openid',
+            success: function(res) {
+              wx.showToast({
+                title: '认证信息已清除，请重新认证',
+              })
+
+              self.onShow()
+            },
+          })
+        }
+      }
     })
-    // wx.removeStorage({
-    //   key: 'grades',
-    //   success: function(res) {
-    //     wx.showModal({
-    //       title: '温馨提示',
-    //       content: '等级信息已清空',
-    //       showCancel: false,
-    //       confirmText: "我知道了"
-    //     })
-    //   },
-    // })
+
   }
 })

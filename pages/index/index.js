@@ -33,7 +33,7 @@ Page({
   goActivity: function() {
     wx.showModal({
       title: '温馨提示',
-      content: '该功能暂未开放，敬请期待',
+      content: '该功能即将开放，敬请期待！',
       showCancel: false,
       confirmText: '我知道了'
     })

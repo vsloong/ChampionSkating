@@ -40,8 +40,8 @@ Page({
             latitude: latitude,
             longitude: longitude,
             fillColor: "#418be211",
-            //默认20km半径
-            radius: 20000
+            //默认12km半径，5位geohash
+            radius: 12000
           }]
         })
 
