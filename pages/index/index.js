@@ -39,6 +39,12 @@ Page({
     })
   },
 
+  goJob: function(event) {
+    wx.navigateTo({
+      url: '../job/job',
+    })
+  },
+
   onLoad: function(options) {
     // wx.clearStorageSync()
   },

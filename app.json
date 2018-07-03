@@ -6,7 +6,8 @@
     "pages/register/register",
     "pages/map/map",
     "pages/personal/personal",
-    "pages/profile/profile"
+    "pages/profile/profile",
+    "pages/job/job"
   ],
   "window": {
     "backgroundTextStyle": "light",

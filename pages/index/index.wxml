@@ -32,7 +32,7 @@
       <view class='text-ic'>线下活动</view>
     </view>
 
-    <view class='layout-column circle' bindtap='goActivity'>
+    <view class='layout-column circle' bindtap='goJob'>
       <image class='image-ic' src='/res/images/ic-nearby.png' mode='bottom right'></image>
       <view class='text-ic'>兼职教练</view>
     </view>

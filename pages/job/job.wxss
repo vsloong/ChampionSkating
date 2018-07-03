@@ -1,0 +1,90 @@
+.fill-width {
+  width: 100%;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.center-column {
+  justify-content: center;
+}
+
+.aling-items-center {
+  align-items: center;
+}
+
+.padding {
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+}
+
+.image-avatar {
+  width: 125rpx;
+  height: 125rpx;
+  border-radius: 50%;
+}
+
+.image-ic {
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+}
+
+.text-club {
+  font-size: 38rpx;
+  font-weight: bolder;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 66vw;
+  /* 文本不换行，这样超出一行的部分被截取，显示... */
+}
+
+.single-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-user {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #666;
+}
+
+.text-content {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #000;
+}
+
+.text-location {
+  font-size: 30rpx;
+  color: #666;
+}
+
+.margin-left {
+  margin-left: 20rpx;
+}
+
+.margin-top {
+  margin-top: 10rpx;
+}
+
+.background-fff {
+  background: #fff;
+}
+
+.background-f8 {
+  background: #f8f8f8;
+}
