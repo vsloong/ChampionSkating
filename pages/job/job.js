@@ -10,5 +10,9 @@ Page({
 
   },
 
-
+  goNavigation: function() {
+    wx.navigateTo({
+      url: '../navigation/navigation',
+    })
+  }
 })

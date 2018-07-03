@@ -1,0 +1,1 @@
+<tx-map route-info="{{routeInfo}}"></tx-map>

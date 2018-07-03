@@ -10,7 +10,7 @@
   <view class='flex-column padding background-f8'>
     <view class='text-content'>{{content}}</view>
 
-    <view class='flex-row margin-top aling-items-center'>
+    <view class='flex-row margin-top aling-items-center' bindtap='goNavigation'>
       <image class='image-ic' src='/res/images/ic-location.svg'></image>
       <view class='text-location single-line margin-left'>这里是位置展示</view>
     </view>

@@ -7,6 +7,7 @@
     "pages/map/map",
     "pages/personal/personal",
     "pages/profile/profile",
+    "pages/navigation/navigation",
     "pages/job/job"
   ],
   "window": {
@@ -19,6 +20,10 @@
     "tencentVideo": {
       "version": "1.1.1",
       "provider": "wxa75efa648b60994b"
+    },
+    "tencentMap": {
+      "version": "1.0.6",
+      "provider": "wx5bc2ac602a747594"
     }
   }
 }
