@@ -34,7 +34,7 @@
 
     <view class='layout-column circle' bindtap='goJob'>
       <image class='image-ic' src='/res/images/ic-nearby.png' mode='bottom right'></image>
-      <view class='text-ic'>兼职教练</view>
+      <view class='text-ic'>兼职信息</view>
     </view>
   </view>
 

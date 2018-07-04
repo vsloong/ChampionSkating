@@ -1,23 +1,32 @@
 <view class='flex-column'>
+  <!-- 没有数据时展示 -->
+  <view wx:if='{{!list.length}}' class='flex-column fill-height center'>
 
-  <view class='flex-row padding background-fff'>
-    <image class='image-avatar' mode='center' src='/res/images/ic-activity.png'></image>
-    <view class='flex-column center-column margin-left'>
-      <view class='text-club'>{{club}}</view>
-      <view class='text-user margin-top'>{{user}}</view>
+    <image class='image-empty' mode='aspectFit' src='/res/images/img-empty-msg.png'></image>
+    <view class='text-empty'>当前内容空空如也</view>
+  </view>
+
+  <view wx:if='{{list.length}}'>
+    <view class='flex-row padding background-fff'>
+      <image class='image-avatar' mode='center' src='/res/images/ic-activity.png'></image>
+      <view class='flex-column center-column margin-left'>
+        <view class='text-club'>{{club}}</view>
+        <view class='text-user margin-top'>{{user}}</view>
+      </view>
+    </view>
+    <view class='flex-column padding background-f8'>
+      <view class='text-content'>{{content}}</view>
+
+      <view class='flex-row margin-top aling-items-center' bindtap='goNavigation'>
+        <image class='image-ic' src='/res/images/ic-location.svg'></image>
+        <view class='text-location single-line margin-left'>这里是位置展示</view>
+      </view>
+
+      <view class='flex-row margin-top aling-items-center'>
+        <image class='image-ic' src='/res/images/ic-pay.svg'></image>
+        <view class='text-location single-line margin-left'>面谈</view>
+      </view>
     </view>
   </view>
-  <view class='flex-column padding background-f8'>
-    <view class='text-content'>{{content}}</view>
 
-    <view class='flex-row margin-top aling-items-center' bindtap='goNavigation'>
-      <image class='image-ic' src='/res/images/ic-location.svg'></image>
-      <view class='text-location single-line margin-left'>这里是位置展示</view>
-    </view>
-
-    <view class='flex-row margin-top aling-items-center'>
-      <image class='image-ic' src='/res/images/ic-pay.svg'></image>
-      <view class='text-location single-line margin-left'>面谈</view>
-    </view>
-  </view>
 </view>
