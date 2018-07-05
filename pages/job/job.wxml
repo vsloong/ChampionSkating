@@ -4,6 +4,7 @@
 
     <image class='image-empty' mode='aspectFit' src='/res/images/img-empty-msg.png'></image>
     <view class='text-empty'>当前内容空空如也</view>
+    <view class='text-empty'>（如需发布兼职请直接联系客服）</view>
   </view>
 
   <view wx:if='{{list.length}}'>

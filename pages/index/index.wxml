@@ -1,56 +1,97 @@
 <!--index.wxml-->
-<view class="global-container">
+<view class="flex-column">
   <!-- <view class='global-hint'>该轮滑动作分级表目前只为各位轮滑爱好者提供参考，并不作为真实考核</view> -->
 
-  <view class="global-block column" bindtap='goPersonal'>
-    <view class='global-item-column'>
-      <view class='left'>
-        <open-data class="avatar" type="userAvatarUrl"></open-data>
+  <view class='flex-row background-green center-column padding' bindtap='goPersonal'>
+    <view align='center' class='avatar-background'>
+      <open-data class="avatar" type="userAvatarUrl"></open-data>
+    </view>
+    <view class='flex-column center-colun margin-user-name'>
+      <view class='flex-row center-column space'>
+        <open-data class='text-user-name' type='userNickName'></open-data>
+        <image class='image-setting' src='/res/images/ic-setting.svg'></image>
+      </view>
+      <view class='text-user-type margin-user-type'>轮滑爱好者</view>
+    </view>
+  </view>
+
+  <view class='height-double'>
+    <view class='flex-row background-change height '></view>
+    <view class="relative rounded-corner height-double margin-left-right">
+      <view class='flex-column center'>
+        <view class='text-title'>{{total}}</view>
+        <view class='text-content'>动作总数</view>
+      </view>
+      <view class='flex-column center'>
+        <view class='text-title'>{{progress}}</view>
+        <view class='text-content'>已会</view>
+      </view>
+      <view class='flex-column center'>
+        <view class='flex-row'>
+          <view class='text-title'>1</view>
+          <view class='text-title-'>天</view>
+        </view>
+        <view class='text-content'>连续练习</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='flex-column margin'>
+
+    <!-- <view class="flex-row background-white rounded-corner center height">
+      这里是新闻区域
+    </view> -->
+
+    <view class="flex-column background-white rounded-corner padding">
+      <view class='text-title'>生活娱乐</view>
+
+      <view class='flex-row space margin-top-30'>
+        <view class='flex-column center' bindtap='goMap'>
+          <image class='image-ic' src='/res/images/map-avatar-boy.png'></image>
+          <view class='text-subtitle'>附近</view>
+        </view>
+
+        <view class='flex-column center' bindtap='goActivity'>
+          <image class='image-ic' src='/res/images/map-avatar-boy.png'></image>
+          <view class='text-subtitle'>活动</view>
+        </view>
+
+        <view class='flex-column center' bindtap='goJob'>
+          <image class='image-ic' src='/res/images/map-avatar-boy.png'></image>
+          <view class='text-subtitle'>兼职</view>
+        </view>
+
+        <view class='flex-column center image-ic show-not'>
+        </view>
+      </view>
+    </view>
+
+    <image class='banner' mode='aspectFill' src='/res/images/img-test.jpg'></image>
+
+    <view class="flex-column background-white rounded-corner padding">
+      <view class='text-title'>平花等级</view>
+      <!-- 第一行4个图标 -->
+      <view class='flex-row space margin-top-30'>
+        <view class='flex-column center' wx:for="{{grades1}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" bindtap='goGrade' data-base='0' data-grade='{{idx}}'>
+          <image class='image-ic' src='/res/images/level-{{idx}}.svg'></image>
+          <view class='text-subtitle'>{{item.name}}</view>
+        </view>
       </view>
 
-      <view class='right'>
-        <view class="global-item-row">
-          <view class="global-title">我的进度</view>
-          <view class="global-content-right">{{progress}}/{{total}}</view>
+      <!-- 第二行2个图标 -->
+      <view class='flex-row space margin-top-30'>
+        <view class='flex-column center' wx:for="{{grades2}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" bindtap='goGrade' data-base='4' data-grade='{{idx+4}}'>
+          <image class='image-ic' src='/res/images/level-{{idx+4}}.svg'></image>
+          <view class='text-subtitle'>{{item.name}}</view>
         </view>
-        <view class="global-item-row">
-          <progress class="global-progress" stroke-width='2' percent="{{(progress/total)*100}}" active='true' />
+
+        <view class='flex-column center image-ic show-not'>
+        </view>
+
+        <view class='flex-column center image-ic show-not'>
         </view>
       </view>
+
     </view>
   </view>
-
-  <view class='margin-top-10'></view>
-  <view class='layout-row margin-top-15'>
-    <view class="layout-column circle" bindtap='goMap'>
-      <image class='image-ic' src='/res/images/ic-nearby.png' mode='aspectFill'></image>
-      <view class="text-ic">附近的人</view>
-    </view>
-
-    <view class='layout-column circle' bindtap='goActivity'>
-      <image class='image-ic' src='/res/images/ic-activity.png' mode='aspectFill'></image>
-      <view class='text-ic'>线下活动</view>
-    </view>
-
-    <view class='layout-column circle' bindtap='goJob'>
-      <image class='image-ic' src='/res/images/ic-nearby.png' mode='bottom right'></image>
-      <view class='text-ic'>兼职信息</view>
-    </view>
-  </view>
-
-  <!-- 下面是一个循环 -->
-  <view class='margin-top-10'></view>
-  <view class="global-block column margin-top-15" hover-class='global-hover' hover-start-time='0' hover-stay-time='50' wx:for="{{grades}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" bindtap='goGrade' data-grade='{{idx}}'>
-
-    <view class="global-item-row">
-      <view class="global-title">
-        <image class="title-icon" src="/res/images/level-{{idx}}.svg" />{{item.name}}</view>
-      <view class="global-content-right">{{item.figures.length + "个动作"}}</view>
-    </view>
-  </view>
-
-
-  <!-- <view class="global-block column margin-top-15" hover-class='global-hover' hover-start-time='0' hover-stay-time='50' bindtap='goMap'>
-    附近玩轮滑的人
-  </view> -->
 </view>

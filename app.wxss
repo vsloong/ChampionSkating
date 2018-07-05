@@ -1,13 +1,37 @@
-/**app.wxss**/
-/**
-,
-  "plugins": {
-    "tencentVideo": {
-      "version": "1.0.5",
-      "provider": "wxa75efa648b60994b"
-    }
-  }
-*/
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 圆角 */
+
+.rounded-corner {
+  border-radius: 18rpx;
+  box-shadow: 0rpx 6rpx 24rpx rgba(0, 0, 0, 0.1);
+}
+
+.margin-left-right {
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+}
+
+.background-white {
+  background: #fff;
+}
+
+.margin {
+  margin: 25rpx;
+}
+
+.padding {
+  padding: 25rpx;
+}
+
 .global-container {
   height: 100%;
   display: flex;
