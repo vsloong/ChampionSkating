@@ -47,17 +47,17 @@
 
       <view class='flex-row space margin-top-30'>
         <view class='flex-column center' bindtap='goMap'>
-          <image class='image-ic' src='/res/images/map-avatar-boy.png'></image>
+          <image class='image-ic' src='/res/images/ic-near.svg'></image>
           <view class='text-subtitle'>附近</view>
         </view>
 
         <view class='flex-column center' bindtap='goActivity'>
-          <image class='image-ic' src='/res/images/map-avatar-boy.png'></image>
+          <image class='image-ic' src='/res/images/ic-activity.svg'></image>
           <view class='text-subtitle'>活动</view>
         </view>
 
         <view class='flex-column center' bindtap='goJob'>
-          <image class='image-ic' src='/res/images/map-avatar-boy.png'></image>
+          <image class='image-ic' src='/res/images/ic-job.svg'></image>
           <view class='text-subtitle'>兼职</view>
         </view>
 
@@ -66,7 +66,7 @@
       </view>
     </view>
 
-    <image class='banner' mode='aspectFill' src='/res/images/img-test.jpg'></image>
+    <image class='banner' mode='widthFix' src='/res/images/img-test.png'></image>
 
     <view class="flex-column background-white rounded-corner padding">
       <view class='text-title'>平花等级</view>
