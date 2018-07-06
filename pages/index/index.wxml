@@ -11,7 +11,7 @@
         <open-data class='text-user-name' type='userNickName'></open-data>
         <image class='image-setting' src='/res/images/ic-setting.svg'></image>
       </view>
-      <view class='text-user-type margin-user-type'>轮滑爱好者</view>
+      <view class='text-user-type margin-user-type'>{{userTitle}}</view>
     </view>
   </view>
 
@@ -28,7 +28,7 @@
       </view>
       <view class='flex-column center'>
         <view class='flex-row'>
-          <view class='text-title'>1</view>
+          <view class='text-title'>{{days}}</view>
           <view class='text-title-'>天</view>
         </view>
         <view class='text-content'>连续练习</view>

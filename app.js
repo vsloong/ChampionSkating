@@ -8,6 +8,7 @@ App({
     key_openid: "openid",
     key_address: "address",
     key_contact: "contact",
+    key_days: "days"
   },
 
   onLaunch: function() {
