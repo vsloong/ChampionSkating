@@ -88,17 +88,17 @@ Page({
       date: new Date(),
       days: 1
     }
-    console.log("当前打开小程序时间：" + JSON.stringify(curDate))
 
     wx.getStorage({
       key: app.data.key_days,
       success: function(res) {
         var lastDate = res.data
-        console.log("上一次打开小程序时间：" + JSON.stringify(lastDate))
         var last = new Date(lastDate.date)
         //表示今天已经打开过了
         if (last.toLocaleDateString() == today.toLocaleDateString()) {
-          console.log("今天打开过了")
+          self.setData({
+            days: lastDate.days
+          })
         } else {
           //上一次打开时间+1天，如果等于今天那么就是连续登录
           var temp = new Date((new Date(lastDate.date) / 1000 + 24 * 60 * 60) * 1000)
@@ -106,11 +106,10 @@ Page({
           if (temp.toLocaleDateString() == today.toLocaleDateString()) {
             lastDate.date = new Date()
             lastDate.days++
-              console.log("连续登录成功：" + JSON.stringify(lastDate))
-            wx.setStorage({
-              key: app.data.key_days,
-              data: lastDate,
-            })
+              wx.setStorage({
+                key: app.data.key_days,
+                data: lastDate,
+              })
 
             self.setData({
               days: lastDate.days
@@ -118,7 +117,6 @@ Page({
           }
           //表示连续登录中断
           else {
-            console.log("连续登录中断")
             wx.setStorage({
               key: app.data.key_days,
               data: curDate,
