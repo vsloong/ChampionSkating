@@ -7,6 +7,19 @@ page {
   padding: 40rpx;
 }
 
+.padding-left-right {
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+}
+
+.divider {
+  width: 5rpx;
+  height: 60rpx;
+  background: #e4e4e4;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+}
+
 .margin-user-name {
   margin-left: 20rpx;
   width: 100%;
@@ -30,6 +43,10 @@ page {
 
 .height-double {
   height: 150rpx;
+}
+
+.height-120 {
+  height: 120rpx;
 }
 
 .banner {
@@ -59,6 +76,18 @@ page {
   font-size: 20rpx;
   font-weight: 600;
   color: #333;
+}
+
+.text-title-ad {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #333;
+}
+
+.text-content-ad {
+  font-size: 28rpx;
+  letter-spacing: 0.02rem;
+  color: #999;
 }
 
 .text-subtitle {
@@ -111,7 +140,6 @@ page {
   height: 120rpx;
   border-radius: 50%;
   overflow: hidden;
-  background: f0eff4;
   border: 1rpx solid #fff;
 }
 
@@ -124,6 +152,11 @@ page {
   display: block;
   width: 45rpx;
   height: 45rpx;
+}
+
+.image-ad {
+  width: 130rpx;
+  height: 65rpx;
 }
 
 .show-not {

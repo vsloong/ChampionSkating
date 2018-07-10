@@ -38,11 +38,22 @@
 
   <view class='flex-column margin'>
 
-    <!-- <view class="flex-row background-white rounded-corner center height">
-      这里是新闻区域
-    </view> -->
+    <!-- <button open-type="contact"> -->
+    <view class="flex-row background-white rounded-corner padding-left-right center-column height-120">
+      <image class='image-ad' mode='widthFix' src='/res/images/img-join.png'></image>
 
-    <view class="flex-column background-white rounded-corner padding">
+      <view class='divider'></view>
+      <view class='flex-column'>
+        <view class='text-title-ad'>
+          <text space='nmsp'>全民轮滑  安排</text>
+        </view>
+        <view class='text-content-ad'>直接联系客服说“我要加入~”</view>
+      </view>
+    </view>
+    <!-- </button> -->
+
+
+    <view class="flex-column background-white rounded-corner padding margin-top-30">
       <view class='text-title'>生活娱乐</view>
 
       <view class='flex-row space-between margin-top-30'>
