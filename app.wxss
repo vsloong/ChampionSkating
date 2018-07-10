@@ -161,3 +161,15 @@ button::after {
   font-size: 36rpx;
   color: #fff;
 }
+
+/* 2018/07/10 新的通用属性 */
+
+.center-column {
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}

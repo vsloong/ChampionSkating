@@ -3,11 +3,11 @@
   <!-- <view class='global-hint'>该轮滑动作分级表目前只为各位轮滑爱好者提供参考，并不作为真实考核</view> -->
 
   <view class='flex-row background-green center-column padding' bindtap='goPersonal'>
-    <view align='center' class='avatar-background'>
+    <view>
       <open-data class="avatar" type="userAvatarUrl"></open-data>
     </view>
     <view class='flex-column center-colun margin-user-name'>
-      <view class='flex-row center-column space'>
+      <view class='flex-row center-column space-between'>
         <open-data class='text-user-name' type='userNickName'></open-data>
         <image class='image-setting' src='/res/images/ic-setting.svg'></image>
       </view>
@@ -45,7 +45,7 @@
     <view class="flex-column background-white rounded-corner padding">
       <view class='text-title'>生活娱乐</view>
 
-      <view class='flex-row space margin-top-30'>
+      <view class='flex-row space-between margin-top-30'>
         <view class='flex-column center' bindtap='goMap'>
           <image class='image-ic' src='/res/images/ic-near.svg'></image>
           <view class='text-subtitle'>附近</view>
@@ -71,7 +71,7 @@
     <view class="flex-column background-white rounded-corner padding">
       <view class='text-title'>平花等级</view>
       <!-- 第一行4个图标 -->
-      <view class='flex-row space margin-top-30'>
+      <view class='flex-row space-between margin-top-30'>
         <view class='flex-column center' wx:for="{{grades1}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" bindtap='goGrade' data-base='0' data-grade='{{idx}}'>
           <image class='image-ic' src='/res/images/level-{{idx}}.svg'></image>
           <view class='text-subtitle'>{{item.name}}</view>
@@ -79,7 +79,7 @@
       </view>
 
       <!-- 第二行2个图标 -->
-      <view class='flex-row space margin-top-30'>
+      <view class='flex-row space-between margin-top-30'>
         <view class='flex-column center' wx:for="{{grades2}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" bindtap='goGrade' data-base='4' data-grade='{{idx+4}}'>
           <image class='image-ic' src='/res/images/level-{{idx+4}}.svg'></image>
           <view class='text-subtitle'>{{item.name}}</view>
