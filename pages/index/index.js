@@ -12,7 +12,16 @@ Page({
     total: 0,
     progress: 0,
     days: 1,
-    userTitle: "普通用户"
+    userTitle: "普通用户",
+    ads: [{
+      image: "/res/images/img-ad-join.png",
+      title: "全民轮滑  等你加入",
+      content: "直接联系客服说“我要加入！”"
+    }, {
+      image: "/res/images/img-ad-summer.png",
+      title: "激情夏日  一起溜溜",
+      content: "晚上约三俩好友一起刷街吧~"
+    }]
   },
 
   goGrade: function(event) {

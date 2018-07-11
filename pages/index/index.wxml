@@ -38,17 +38,27 @@
 
   <view class='flex-column margin'>
 
+    <!-- 滚动组件 -->
     <!-- <button open-type="contact"> -->
-    <view class="flex-row background-white rounded-corner padding-left-right center-column height-120">
-      <image class='image-ad' mode='widthFix' src='/res/images/img-join.png'></image>
+    <view class="flex-row background-white rounded-corner padding-left-right  height-120">
+      <!-- 需要滚动的组件  -->
+      <swiper class='swiper' vertical='true' autoplay='true' skip-hidden-item-layout='true'>
+        <block wx:for='{{ads}}' wx:key="unique" wx:for-item="item">
+          <swiper-item>
+            <view class='flex-row center-column height-120'>
+              <image class='image-ad' mode='widthFix' src='{{item.image}}'></image>
+              <view class='divider'></view>
+              <view class='flex-column'>
+                <view class='text-title-ad'>
+                  <text space='nmsp'>{{item.title}}</text>
+                </view>
+                <view class='text-content-ad'>{{item.content}}</view>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
 
-      <view class='divider'></view>
-      <view class='flex-column'>
-        <view class='text-title-ad'>
-          <text space='nmsp'>全民轮滑  安排</text>
-        </view>
-        <view class='text-content-ad'>直接联系客服说“我要加入~”</view>
-      </view>
     </view>
     <!-- </button> -->
 
