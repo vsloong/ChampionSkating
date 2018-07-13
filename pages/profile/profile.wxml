@@ -1,16 +1,16 @@
 <view class='layout-center'>
 
   <view class='layout-vertical shadow'>
-    <view class="label {{gender==1?'label-color-male':'label-color-female'}}">{{title}}</view>
-    <image class="avatar" src='{{avatarUrl}}'></image>
+    <view class="label {{user.gender==1?'label-color-male':'label-color-female'}}">{{user.title}}</view>
+    <image class="avatar" src='{{user.avatarUrl}}'></image>
 
-    <view class="text-nickname  {{gender==1?'male':'female'}}">{{nickName}}</view>
+    <view class="text-nickname  {{user.gender==1?'male':'female'}}">{{user.nickName}}</view>
 
-    <view wx:if='{{false}}' class="text-gender {{gender==1?'male':'female'}}">{{gender==1?"男":"女"}}</view>
+    <view wx:if='{{false}}' class="text-gender {{user.gender==1?'male':'female'}}">{{user.gender==1?"男":"女"}}</view>
 
-    <view bindtap='goNavigation' class="text-address">{{address}}</view>
+    <view bindtap='goNavigation' class="text-address">{{user.address}}</view>
 
-    <view wx:if="{{contact}}" class="text-contact">{{contact}}</view>
+    <view wx:if="{{user.contact}}" class="text-contact">{{user.contact}}</view>
 
   </view>
   <view class="text-hint">注：非诚勿扰，请不要随意骚扰他人！</view>

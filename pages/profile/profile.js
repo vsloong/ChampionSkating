@@ -1,29 +1,21 @@
-// pages/profile/profile.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    title: '',
-    nickName: "",
-    gender: 0,
-    avatarUrl: "",
-    address: "",
-    contact: "这是联系方式啊",
-    user: {}
+    user: {
+      title: '',
+      nickName: '',
+      gender: 0,
+      avatarUrl: '',
+      address: '',
+      contact: '',
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function(options) {
     console.log("资料页面：" + options.user)
     var user = JSON.parse(options.user)
     //设置用户数据
-    this.setData({
-      user: user
-    })
+
     var title
     switch (parseInt(user.userType)) {
       case 1:
@@ -43,12 +35,14 @@ Page({
         break
     }
     this.setData({
-      avatarUrl: user.avatarUrl,
-      gender: user.gender,
-      nickName: user.nickName,
-      address: user.address + "--" + user.addressName,
-      contact: user.contact,
-      title: title
+      user: {
+        avatarUrl: user.avatarUrl,
+        gender: user.gender,
+        nickName: user.nickName,
+        address: user.address + "--" + user.addressName,
+        contact: user.contact,
+        title: title
+      }
     })
   },
 
