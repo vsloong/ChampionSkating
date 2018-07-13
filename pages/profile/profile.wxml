@@ -8,7 +8,7 @@
 
     <view wx:if='{{false}}' class="text-gender {{gender==1?'male':'female'}}">{{gender==1?"男":"女"}}</view>
 
-    <view class="text-address">{{address}}</view>
+    <view bindtap='goNavigation' class="text-address">{{address}}</view>
 
     <view wx:if="{{contact}}" class="text-contact">{{contact}}</view>
 
