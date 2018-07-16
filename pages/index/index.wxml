@@ -39,7 +39,6 @@
   <view class='flex-column margin'>
 
     <!-- 滚动组件 -->
-    <!-- <button open-type="contact"> -->
     <view class="flex-row background-white rounded-corner padding-left-right  height-120">
       <!-- 需要滚动的组件  -->
       <swiper class='swiper' vertical='true' autoplay='true' skip-hidden-item-layout='true'>
@@ -58,9 +57,7 @@
           </swiper-item>
         </block>
       </swiper>
-
     </view>
-    <!-- </button> -->
 
 
     <view class="flex-column background-white rounded-corner padding margin-top-30">

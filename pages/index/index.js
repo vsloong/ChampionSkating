@@ -86,7 +86,7 @@ Page({
     //获取用户头衔，目前只用
     if (util.isStorageSetted(app.data.key_openid)) {
       this.setData({
-        userTitle: "轮滑爱好者"
+        userTitle: "66爱好者"
       })
     }
 
