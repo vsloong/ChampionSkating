@@ -17,5 +17,12 @@ Page({
     wx.navigateTo({
       url: '../navigation/navigation',
     })
+  },
+
+  goPublish: function() {
+    wx.navigateTo({
+      url: '../publish/publish',
+    })
   }
+
 })

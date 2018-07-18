@@ -1,6 +1,6 @@
 <view class='flex-column'>
   <!-- 没有数据时展示 -->
-  <view wx:if='{{!list.length}}' class='flex-column fill-height center'>
+  <view wx:if='{{!list.length}}' class='flex-column fill-height center' bindtap='goPublish'>
 
     <image class='image-empty' mode='aspectFit' src='/res/images/img-empty-msg.png'></image>
     <view class='text-empty'>当前内容空空如也</view>

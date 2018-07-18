@@ -25,11 +25,11 @@
 }
 
 .margin {
-  margin: 25rpx;
+  margin: 30rpx;
 }
 
 .padding {
-  padding: 25rpx;
+  padding: 30rpx;
 }
 
 .global-container {
@@ -111,16 +111,18 @@
 
 .global-button {
   width: 88%;
-  height: 88rpx;
+  height: 90rpx;
   /* margin-top: 80rpx; */
   box-sizing: border-box;
   border-radius: 44rpx;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background: #01a862;
-  font-size: 36rpx;
+  background: #16ba63;
+  font-size: 34rpx;
+  align-items: center;
   color: #fff;
+  box-shadow: 0rpx 6rpx 24rpx rgba(22, 186, 99, 0.4);
 }
 
 /* 去除小程序按钮边框 */
@@ -150,7 +152,6 @@ button::after {
 
 .global-button-dis-hover {
   background: #eee;
-  /* 比默认颜色深了10% */
 }
 
 .global-button-text {

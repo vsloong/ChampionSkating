@@ -8,7 +8,8 @@
     "pages/personal/personal",
     "pages/profile/profile",
     "pages/navigation/navigation",
-    "pages/job/job"
+    "pages/job/job",
+    "pages/publish/publish"
   ],
   "window": {
     "backgroundTextStyle": "light",

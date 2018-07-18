@@ -1,0 +1,49 @@
+/* pages/publish/publish.wxss */
+
+.flex {
+  display: flex;
+}
+
+.input {
+  background: #f4f5f7;
+  padding: 25rpx;
+  letter-spacing: 1rpx;
+  word-spacing: 1rpx;
+  border-radius: 4rpx;
+  font-size: 38rpx;
+  color: #333;
+}
+
+.textarea {
+  width: 100%;
+  background: #f4f5f7;
+  height: 200rpx;
+  letter-spacing: 1rpx;
+  word-spacing: 1rpx;
+  display: flex;
+  padding: 25rpx;
+  border-radius: 4rpx;
+  font-size: 32rpx;
+  color: #666;
+}
+
+.margin-top {
+  margin-top: 40rpx;
+}
+
+.text-name-club {
+  font-size: 38rpx;
+}
+
+.text-position {
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.text-content {
+  font-size: 32rpx;
+  color: #999;
+}
+
