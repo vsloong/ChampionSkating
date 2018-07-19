@@ -33,4 +33,9 @@
   <view class='button-publish' hover-class='button-publish-hover' hover-start-time='0' hover-stay-time='50' bindtap='goPublish'>
     <image class='image-publish' src='/res/images/ic-publish.svg'></image>
   </view>
+
+  <modal hidden="{{hidePermissionModal}}" title="发布信息权限验证" confirm-text="提交" cancel-text="取消" bindcancel="permissionCancel" bindconfirm="permissionConfirm">
+    <input type='text' value='{{permissionValue}}' bindinput='bindInput' disabled='{{hidePermissionModal}}' focus='false' adjust-position='true' placeholder="请输入从客服处获取的发布密钥" auto-focus/>
+  </modal>
+
 </view>

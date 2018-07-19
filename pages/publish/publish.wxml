@@ -1,14 +1,20 @@
-
 <view class='padding flex-column'>
   <input class='input' placeholder-class='text-name-club' placeholder='俱乐部名称'></input>
 
-  <view class='text-position'>请选择招聘岗位</view>
-  <view class='flex'>
+  <view class='flex-row margin-top'>
+    <view class='text-position' bindtap='chooseType'>请选择招聘岗位</view>
+
+    <view class='text-position-type'>教练</view>
+    <view class='text-position-type'>销售</view>
+    <view class='text-position-type'>主管</view>
+  </view>
+
+  <view class='flex margin-top'>
     <textarea class='textarea' placeholder-class='text-content' placeholder='请描述岗位要求'></textarea>
   </view>
 
-  <view class='flex'>
-    <textarea class='textarea margin-top' placeholder-class='text-content' placeholder='请描述岗位福利' auto-height='false'></textarea>
+  <view class='flex margin-top'>
+    <textarea class='textarea' placeholder-class='text-content' placeholder='请描述岗位福利' auto-height='false'></textarea>
   </view>
 
   <button class='global-button margin-top' hover-class='global-button-hover'>确认发布</button>

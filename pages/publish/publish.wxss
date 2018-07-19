@@ -36,14 +36,23 @@
 }
 
 .text-position {
-  margin-top: 40rpx;
-  margin-bottom: 40rpx;
   font-size: 32rpx;
   color: #333;
+}
+
+.text-position-type {
+  margin-left: 20rpx;
+  border: solid;
+  padding: 50rpx, 5rpx, 5rpx, 5rpx;
+  border-width: 2rpx;
+  border-radius: 20rpx;
+  border-color: #16ba63;
+  font-size: 30rpx;
+  text-align: center;
+  color: #666;
 }
 
 .text-content {
   font-size: 32rpx;
   color: #999;
 }
-
