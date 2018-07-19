@@ -25,7 +25,7 @@
 
   <view class='bottom'>
     <view class='right'>
-      <button class="global-button" disabled='{{figure.can}}' bindtap='updateProgress'>{{figure.can?"已学会":"我学会了"}}</button>
+      <button class='{{figure.can?"global-button-dis":"global-button"}}' disabled='{{figure.can}}' bindtap='updateProgress'>{{figure.can?"已学会":"我学会了"}}</button>
     </view>
 
   </view>

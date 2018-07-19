@@ -45,18 +45,15 @@ Page({
     })
   },
 
-  goActivity: function() {
-    wx.showModal({
-      title: '温馨提示',
-      content: '该功能即将开放，敬请期待！',
-      showCancel: false,
-      confirmText: '我知道了'
+  goJob: function(event) {
+    wx.navigateTo({
+      url: '../job/job?type=job',
     })
   },
 
-  goJob: function(event) {
+  goActivity: function(event) {
     wx.navigateTo({
-      url: '../job/job',
+      url: '../job/job?type=activity',
     })
   },
 

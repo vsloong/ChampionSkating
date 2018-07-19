@@ -6,8 +6,6 @@
   height: 100vh;
 }
 
-
-
 .center-column {
   justify-content: center;
 }
@@ -99,4 +97,31 @@
 
 .background-f8 {
   background: #f8f8f8;
+}
+
+.button-publish {
+  width: 100rpx;
+  height: 100rpx;
+  box-sizing: border-box;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  background: #16ba63;
+  align-items: center;
+  box-shadow: 0rpx 6rpx 24rpx rgba(22, 186, 99, 0.4);
+  position: fixed;
+  bottom: 40rpx;
+  right: 40rpx;
+}
+
+.image-publish {
+  width: 55rpx;
+  height: 55rpx;
+  align-items: center;
+  margin-left: 10rpx;
+}
+
+.button-publish-hover {
+  background: #159b52;
+  box-shadow: 0rpx 6rpx 24rpx rgba(21, 155, 82, 0.4);
 }
