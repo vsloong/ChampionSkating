@@ -31,6 +31,14 @@
   margin-top: 40rpx;
 }
 
+.margin-top-10 {
+  margin-top: 10rpx;
+}
+
+.margin-left-20 {
+  margin-left: 20rpx;
+}
+
 .text-name-club {
   font-size: 38rpx;
 }
@@ -41,18 +49,26 @@
 }
 
 .text-position-type {
-  margin-left: 20rpx;
+  width: 100rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
   border: solid;
-  padding: 50rpx, 5rpx, 5rpx, 5rpx;
-  border-width: 2rpx;
-  border-radius: 20rpx;
+  border-width: 3rpx;
+  border-radius: 30rpx;
   border-color: #16ba63;
   font-size: 30rpx;
-  text-align: center;
   color: #666;
 }
 
 .text-content {
   font-size: 32rpx;
   color: #999;
+}
+
+.text-title {
+  font-size: 32rpx;
+  color: #666;
 }
