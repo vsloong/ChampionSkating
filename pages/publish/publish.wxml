@@ -11,7 +11,7 @@
   </view>
 
   <text class='text-title margin-top'>工作时间</text>
-  <view class='flex margin-top-10'>
+  <view class='flex margin-top-10' bindtap='chooseSezi'>
     <text class='text-title'>选择时间段</text>
   </view>
 
@@ -30,5 +30,16 @@
     <textarea class='textarea' placeholder-class='text-content' placeholder='请描述岗位福利' auto-height='false'></textarea>
   </view>
 
+  <!--隐藏区域  -->
+  <view class='maskLayer' wx:if="{{chooseSize}}" bindtap='hideModal'></view>
+  <view class='choose' wx:if="{{chooseSize}}" animation='{{animationData}}'>
+    <text class='text-title margin-top'>岗位要求</text>
+    <view class='flex margin-top-10'>
+      <textarea class='textarea' placeholder-class='text-content' placeholder='请描述岗位要求'></textarea>
+    </view>
+  </view>
+
   <button class='global-button margin-top' hover-class='global-button-hover'>确认发布</button>
+
+
 </view>
