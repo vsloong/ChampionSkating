@@ -1,23 +1,21 @@
 <view class='padding flex-column'>
   <input class='input' placeholder-class='text-name-club' placeholder='俱乐部名称'></input>
 
-  <view class='flex-column margin-top'>
+  <view class='flex-row margin-top'>
     <view class='text-title' bindtap='chooseType'>招聘岗位</view>
-    <view class='flex-row margin-top-10'>
-      <text class='text-position-type'>教练</text>
-      <view class='text-position-type margin-left-20'>销售</view>
-      <view class='text-position-type margin-left-20'>主管</view>
+    <view class='text-title margin-left-20' bindtap='chooseType'>点击选择</view>
+  </view>
+
+  <view class='flex-row margin-top'>
+    <view class='text-title'>工作时间</view>
+    <view class='text-title margin-left-20' bindtap='chooseTime'>
+      <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+        {{times}}
+      </picker>
     </view>
-  </view>
+    <view class='text-title margin-left-20' bindtap='chooseType'>-</view>
+    <view class='text-title margin-left-20' bindtap='chooseType'>00:00</view>
 
-  <text class='text-title margin-top'>工作时间</text>
-  <view class='flex margin-top-10' bindtap='chooseSezi'>
-    <text class='text-title'>选择时间段</text>
-  </view>
-
-  <text class='text-title margin-top'>工作地点</text>
-  <view class='flex margin-top-10'>
-    <textarea class='textarea' placeholder-class='text-content' placeholder='请填写具体位置信息' auto-height='false'></textarea>
   </view>
 
   <text class='text-title margin-top'>岗位要求</text>
@@ -29,17 +27,5 @@
   <view class='flex margin-top-10'>
     <textarea class='textarea' placeholder-class='text-content' placeholder='请描述岗位福利' auto-height='false'></textarea>
   </view>
-
-  <!--隐藏区域  -->
-  <view class='maskLayer' wx:if="{{chooseSize}}" bindtap='hideModal'></view>
-  <view class='choose' wx:if="{{chooseSize}}" animation='{{animationData}}'>
-    <text class='text-title margin-top'>岗位要求</text>
-    <view class='flex margin-top-10'>
-      <textarea class='textarea' placeholder-class='text-content' placeholder='请描述岗位要求'></textarea>
-    </view>
-  </view>
-
-  <button class='global-button margin-top' hover-class='global-button-hover'>确认发布</button>
-
 
 </view>
