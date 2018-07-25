@@ -1,15 +1,18 @@
 Page({
 
   data: {
-    showModal: true,
-    dates: '2016-11-08',
-    times: '00:00',
-    objectArray: ['中国', '英国', '美国'],
-    index: 0,
+    type: "",
+    location: {
+      name: "",
+      address: "",
+      latitude: 0,
+      longitude: 0
+    },
+    startTime: "00:00",
+    endTime: "00:00"
   },
 
   onLoad: function(options) {
-
     var title = "发布招聘信息" //发布活动信息
     wx.setNavigationBarTitle({
       title: title,
@@ -17,10 +20,15 @@ Page({
   },
 
   chooseType: function() {
+    var self = this
+    var itemList = ['教练', '销售', '主管']
     wx.showActionSheet({
-      itemList: ['教练', '销售', '主管'],
+      itemList: itemList,
       success: function(res) {
         console.log("成功结果：" + JSON.stringify(res))
+        self.setData({
+          type: itemList[res.tapIndex]
+        })
       },
       fail: function(res) {
         console.log("失败结果：" + JSON.stringify(res))
@@ -28,17 +36,45 @@ Page({
     })
   },
 
-  chooseTime: function() {
-    this.setData({
-      showModal: false
-    })
+  //选择薪水
+  chooseSalary: function() {
+
   },
-  //  点击时间组件确定事件  
-  bindTimeChange: function(e) {
-    console.log("时间选择完毕：" + e.detail.value)
+
+  // 选择工作开始时间  
+  bindStartTimeChange: function(e) {
+    console.log("开始时间选择完毕：" + e.detail.value)
     this.setData({
-      times: e.detail.value
+      startTime: e.detail.value
     })
   },
 
+  // 选择工作结束时间  
+  bindEndTimeChange: function(e) {
+    console.log("结束时间选择完毕：" + e.detail.value)
+    this.setData({
+      endTime: e.detail.value
+    })
+  },
+
+  //选择地点
+  chooseLocation: function() {
+    var self = this
+    wx.chooseLocation({
+      success: function(res) {
+        console.log("位置信息：" + JSON.stringify(res))
+        self.setData({
+          location: res
+        })
+      },
+      fail: function() {
+        wx.showModal({
+          title: '温馨提示',
+          content: '请前往个人中心->权限管理，允许使用我的地理位置',
+          showCancel: false,
+          confirmText: "我知道了"
+        })
+      }
+    })
+  }
 })

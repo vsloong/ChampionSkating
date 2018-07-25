@@ -68,8 +68,17 @@
   color: #999;
 }
 
-.section {
-  background: #cabbc7;
-  margin: 20rpx;
-  padding: 20rpx;
+.text-title {
+  font-size: 36rpx;
+  color: #666;
+}
+
+.text-default {
+  font-size: 32rpx;
+  color: #333;
+}
+
+.text-action{
+  font-size: 32rpx;
+  color: #16ba63;
 }
