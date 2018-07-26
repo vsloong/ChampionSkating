@@ -78,7 +78,19 @@
   color: #333;
 }
 
-.text-action{
+.text-action {
   font-size: 32rpx;
   color: #16ba63;
+}
+
+.input-salary {
+  width: 160rpx;
+  font-size: 36rpx;
+  text-align: center;
+  background: #f4f4f4;
+}
+
+.input-salary-placeholder {
+  text-align: center;
+  font-size: 32rpx;
 }

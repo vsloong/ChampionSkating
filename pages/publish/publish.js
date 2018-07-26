@@ -1,6 +1,7 @@
 Page({
 
   data: {
+    time: 0,
     type: "",
     location: {
       name: "",

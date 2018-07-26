@@ -9,8 +9,10 @@
 
   <view class='flex-row center-column margin-top'>
     <view class='text-title'>薪资</view>
-    <view class='text-default margin-left-20' bindtap='chooseSalary '>
-      ¥0
+    <view class='flex-row margin-left-20'>
+      <input type='number' class='input-salary' placeholder='最低薪资' placeholder-class='input-salary-placeholder'>1000</input>
+      -
+      <input type='number' class='input-salary' placeholder='最高薪资' placeholder-class='input-salary-placeholder'>1000</input>
     </view>
   </view>
 
