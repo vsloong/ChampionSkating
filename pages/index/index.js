@@ -61,7 +61,7 @@ Page({
     var self = this
     wx.setNavigationBarColor({
       frontColor: '#ffffff',
-      backgroundColor: '#16ba63',
+      backgroundColor: '#5193d0',
     })
 
     //动态生成平花等级数据

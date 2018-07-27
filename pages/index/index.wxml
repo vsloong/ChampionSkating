@@ -2,7 +2,7 @@
 <view class="flex-column">
   <!-- <view class='global-hint'>该轮滑动作分级表目前只为各位轮滑爱好者提供参考，并不作为真实考核</view> -->
 
-  <view class='flex-row background-green center-column padding' bindtap='goPersonal'>
+  <view class='flex-row background-head center-column padding' bindtap='goPersonal'>
     <view>
       <open-data class="avatar" type="userAvatarUrl"></open-data>
     </view>

@@ -29,12 +29,12 @@ page {
   margin-top: 10rpx;
 }
 
-.background-green {
-  background: #16ba63;
+.background-head {
+  background: #5193d0;
 }
 
 .background-change {
-  background: linear-gradient(rgba(22, 186, 99, 1), rgba(255, 255, 255, 0));
+  background: linear-gradient(rgba(81, 147, 208, 1), rgba(255, 255, 255, 0));
 }
 
 .height {
@@ -144,8 +144,8 @@ page {
 }
 
 .image-ic {
-  width: 12vw;
-  height: 12vw;
+  width: 15vw;
+  height: 15vw;
 }
 
 .image-setting {
