@@ -13,6 +13,9 @@
   [小程序开发相关疑问](https://blog.csdn.net/u010976213/article/details/80981627)
 
 ## 程序示例图
-![image](./res/pictures/home.jpg)  ![image](./res/pictures/grade.jpg)
-![image](./res/pictures/nearby.jpg)  ![image](./res/pictures/profile.jpg)
-![image](./res/pictures/figure.jpg)
+#### 常态页
+![image](./res/pictures/grade.jpg)  ![image](./res/pictures/nearby.jpg)  
+![image](./res/pictures/profile.jpg)  ![image](./res/pictures/figure.jpg)
+
+#### 主题页
+![image](./res/pictures/home.jpg)  ![image](./res/pictures/home_summer.jpg) 
