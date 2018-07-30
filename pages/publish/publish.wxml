@@ -1,51 +1,95 @@
-<view class='padding flex-column'>
-  <input class='input' placeholder-class='text-name-club' placeholder='俱乐部名称'></input>
+<view class='padding'>
 
-  <view class='flex-row center-column margin-top'>
-    <view class='text-title'>招聘岗位</view>
-    <view class='{{type?"text-action":"text-default"}} margin-left-20' bindtap='chooseType'>
-      {{type?type:"点击选择"}}</view>
-  </view>
+  <view wx:if='{{false}}' class='flex-column'>
+    <input class='input' placeholder-class='text-name-club' placeholder='俱乐部名称'></input>
 
-  <view class='flex-row center-column margin-top'>
-    <view class='text-title'>薪资</view>
-    <view class='flex-row margin-left-20'>
-      <input type='number' class='input-salary' placeholder='最低薪资' placeholder-class='input-salary-placeholder'>1000</input>
-      -
-      <input type='number' class='input-salary' placeholder='最高薪资' placeholder-class='input-salary-placeholder'>1000</input>
+    <view class='flex-row center-column margin-top'>
+      <view class='text-title'>招聘岗位</view>
+      <view class='{{type?"text-action":"text-default"}} margin-left-20' bindtap='chooseType'>
+        {{type?type:"点击选择"}}</view>
+    </view>
+
+    <view class='flex-row center-column margin-top'>
+      <view class='text-title'>薪资</view>
+      <view class='flex-row margin-left-20'>
+        <input type='number' class='input-salary' placeholder='最低薪资' placeholder-class='input-salary-placeholder'>1000</input>
+        -
+        <input type='number' class='input-salary' placeholder='最高薪资' placeholder-class='input-salary-placeholder'>1000</input>
+      </view>
+    </view>
+
+    <view class='flex-row center-column margin-top'>
+      <view class='text-title'>工作时间</view>
+      <view class='text-default margin-left-20'>
+        <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindStartTimeChange">
+          {{startTime}}
+        </picker>
+      </view>
+      <view class='text-title'>-</view>
+      <view class='text-default'>
+        <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindEndTimeChange">
+          {{endTime}}
+        </picker>
+      </view>
+    </view>
+
+    <view class='flex-colomn margin-top'>
+      <view class='text-title'>工作地点</view>
+      <view class='text-default margin-top-10' bindtap='chooseLocation'>
+        {{location.name?location.address+"-"+location.name:"地图选择"}}
+      </view>
+    </view>
+
+    <text class='text-title margin-top'>岗位要求</text>
+    <view class='flex margin-top-10'>
+      <textarea class='textarea' placeholder-class='text-content' placeholder='请描述岗位要求'></textarea>
+    </view>
+
+    <text class='text-title margin-top'>岗位福利</text>
+    <view class='flex margin-top-10'>
+      <textarea class='textarea' placeholder-class='text-content' placeholder='请描述岗位福利' auto-height='false'></textarea>
+    </view>
+
+    <text class='text-title margin-top'>联系方式</text>
+    <view class='flex margin-top-10'>
+      <textarea class='textarea' placeholder-class='text-content' placeholder='请填写联系方式' auto-height='false'></textarea>
     </view>
   </view>
 
-  <view class='flex-row center-column margin-top'>
-    <view class='text-title'>工作时间</view>
-    <view class='text-default margin-left-20'>
-      <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindStartTimeChange">
-        {{startTime}}
-      </picker>
-    </view>
-    <view class='text-title'>-</view>
-    <view class='text-default'>
-      <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindEndTimeChange">
-        {{endTime}}
-      </picker>
-    </view>
-  </view>
+  <view class='flex-column'>
+    <input class='input' placeholder-class='text-name-club' placeholder='活动名称'></input>
 
-  <view class='flex-colomn margin-top'>
-    <view class='text-title'>工作地点</view>
-    <view class='text-default margin-top-10' bindtap='chooseLocation'>
-      {{location.name?location.address+"-"+location.name:"地图选择"}}
+    <text class='text-title margin-top'>活动内容</text>
+    <view class='flex margin-top-10'>
+      <textarea class='textarea' placeholder-class='text-content' placeholder='请描述活动的具体内容'></textarea>
     </view>
-  </view>
 
-  <text class='text-title margin-top'>岗位要求</text>
-  <view class='flex margin-top-10'>
-    <textarea class='textarea' placeholder-class='text-content' placeholder='请描述岗位要求'></textarea>
-  </view>
+    <view class='flex-row center-column margin-top'>
+      <view class='text-title'>活动时间</view>
+      <view class='text-default margin-left-20'>
+        <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindStartTimeChange">
+          {{startTime}}
+        </picker>
+      </view>
+      <view class='text-title'>-</view>
+      <view class='text-default'>
+        <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindEndTimeChange">
+          {{endTime}}
+        </picker>
+      </view>
+    </view>
 
-  <text class='text-title margin-top'>岗位福利</text>
-  <view class='flex margin-top-10'>
-    <textarea class='textarea' placeholder-class='text-content' placeholder='请描述岗位福利' auto-height='false'></textarea>
+    <view class='flex-colomn margin-top'>
+      <view class='text-title'>集合地点</view>
+      <view class='text-default margin-top-10' bindtap='chooseLocation'>
+        {{location.name?location.address+"-"+location.name:"地图选择"}}
+      </view>
+    </view>
+
+    <text class='text-title margin-top'>联系方式</text>
+    <view class='flex margin-top-10'>
+      <textarea class='textarea' placeholder-class='text-content' placeholder='请填写联系方式' auto-height='false'></textarea>
+    </view>
   </view>
 
   <button class='global-button margin-top' hover-class='global-button-hover' hover-start-time='0' hover-stay-time='50'>提交</button>
