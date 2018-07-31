@@ -92,12 +92,13 @@ Page({
         var markers = []
         for (var i = 0; i < users.length; i++) {
           var user = users[i]
-          //markers的格式
+          //markers的格式。！！！！！gender 0：未定义； 1：男性； 2女性
           markers.push({
             id: i,
             longitude: user.longitude,
             latitude: user.latitude,
-            iconPath: user.gender == 0 ? "/res/images/map-avatar-girl.png" : "/res/images/map-avatar-boy.png",
+            //这里统一按照1为男性，其他都默认女性
+            iconPath: user.gender == 1 ? "/res/images/map-avatar-boy.png" : "/res/images/map-avatar-girl.png",
             width: 46,
             height: 46,
             callout: {
