@@ -1,12 +1,12 @@
 <view class='padding'>
 
-  <view wx:if='{{false}}' class='flex-column'>
+  <view wx:if='{{type=="job"}}' class='flex-column'>
     <input class='input' placeholder-class='text-name-club' placeholder='俱乐部名称'></input>
 
     <view class='flex-row center-column margin-top'>
       <view class='text-title'>招聘岗位</view>
-      <view class='{{type?"text-action":"text-default"}} margin-left-20' bindtap='chooseType'>
-        {{type?type:"点击选择"}}</view>
+      <view class='{{hireType?"text-action":"text-default"}} margin-left-20' bindtap='chooseType'>
+        {{hireType?hireType:"点击选择"}}</view>
     </view>
 
     <view class='flex-row center-column margin-top'>
@@ -56,7 +56,7 @@
     </view>
   </view>
 
-  <view class='flex-column'>
+  <view class='flex-column' wx:if='{{type=="activity"}}'>
     <input class='input' placeholder-class='text-name-club' placeholder='活动名称'></input>
 
     <text class='text-title margin-top'>活动内容</text>

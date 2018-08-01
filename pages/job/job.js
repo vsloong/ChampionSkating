@@ -1,6 +1,7 @@
 Page({
 
   data: {
+    type: "",
     hidePermissionModal: true,
     permissionValue: "",
     list: [],
@@ -17,6 +18,7 @@ Page({
         break
     }
     this.setData({
+      type: type,
       title: title
     })
     wx.setNavigationBarTitle({
@@ -67,23 +69,24 @@ Page({
       showCancel: false
     })
 
-    // if (this.data.permissionValue == "1234567890") {
-    //   //清空原来的密钥信息
-    //   this.setData({
-    //     permissionValue: ""
-    //   })
-    //   //确认有权限才可以发布
-    //   wx.navigateTo({
-    //     url: '../publish/publish',
-    //   })
-    // } else {
-    //   wx.showModal({
-    //     title: '温馨提示',
-    //     content: '您输入的密钥值不合法',
-    //     confirmText: '我知道了',
-    //     showCancel: false
-    //   })
-    // }
+    if (this.data.permissionValue == "1234567890") {
+      //清空原来的密钥信息
+      this.setData({
+        permissionValue: ""
+      })
+      //确认有权限才可以发布
+      var self = this
+      wx.navigateTo({
+        url: '../publish/publish?type=' + self.data.type,
+      })
+    } else {
+      wx.showModal({
+        title: '温馨提示',
+        content: '您输入的密钥值不合法',
+        confirmText: '我知道了',
+        showCancel: false
+      })
+    }
   },
 
   bindInput: function(input) {

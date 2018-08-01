@@ -2,7 +2,8 @@ Page({
 
   data: {
     time: 0,
-    type: "",
+    type: "", //job或者是activity
+    hireType: "",
     location: {
       name: "",
       address: "",
@@ -14,7 +15,20 @@ Page({
   },
 
   onLoad: function(options) {
-    var title = "发布招聘信息" //发布活动信息
+    var title //发布活动信息
+    var type = options.type
+    this.setData({
+      type: type
+    })
+
+    switch (type) {
+      case "job":
+        title = "发布招聘信息"
+        break
+      default:
+        title = "发布活动信息"
+        break
+    }
     wx.setNavigationBarTitle({
       title: title,
     })
@@ -28,7 +42,7 @@ Page({
       success: function(res) {
         console.log("成功结果：" + JSON.stringify(res))
         self.setData({
-          type: itemList[res.tapIndex]
+          hireType: itemList[res.tapIndex]
         })
       },
       fail: function(res) {

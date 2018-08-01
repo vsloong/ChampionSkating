@@ -30,7 +30,7 @@
     </view>
   </view>
 
-  <view wx:if='{{false}}' class='button-publish' hover-class='button-publish-hover' hover-start-time='0' hover-stay-time='50' bindtap='goPublish'>
+  <view class='button-publish' hover-class='button-publish-hover' hover-start-time='0' hover-stay-time='50' bindtap='goPublish'>
     <image class='image-publish' src='/res/images/ic-publish.svg'></image>
   </view>
 
