@@ -41,8 +41,12 @@
     </view>
 
     <text class='text-title margin-top'>岗位要求</text>
-    <view class='flex margin-top-10'>
-      <textarea class='textarea' placeholder-class='text-content' placeholder='请描述岗位要求'></textarea>
+    <view class='flex relative margin-top-10'>
+      <textarea class='textarea' maxlength='200' bindinput='onJobRequestsInput' placeholder-class='text-content' placeholder='请描述岗位要求'></textarea>
+
+      <view class='text-waring {{jobRequestsInputLength>200?"color-waring":"color-normal"}}'>
+        {{jobRequestsInputLength}}/200
+      </view>
     </view>
 
     <text class='text-title margin-top'>岗位福利</text>
@@ -60,8 +64,12 @@
     <input class='input' placeholder-class='text-name-club' placeholder='活动名称'></input>
 
     <text class='text-title margin-top'>活动内容</text>
-    <view class='flex margin-top-10'>
-      <textarea class='textarea' placeholder-class='text-content' placeholder='请描述活动的具体内容'></textarea>
+    <view class='flex relative margin-top-10'>
+      <textarea bindinput='onActivityContentInput' class='textarea' maxlength='200' placeholder-class='text-content' placeholder='请描述活动的具体内容'></textarea>
+
+      <view class='text-waring {{activityContentInputLength>200?"color-waring":"color-normal"}}'>
+        {{activityContentInputLength}}/200
+      </view>
     </view>
 
     <view class='flex-row center-column margin-top'>

@@ -94,3 +94,22 @@
   text-align: center;
   font-size: 32rpx;
 }
+
+.relative {
+  position: relative;
+}
+
+.text-waring {
+  font-size: 24rpx;
+  position: absolute;
+  right: 10rpx;
+  bottom: 5rpx;
+}
+
+.color-waring {
+  color: red;
+}
+
+.color-normal {
+  color: #16ba63;
+}

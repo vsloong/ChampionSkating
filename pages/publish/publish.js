@@ -11,7 +11,9 @@ Page({
       longitude: 0
     },
     startTime: "00:00",
-    endTime: "00:00"
+    endTime: "00:00",
+    activityContentInputLength: 0,
+    jobRequestsInputLength: 0
   },
 
   onLoad: function(options) {
@@ -90,6 +92,17 @@ Page({
           confirmText: "我知道了"
         })
       }
+    })
+  },
+
+  onActivityContentInput: function(e) {
+    this.setData({
+      activityContentInputLength: e.detail.cursor
+    })
+  },
+  onJobRequestsInput: function(e) {
+    this.setData({
+      jobRequestsInputLength: e.detail.cursor
     })
   }
 })
