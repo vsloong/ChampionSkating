@@ -320,5 +320,15 @@ Page({
       }
     })
 
+  },
+  publishActivity: function() {
+    wx.navigateTo({
+      url: '../job/job?type=activity',
+    })
+  },
+  publishJob: function() {
+    wx.navigateTo({
+      url: '../job/job?type=job',
+    })
   }
 })

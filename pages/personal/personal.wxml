@@ -64,4 +64,12 @@
   <button class='service-button' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' open-type="openSetting">权限管理</button>
   <view class='divider'></view>
   <button class='service-button' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' bindtap='clearCache'>重新认证</button>
+  <view class='divider'></view>
+  <button class='service-button' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' bindtap='publishActivity'>发布活动</button>
+  <view class='divider'></view>
+  <button class='service-button' hover-class='service-button-hover' hover-start-time='0' hover-stay-time='50' bindtap='publishJob'>发布兼职</button>
+
+   <view  class='button-publish' hover-class='button-publish-hover' hover-start-time='0' hover-stay-time='50' bindtap='goPublish'>
+    <image class='image-publish' src='/res/images/ic-publish.svg'></image>
+  </view>
 </view>
