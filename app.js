@@ -8,12 +8,23 @@ App({
     key_openid: "openid",
     key_address: "address",
     key_contact: "contact",
-    key_days: "days"
+    key_days: "days",
+    bar_height: 0
   },
 
   onLaunch: function() {
     // wx.clearStorageSync()
+    var that = this
+    wx.getSystemInfo({
+      success: function(res) {
+        console.log(res)
+        that.data.bar_height = (res.screenHeight - res.statusBarHeight - res.windowHeight)
+        console.log("底部操作栏高度：" + that.data.bar_height)
+      },
+    })
   },
+
+
 
   routeInfo: {
     // startLat: 39.90469, //起点纬度 选填
@@ -46,7 +57,7 @@ App({
       figures: [{
           name: "V字站立",
           videoUrl: "",
-          vid: ""
+          vid: "i0649i00et7"
         },
         {
           name: "平行站立",
@@ -66,7 +77,7 @@ App({
         {
           name: "扶膝抬脚",
           videoUrl: "",
-          vid: ""
+          vid: "w0649vb1ohq"
         },
         {
           name: "提膝抬脚",
@@ -76,7 +87,7 @@ App({
         {
           name: "扶膝踏步前行",
           videoUrl: "",
-          vid: ""
+          vid: "h0649gklpg0"
         },
         {
           name: "背手踏步前行",
@@ -96,7 +107,7 @@ App({
         {
           name: "背手蹬收脚滑行",
           videoUrl: "",
-          vid: ""
+          vid: "h0649z3iywk"
         },
         {
           name: "摆臂蹬收脚滑行",
@@ -105,7 +116,7 @@ App({
         },
         {
           name: "画葫芦向前",
-          videoUrl: "",
+          videoUrl: "g06491vc1eh",
           vid: ""
         },
         {
@@ -116,7 +127,7 @@ App({
         {
           name: "A形刹车",
           videoUrl: "",
-          vid: ""
+          vid: "h0649haxs40"
         },
         {
           name: "T形刹车",

@@ -31,4 +31,8 @@
       <image class='icon-check' src="{{item.can?'/res/images/circle-checked.svg':''}}"></image>
     </view>
   </scroll-view>
+
+  <view class="flex-column background-white rounded-corner ad-bottom">
+      <ad unit-id="adunit-bf5a4e0072c397ba"></ad>
+    </view>
 </view>

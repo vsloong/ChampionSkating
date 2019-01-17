@@ -52,7 +52,7 @@ Page({
       fail: function() {
         wx.showModal({
           title: '温馨提示',
-          content: '请进入个人中心点击“权限管理”进入设置页面并允许“使用我的地理位置”',
+          content: '请 点击头像 进入个人中心后点击 “权限管理” 进入设置页面并允许 “使用我的地理位置”',
           showCancel: false,
           confirmText: "我知道了",
           complete: function() {

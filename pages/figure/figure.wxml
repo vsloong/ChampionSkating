@@ -1,9 +1,9 @@
-<view>
+<view >
 
   <!-- <video wx:if="{{gradeIndex!=0}}" class="video" src='{{figure.videoUrl}}'>
   </video> -->
 
-  <tx-video wx:if="{{gradeIndex!=0}}" autoplay="{{true}}" playerid="playerid" class="{{video}}" vid="{{figure.vid}}"></tx-video>
+  <tx-video wx:if="{{figure.vid}}" autoplay="{{true}}" playerid="playerid" class="{{video}}" vid="{{figure.vid}}"></tx-video>
   <scroll-view style='height:{{scrollHeight}}vh' scroll-y='true'>
     <view class='content'>
       <view class='text-name'>{{figure.name}}</view>
@@ -21,7 +21,6 @@
       </view>
     </view>
   </scroll-view>
-
 
   <view class='bottom'>
     <view class='right'>

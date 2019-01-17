@@ -176,3 +176,10 @@ button::after {
   justify-content: center;
   align-items: center;
 }
+
+.ad-bottom {
+  width: 100%;
+  margin-top: 30rpx;
+  margin-bottom: 10rpx;
+}
+

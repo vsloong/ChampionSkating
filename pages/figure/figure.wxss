@@ -55,7 +55,11 @@
 }
 
 .content {
-  padding: 40rpx;
+  padding-top: 40rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  padding-bottom: 0rpx;
+  margin-bottom: 0rpx;
 }
 
 .text-name {
@@ -91,4 +95,12 @@
 
 .margin-top {
   margin-top: 50rpx;
+}
+
+.bg {
+  background: #000;
+}
+
+.margin-bottom-0 {
+  margin-bottom: 10rpx;
 }

@@ -20,7 +20,8 @@ Page({
       attention: [],
       skillTemp: ["程序员小哥哥跟轮滑小姐姐正在加紧配合完善中，请耐心等待"],
       attentionTemp: ["程序员小姐姐跟轮滑小哥哥正在加紧配合完善中，请耐心等待"]
-    }
+    },
+    bar_height: app.data.bar_height,
   },
 
   onLoad: function(options) {

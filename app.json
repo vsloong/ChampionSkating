@@ -11,6 +11,11 @@
     "pages/job/job",
     "pages/publish/publish"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序获取附近一起轮滑的人"
+    }
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
@@ -19,7 +24,7 @@
   },
   "plugins": {
     "tencentVideo": {
-      "version": "1.1.1",
+      "version": "1.2.4",
       "provider": "wxa75efa648b60994b"
     },
     "tencentMap": {

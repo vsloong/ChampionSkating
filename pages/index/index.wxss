@@ -1,6 +1,11 @@
 page {
   min-height: 100%;
-  background: #f0eff4;
+  /* background: #f0eff4; */
+  background: #ffffff;
+}
+
+.background-white- {
+  background: #fffffe;
 }
 
 .padding {
@@ -30,11 +35,27 @@ page {
 }
 
 .background-head {
-  background: #5193d0;
+  background: #da251c;
+  /* background: #181743; */
+  /* background-image: url(./res/images/bg1.png) */
+}
+
+.header-image {
+  width: 100%;
+  margin-bottom: 0rpx;
+}
+
+.position-absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 20rpx;
+  margin-right: 20rpx;
 }
 
 .background-change {
-  background: linear-gradient(rgba(81, 147, 208, 1), rgba(255, 255, 255, 0));
+  background: linear-gradient(rgba(218, 37, 28, 1), rgba(255, 255, 255, 0));
+  /* background: linear-gradient(rgba(172, 222, 247, 1), rgba(255, 255, 255, 0)); */
 }
 
 .height {
@@ -144,8 +165,8 @@ page {
 }
 
 .image-ic {
-  width: 15vw;
-  height: 15vw;
+  width: 16vw;
+  height: 16vw;
 }
 
 .image-setting {

@@ -8,7 +8,7 @@ Page({
     //等级这里直接调用app.js中的变量
     grades: app.grades,
     grades1: [], //第一排平花等级
-    grades2: [], //第二排平花等级
+    grades2: [], //第二排平花等级88888999
     total: 0,
     progress: 0,
     days: 1,
@@ -18,10 +18,11 @@ Page({
       title: "全民轮滑  等你加入",
       content: "直接联系客服说“我要加入！”"
     }, {
-      image: "/res/images/img-ad-summer.png",
-      title: "激情夏日  一起溜溜",
-      content: "晚上约三俩好友一起刷街吧~"
-    }]
+      image: "/res/images/img-ad-festival.png",
+      title: "喜迎猪年  一起溜溜",
+      content: "约三俩好友一起刷街去吧~"
+    }],
+    bar_height: app.data.bar_height,
   },
 
   goGrade: function(event) {
@@ -61,7 +62,8 @@ Page({
     var self = this
     wx.setNavigationBarColor({
       frontColor: '#ffffff',
-      backgroundColor: '#5193d0',
+      backgroundColor: '#da251c',
+      // backgroundColor:'#181743'
     })
 
     //动态生成平花等级数据

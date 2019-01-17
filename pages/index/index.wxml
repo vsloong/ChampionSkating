@@ -1,6 +1,10 @@
 <!--index.wxml-->
-<view class="flex-column">
+<view class="flex-column" >
   <!-- <view class='global-hint'>该轮滑动作分级表目前只为各位轮滑爱好者提供参考，并不作为真实考核</view> -->
+
+  <!-- <image class='header-image' mode='widthFix' src='/res/images/img-festival-mid-autumn.jpg'></image> -->
+
+  <!-- <image class='position-absolute image-setting' src='/res/images/ic-setting.svg' bindtap='goPersonal'></image> -->
 
   <view class='flex-row background-head center-column padding' bindtap='goPersonal'>
     <view>
@@ -14,6 +18,7 @@
       <view class='text-user-type margin-user-type'>{{userTitle}}</view>
     </view>
   </view>
+
 
   <view class='height-double'>
     <view class='flex-row background-change height '></view>
@@ -65,17 +70,17 @@
 
       <view class='flex-row space-between margin-top-30'>
         <view class='flex-column center' bindtap='goMap'>
-          <image class='image-ic' src='/res/images/ic-near.svg'></image>
+          <image class='image-ic' src='/res/images/ic-home-life-near.png'></image>
           <view class='text-subtitle'>附近</view>
         </view>
 
         <view class='flex-column center' bindtap='goActivity'>
-          <image class='image-ic' src='/res/images/ic-activity.svg'></image>
+          <image class='image-ic' src='/res/images/ic-home-life-activity.png'></image>
           <view class='text-subtitle'>活动</view>
         </view>
 
         <view class='flex-column center' bindtap='goJob'>
-          <image class='image-ic' src='/res/images/ic-job.svg'></image>
+          <image class='image-ic' src='/res/images/ic-home-life-job.png'></image>
           <view class='text-subtitle'>兼职</view>
         </view>
 
@@ -84,14 +89,14 @@
       </view>
     </view>
 
-    <image class='banner' mode='widthFix' src='/res/images/img-test.png'></image>
+    <image class='banner' mode='widthFix' src='/res/images/img-decorate.png'></image>
 
     <view class="flex-column background-white rounded-corner padding">
       <view class='text-title'>平花等级</view>
       <!-- 第一行4个图标 -->
       <view class='flex-row space-between margin-top-30'>
         <view class='flex-column center' wx:for="{{grades1}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" bindtap='goGrade' data-base='0' data-grade='{{idx}}'>
-          <image class='image-ic' src='/res/images/level-{{idx}}.svg'></image>
+          <image class='image-ic' src='/res/images/ic-home-level-{{idx}}.png'></image>
           <view class='text-subtitle'>{{item.name}}</view>
         </view>
       </view>
@@ -99,7 +104,7 @@
       <!-- 第二行2个图标 -->
       <view class='flex-row space-between margin-top-30'>
         <view class='flex-column center' wx:for="{{grades2}}" wx:for-index="idx" wx:for-item="item" wx:key="unique" bindtap='goGrade' data-base='4' data-grade='{{idx+4}}'>
-          <image class='image-ic' src='/res/images/level-{{idx+4}}.svg'></image>
+          <image class='image-ic' src='/res/images/ic-home-level-{{idx+4}}.png'></image>
           <view class='text-subtitle'>{{item.name}}</view>
         </view>
 
@@ -109,7 +114,10 @@
         <view class='flex-column center image-ic show-not'>
         </view>
       </view>
+    </view>
 
+    <view class="flex-column ad-bottom">
+      <ad unit-id="adunit-816843ba4696b345"></ad>
     </view>
   </view>
 </view>
