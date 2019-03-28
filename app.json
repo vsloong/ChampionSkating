@@ -24,7 +24,7 @@
   },
   "plugins": {
     "tencentVideo": {
-      "version": "1.2.4",
+      "version": "1.2.6",
       "provider": "wxa75efa648b60994b"
     },
     "tencentMap": {
